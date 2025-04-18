@@ -1,0 +1,572 @@
+/* Brand Colors */
+:root {
+  --wvdi-navy: #141f54;
+  --wvdi-navy-light: #273272;
+  --wvdi-red: #a00c0c;
+  --wvdi-red-light: #c41212;
+  --wvdi-white: #fff;
+  --wvdi-gray: #f5f5f5;
+  --wvdi-gray-dark: #e0e0e0;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+  --shadow-lg: 0 8px 16px rgba(0,0,0,0.16);
+  --border-radius: 8px;
+}
+
+/* Container */
+.wvdi-root {
+  background: var(--wvdi-white);
+  min-height: 100vh;
+  font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  max-width: 1600px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* Header */
+.wvdi-header {
+  display: flex;
+  align-items: center;
+  background: var(--wvdi-white);
+  border-bottom: 3px solid var(--wvdi-navy);
+  padding: 1rem 2rem;
+  gap: 2rem;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.wvdi-logo {
+  height: 80px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.wvdi-logo:hover {
+  transform: scale(1.05);
+}
+
+.wvdi-header-text {
+  flex: 1;
+}
+
+.wvdi-header-text h1 {
+  color: var(--wvdi-navy);
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.wvdi-header-text h2 {
+  color: var(--wvdi-red);
+  font-size: 1.3rem;
+  margin: 0.2rem 0 0.5rem 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.wvdi-contact, .wvdi-hours {
+  color: var(--wvdi-navy);
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.wvdi-hours {
+  font-style: italic;
+  color: #555;
+}
+
+/* Navigation */
+.wvdi-nav {
+  background: var(--wvdi-navy);
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: calc(80px + 2rem + 2px); /* Header height + padding + border */
+  z-index: 99;
+}
+
+.wvdi-nav a {
+  color: var(--wvdi-white);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.wvdi-nav a:hover {
+  color: var(--wvdi-white);
+  background-color: var(--wvdi-red);
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.wvdi-hero {
+  background: linear-gradient(135deg, var(--wvdi-navy) 0%, var(--wvdi-navy-light) 100%);
+  color: var(--wvdi-white);
+  padding: 4rem 2rem;
+  text-align: center;
+  margin: 2rem auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  max-width: 90%;
+  position: relative;
+  overflow: hidden;
+}
+
+.wvdi-hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  color: var(--wvdi-white);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.wvdi-hero p {
+  font-size: 1.4rem;
+  margin: 0 0 2rem 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wvdi-hero-img {
+  border-radius: var(--border-radius);
+  max-width: 90%;
+  margin: 0 auto;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.5s ease;
+}
+
+.wvdi-hero-img:hover {
+  transform: scale(1.02);
+}
+
+/* Courses Section */
+.wvdi-courses {
+  background-color: var(--wvdi-gray);
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  border-radius: var(--border-radius);
+  max-width: 90%;
+}
+
+.wvdi-courses h2 {
+  color: var(--wvdi-navy);
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.wvdi-courses h3 {
+  color: var(--wvdi-red);
+  font-size: 1.8rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.wvdi-courses h4 {
+  color: var(--wvdi-navy);
+  font-size: 1.4rem;
+  margin: 1.5rem 0 0.5rem;
+  background-color: var(--wvdi-gray-dark);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  display: inline-block;
+}
+
+.wvdi-courses ul {
+  list-style-type: none;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.wvdi-courses ul li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.wvdi-courses ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--wvdi-red);
+  font-weight: bold;
+}
+
+.wvdi-qualifications {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.wvdi-qualifications > div {
+  background-color: var(--wvdi-white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wvdi-qualifications > div:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Instructors Section */
+.wvdi-instructors {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  max-width: 90%;
+}
+
+.wvdi-instructors h2 {
+  color: var(--wvdi-navy);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.wvdi-instructor-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.wvdi-instructor-gallery img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease;
+  margin: 0 auto;
+}
+
+.wvdi-instructor-gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Branches Section */
+.wvdi-branches {
+  background-color: var(--wvdi-gray);
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  border-radius: var(--border-radius);
+  max-width: 90%;
+}
+
+.wvdi-branches h2 {
+  color: var(--wvdi-navy);
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.wvdi-branches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.wvdi-branch-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  background-color: var(--wvdi-white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wvdi-branch-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.wvdi-branch-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wvdi-branch-info h3 {
+  color: var(--wvdi-red);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.wvdi-branch-info p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.wvdi-branch-map {
+  height: 250px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.wvdi-branch-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  .wvdi-branch-item {
+    grid-template-columns: 1fr;
+  }
+  
+  .wvdi-branch-map {
+    height: 200px;
+  }
+}
+
+/* Gallery Section */
+.wvdi-gallery {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  max-width: 90%;
+}
+
+.wvdi-gallery h2 {
+  color: var(--wvdi-navy);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.wvdi-gallery-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.wvdi-gallery-images img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.wvdi-gallery-images img:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-md);
+}
+
+/* Contact Section */
+.wvdi-contact-section {
+  background-color: var(--wvdi-gray);
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+  border-radius: var(--border-radius);
+  max-width: 90%;
+  text-align: center;
+}
+
+.wvdi-contact-section h2 {
+  color: var(--wvdi-navy);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.wvdi-contact-section p {
+  margin-bottom: 1.5rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.wvdi-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.wvdi-socials a {
+  background-color: var(--wvdi-navy);
+  color: var(--wvdi-white);
+  padding: 0.7rem 1.5rem;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.wvdi-socials a:hover {
+  background-color: var(--wvdi-red);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Accreditation Section */
+.wvdi-accreditation {
+  text-align: center;
+  padding: 3rem 2rem;
+  margin: 2rem auto 0;
+  max-width: 90%;
+}
+
+.wvdi-accreditation h2 {
+  color: var(--wvdi-navy);
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.wvdi-accreditation img {
+  max-width: 250px;
+  margin: 0 auto 2rem;
+  border-radius: var(--border-radius);
+}
+
+.wvdi-accreditation p {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Call To Action Button */
+.wvdi-cta {
+  display: inline-block;
+  background-color: var(--wvdi-red);
+  color: var(--wvdi-white);
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: var(--border-radius);
+  margin: 2rem 0;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: var(--shadow-md);
+}
+
+.wvdi-cta:hover {
+  background-color: var(--wvdi-red-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Footer */
+.wvdi-footer {
+  background-color: var(--wvdi-navy);
+  color: var(--wvdi-white);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.wvdi-footer p {
+  margin: 0.5rem 0;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .wvdi-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .wvdi-logo {
+    height: 60px;
+  }
+  
+  .wvdi-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    top: auto;
+    position: relative;
+  }
+  
+  .wvdi-nav a {
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem;
+  }
+  
+  .wvdi-hero {
+    padding: 2rem 1rem;
+    margin: 1rem auto;
+  }
+  
+  .wvdi-hero h2 {
+    font-size: 1.8rem;
+  }
+  
+  .wvdi-hero p {
+    font-size: 1.1rem;
+  }
+  
+  .wvdi-courses, 
+  .wvdi-instructors, 
+  .wvdi-branches, 
+  .wvdi-gallery, 
+  .wvdi-contact-section, 
+  .wvdi-accreditation {
+    padding: 2rem 1rem;
+    margin: 1rem auto;
+  }
+  
+  .wvdi-qualifications {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .wvdi-instructor-gallery,
+  .wvdi-gallery-images {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .wvdi-socials {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .wvdi-socials a {
+    width: 100%;
+  }
+}
