@@ -15,10 +15,12 @@ import teamTransparent from './assets/team on transparent.png'
 import theoreticalLecture from './assets/theoritical lecture.jpeg'
 import carsInLine from './assets/wvdi cars in line.jpg'
 import adminJpg from './assets/wvdi-admin.jpg'
+import MessengerChat from './MessengerChat'
 
 function App() {
   return (
     <div className="wvdi-root">
+      <MessengerChat />
       <header className="wvdi-header">
         <img src={wvdiLogo} className="wvdi-logo" alt="WVDI Logo" />
         <div className="wvdi-header-text">
