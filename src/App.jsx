@@ -16,11 +16,13 @@ import theoreticalLecture from './assets/theoritical lecture.jpeg'
 import carsInLine from './assets/wvdi cars in line.jpg'
 import adminJpg from './assets/wvdi-admin.jpg'
 import MessengerChat from './MessengerChat'
+import DriveBotWidget from './DriveBotWidget'
 
 function App() {
   return (
     <div className="wvdi-root">
       <MessengerChat />
+      <DriveBotWidget />
       <header className="wvdi-header">
         <img src={wvdiLogo} className="wvdi-logo" alt="WVDI Logo" />
         <div className="wvdi-header-text">
