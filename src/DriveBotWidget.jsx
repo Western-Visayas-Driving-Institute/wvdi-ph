@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 // Make the API URL configurable via environment variables
-const API_URL = import.meta.env.VITE_CHAT_API_URL;
+const API_URL = import.meta.env.VITE_CHAT_API_URL || 'https://wvdi-ph-vercel.vercel.app/api/chat';
 
 function getUserLanguage() {
   return navigator.language || navigator.userLanguage || 'en';
