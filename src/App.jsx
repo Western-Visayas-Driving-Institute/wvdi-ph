@@ -19,7 +19,7 @@ import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
 import React from 'react';
-import ServicesSection from "./components/services/ServicesSection";
+import UnifiedCoursesSection from './components/courses/UnifiedCoursesSection';
 
 const ContactForm = React.lazy(() => import('./ContactForm.jsx'));
 
@@ -65,61 +65,12 @@ function App() {
           <a href="#courses" className="wvdi-cta">View Our Courses</a>
         </section>
 
-        <section id="courses" className="wvdi-courses">
-          <h2>Driving Courses</h2>
-          <h3>SEDAN</h3>
-          <ul>
-            <li>Defensive Driving Seminar (2 hours)</li>
-            <li>On-Road Driving Skill Assessment (M/T vehicle)</li>
-            <li>30-60 minutes written exam</li>
-            <li>Certificate of Completion</li>
-          </ul>
-          <h4>Price: Php 2,000.00/pax</h4>
-          <div className="wvdi-instructor-gallery">
-            <img src={drivingLesson} alt="Driving Lesson" />
-            <img src={onSiteLecture} alt="On Site Lecture" />
-            <img src={theoreticalLecture} alt="Theoretical Lecture" />
-          </div>
-          <h4>Assessment Course - Php 500.00/pax</h4>
-          <ul>
-            <li>Written Exam</li>
-            <li>Hands-on Driving Assessment</li>
-          </ul>
-          <h3>Qualifications & Requirements</h3>
-          <div className="wvdi-qualifications">
-            <div>
-              <h4>For Filipinos</h4>
-              <ul>
-                <li>At least 17 years old (Student's Permit), 18 (Non-Professional/Professional)</li>
-                <li>Physically and mentally fit</li>
-                <li>Can read and write in Filipino or English</li>
-                <li>Properly accomplished application for Driver's License</li>
-                <li>PSA Authenticated Birth Certificate (original & photocopy)</li>
-                <li>Medical Certificate issued by LTO Accredited Physician</li>
-                <li>Parental/guardian's consent if below 18</li>
-              </ul>
-            </div>
-            <div>
-              <h4>For Foreigners</h4>
-              <ul>
-                <li>At least 18 years old</li>
-                <li>Can read and write in English or Filipino</li>
-                <li>Physically and mentally fit</li>
-                <li>Arrived in the Philippines at least 1 month prior to application</li>
-                <li>Stay in the country for at least 12 months from date of application</li>
-                <li>Birth Certificate, Passport, Alien Certificate of Registration I-card</li>
-                <li>Medical Certificate issued by LTO Accredited Physician</li>
-              </ul>
-            </div>
-          </div>
-          <div className="wvdi-cta-container" style={{ textAlign: "center", marginTop: "2rem" }}>
-            <a href="#contact" className="wvdi-cta">Register for a Course</a>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <div id="services-section-anchor" className="scroll-mt-24"></div>
-        <ServicesSection />
+        <div id="courses" className="scroll-mt-24"></div>
+        <UnifiedCoursesSection 
+          drivingLesson={drivingLesson}
+          onSiteLecture={onSiteLecture}
+          theoreticalLecture={theoreticalLecture}
+        />
 
         <section id="instructors" className="wvdi-instructors">
           <h2>Meet Your Instructors</h2>
