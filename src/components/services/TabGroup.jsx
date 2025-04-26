@@ -6,7 +6,7 @@ const TabGroup = ({ defaultTab, children }) => {
 
   return (
     <div className="w-full">
-      <div role="tablist" aria-label="Service Tabs" className="flex flex-wrap md:flex-nowrap border-b border-[#F57C00]/30 mb-6 gap-2 md:gap-4 bg-[#FFF3E0] rounded-xl p-2 shadow-sm">
+      <div role="tablist" aria-label="Service Tabs" className="flex flex-wrap md:flex-nowrap border-b border-[#141f54]/30 mb-6 gap-2 md:gap-4 bg-[#f5f5f5] rounded-lg p-2 shadow-sm">
         {tabs.map(tab => (
           <button
             key={tab.props.label}
@@ -14,7 +14,7 @@ const TabGroup = ({ defaultTab, children }) => {
             aria-selected={activeTab === tab.props.label}
             aria-controls={`tab-panel-${tab.props.label}`}
             tabIndex={activeTab === tab.props.label ? 0 : -1}
-            className={`px-4 py-2 text-base md:text-lg font-semibold transition-colors duration-200 border-b-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F57C00] ${activeTab === tab.props.label ? 'border-[#F57C00] text-[#F57C00] bg-white shadow' : 'border-transparent text-[#333] bg-transparent hover:bg-[#F57C00]/10'}`}
+            className={`px-4 py-2 text-base md:text-lg font-semibold transition-colors duration-200 border-b-2 rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-[#a00c0c] ${activeTab === tab.props.label ? 'border-[#a00c0c] text-[#141f54] bg-[#f5f5f5] shadow' : 'border-transparent text-[#141f54] bg-transparent hover:bg-[#a00c0c]/10'}`}
             onClick={() => setActiveTab(tab.props.label)}
           >
             {tab.props.icon && <span className="inline-block mr-2 align-middle">{tab.props.icon}</span>}

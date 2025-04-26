@@ -8,9 +8,9 @@ import PriceList from "./PriceList";
 import Notice from "./Notice";
 
 const ServicesSection = () => (
-  <section id="services" className="max-w-4xl mx-auto px-4 py-12 md:py-16 bg-white rounded-2xl shadow-lg border border-[#F57C00]/10 mt-10 mb-16 relative z-10">
+  <section id="services" className="wvdi-services max-w-5xl mx-auto px-6 py-12 md:py-16 bg-white rounded-lg shadow-md border border-[#e0e0e0] mt-12 mb-20 relative z-10">
     <SectionHeader title="Driving Courses & Services" />
-    <div className="mt-6">
+    <div className="mt-8">
       <TabGroup defaultTab="Theory">
         <Tab label="Theory" icon={<span aria-label="Theory" className="inline-block"><svg width="24" height="24" fill="none" stroke="#F57C00" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/></svg></span>}>
           <Accordion>
@@ -83,13 +83,8 @@ const ServicesSection = () => (
       </TabGroup>
     </div>
     <Notice text="All amounts are in Philippine pesos (PHP). Prices may change without prior notice." />
-    {/* Sticky CTA for mobile */}
-    <div className="fixed md:static bottom-0 left-0 w-full z-30 md:z-0 pointer-events-none md:pointer-events-auto">
-      <div className="pointer-events-auto bg-white md:bg-transparent border-t border-[#F57C00]/20 shadow-lg md:shadow-none flex justify-center md:justify-end py-2 px-4">
-        <a href="#contact" className="inline-block w-full md:w-auto text-center bg-[#F57C00] hover:bg-[#e06d00] text-white font-bold rounded-lg px-6 py-3 text-lg shadow transition-colors duration-200">
-          Book or Inquire
-        </a>
-      </div>
+    <div className="flex justify-center mt-8">
+      <a href="#contact" className="wvdi-cta">Book or Inquire</a>
     </div>
   </section>
 );
