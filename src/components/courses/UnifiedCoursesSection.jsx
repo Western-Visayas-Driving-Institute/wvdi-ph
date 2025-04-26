@@ -24,7 +24,7 @@ const UnifiedCoursesSection = ({
 
     <div className="mt-8">
       <TabGroup defaultTab="Our Packages">
-        <Tab label="Our Packages" icon={<span aria-label="Packages" className="inline-block"><svg width="24" height="24" fill="none" stroke="#a00c0c" strokeWidth="2" viewBox="0 0 24 24"><path d="M20 7h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-6 0h-4V4h4v3z"/></svg></span>}>
+        <Tab label="Our Packages" icon={<span aria-label="Packages" className="inline-block"><svg width="24" height="24" fill="none" stroke="#ffffff" strokeWidth="2" viewBox="0 0 24 24"><path d="M20 7h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-6 0h-4V4h4v3z"/></svg></span>}>
           <div className="p-2 md:p-4 bg-[#f5f5f5] rounded-lg mb-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white p-5 rounded-lg shadow-md border border-[#141f54]/10">
@@ -69,28 +69,10 @@ const UnifiedCoursesSection = ({
                 </div>
               </div>
             </div>
-            
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-              {drivingLesson && (
-                <div className="aspect-video">
-                  <img src={drivingLesson} alt="Driving Lesson" className="w-full h-full object-cover rounded-lg shadow-md" />
-                </div>
-              )}
-              {onSiteLecture && (
-                <div className="aspect-video">
-                  <img src={onSiteLecture} alt="On Site Lecture" className="w-full h-full object-cover rounded-lg shadow-md" />
-                </div>
-              )}
-              {theoreticalLecture && (
-                <div className="aspect-video">
-                  <img src={theoreticalLecture} alt="Theoretical Lecture" className="w-full h-full object-cover rounded-lg shadow-md" />
-                </div>
-              )}
-            </div>
           </div>
         </Tab>
         
-        <Tab label="Theoretical Courses" icon={<span aria-label="Theory" className="inline-block"><svg width="24" height="24" fill="none" stroke="#a00c0c" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/></svg></span>}>
+        <Tab label="Theoretical Courses" icon={<span aria-label="Theory" className="inline-block"><svg width="24" height="24" fill="none" stroke="#ffffff" strokeWidth="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/></svg></span>}>
           <Accordion>
             <AccordionItem title="15-Hour Theoretical Driving Course (TDC f2f)">
               <p className="font-semibold text-lg text-[#a00c0c]">₱1,000</p>
@@ -112,7 +94,7 @@ const UnifiedCoursesSection = ({
           </Accordion>
         </Tab>
         
-        <Tab label="Practical Driving" icon={<span aria-label="Driving" className="inline-block"><svg width="24" height="24" fill="none" stroke="#a00c0c" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="9" width="20" height="7" rx="2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>}>
+        <Tab label="Practical Driving" icon={<span aria-label="Driving" className="inline-block"><svg width="24" height="24" fill="none" stroke="#ffffff" strokeWidth="2" viewBox="0 0 24 24"><rect x="2" y="9" width="20" height="7" rx="2"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>}>
           <NestedTabGroup defaultTab="Motorcycle">
             <NestedTab label="Motorcycle">
               <CourseTable
@@ -153,7 +135,7 @@ const UnifiedCoursesSection = ({
           </Accordion>
         </Tab>
         
-        <Tab label="License Services" icon={<span aria-label="License" className="inline-block"><svg width="24" height="24" fill="none" stroke="#a00c0c" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20"/></svg></span>}>
+        <Tab label="License Services" icon={<span aria-label="License" className="inline-block"><svg width="24" height="24" fill="none" stroke="#ffffff" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4" ry="10"/><path d="M2 12h20"/></svg></span>}>
           <div className="p-2 md:p-5 bg-[#f5f5f5] rounded-lg">
             <div className="bg-white border border-[#141f54]/20 rounded-lg p-6 shadow-sm flex flex-col md:flex-row items-center text-center md:text-left max-w-3xl mx-auto">
               <div className="flex-1">
