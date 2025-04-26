@@ -6,7 +6,7 @@ const NestedTabGroup = ({ defaultTab, children }) => {
 
   return (
     <div className="w-full mb-4">
-      <div role="tablist" aria-label="Vehicle Tabs" className="flex flex-wrap md:flex-nowrap border-b border-[#F57C00]/20 mb-2">
+      <div role="tablist" aria-label="Vehicle Tabs" className="flex flex-wrap md:flex-nowrap border-b border-[#F57C00]/20 mb-2 gap-2 bg-[#FFF8E1] rounded-lg p-1 shadow-sm">
         {tabs.map(tab => (
           <button
             key={tab.props.label}
@@ -14,7 +14,7 @@ const NestedTabGroup = ({ defaultTab, children }) => {
             aria-selected={activeTab === tab.props.label}
             aria-controls={`nested-tab-panel-${tab.props.label}`}
             tabIndex={activeTab === tab.props.label ? 0 : -1}
-            className={`px-3 py-1 text-base font-medium transition-colors duration-200 border-b-2 ${activeTab === tab.props.label ? 'border-[#F57C00] text-[#F57C00] bg-white' : 'border-transparent text-[#333] bg-transparent hover:bg-[#F57C00]/10'}`}
+            className={`px-3 py-1 text-base font-medium transition-colors duration-200 border-b-2 rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#F57C00] ${activeTab === tab.props.label ? 'border-[#F57C00] text-[#F57C00] bg-white shadow' : 'border-transparent text-[#333] bg-transparent hover:bg-[#F57C00]/10'}`}
             onClick={() => setActiveTab(tab.props.label)}
           >
             {tab.props.icon && <span className="inline-block mr-2 align-middle">{tab.props.icon}</span>}
