@@ -17,6 +17,8 @@ import carsInLine from './assets/wvdi cars in line.jpg'
 import adminJpg from './assets/wvdi-admin.jpg'
 import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
+import Carousel from './Carousel.jsx'
+import FrogGame from './FrogGame.jsx'
 
 function App() {
   return (
@@ -45,7 +47,7 @@ function App() {
           <h2>Your Trusted Driving Education Partner</h2>
           <p>Get professional driving training from LTO-accredited instructors on Negros Island.</p>
           <a href="#contact" className="wvdi-cta">Enroll Now</a>
-          <img src={carsInLine} className="wvdi-hero-img" alt="WVDI Cars" />
+          <Carousel />
         </section>
 
         <section id="about" className="wvdi-accreditation">
@@ -177,6 +179,11 @@ function App() {
               </div>
             </div>
           </div>
+        </section>
+
+        <section className="frog-game-section">
+          <h2>Frog Crossing Game</h2>
+          <FrogGame />
         </section>
 
         <section className="wvdi-gallery">
