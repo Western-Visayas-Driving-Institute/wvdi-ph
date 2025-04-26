@@ -11,23 +11,23 @@ const UnifiedCoursesSection = ({
   onSiteLecture, 
   theoreticalLecture 
 }) => (
-  <section id="courses" className="wvdi-courses max-w-5xl mx-auto px-6 py-12 md:py-16 bg-white rounded-lg shadow-md border border-[#e0e0e0] mt-12 mb-20 relative z-10">
-    <header className="mb-8 text-center">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-[#141f54] mb-2 tracking-tight drop-shadow-sm">
+  <section id="courses" className="wvdi-courses max-w-5xl mx-auto px-6 py-16 md:py-20 bg-white rounded-lg shadow-md border border-[#e0e0e0] mt-16 mb-24 relative z-10">
+    <header className="mb-12 text-center">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-[#141f54] mb-3 tracking-tight drop-shadow-sm">
         Driving Courses &amp; Services
       </h2>
-      <div className="w-16 h-1 mx-auto mb-4 rounded-full bg-[#a00c0c]"></div>
+      <div className="w-16 h-1 mx-auto mb-6 rounded-full bg-[#a00c0c]"></div>
       <p className="text-lg text-[#141f54] font-medium mt-4 max-w-3xl mx-auto">
         WVDI offers comprehensive driving education packages designed to meet LTO requirements and develop your skills on the road.
       </p>
     </header>
 
-    <div className="mt-8">
+    <div className="mt-10">
       <TabGroup defaultTab="Our Packages">
         <Tab label="Our Packages" icon={<span aria-label="Packages" className="inline-block"><svg width="24" height="24" fill="none" stroke="#ffffff" strokeWidth="2" viewBox="0 0 24 24"><path d="M20 7h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-6 0h-4V4h4v3z"/></svg></span>}>
           <div className="p-2 md:p-4 bg-[#f5f5f5] rounded-lg mb-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white p-5 rounded-lg shadow-md border border-[#141f54]/10">
+              <div className="bg-white p-6 rounded-lg shadow-md border border-[#141f54]/10">
                 <h3 className="text-xl font-bold text-[#141f54] mb-3 border-b-2 border-[#a00c0c] pb-2">SEDAN Package</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -52,7 +52,7 @@ const UnifiedCoursesSection = ({
                 </div>
               </div>
               
-              <div className="bg-white p-5 rounded-lg shadow-md border border-[#141f54]/10">
+              <div className="bg-white p-6 rounded-lg shadow-md border border-[#141f54]/10">
                 <h3 className="text-xl font-bold text-[#141f54] mb-3 border-b-2 border-[#a00c0c] pb-2">Assessment Course</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
@@ -152,7 +152,7 @@ const UnifiedCoursesSection = ({
               <h3 className="text-xl font-bold text-[#141f54] mb-4 border-b-2 border-[#a00c0c] pb-2 inline-block">Qualifications & Requirements</h3>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <div className="bg-white p-5 rounded-lg shadow-md">
+                <div className="bg-white p-6 rounded-lg shadow-md">
                   <h4 className="text-lg font-bold text-[#a00c0c] mb-3">For Filipinos</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start">
@@ -186,7 +186,7 @@ const UnifiedCoursesSection = ({
                   </ul>
                 </div>
                 
-                <div className="bg-white p-5 rounded-lg shadow-md">
+                <div className="bg-white p-6 rounded-lg shadow-md">
                   <h4 className="text-lg font-bold text-[#a00c0c] mb-3">For Foreigners</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start">
@@ -228,7 +228,7 @@ const UnifiedCoursesSection = ({
     
     <Notice text="All amounts are in Philippine pesos (PHP). Prices may change without prior notice." />
     
-    <div className="flex justify-center mt-8">
+    <div className="flex justify-center mt-12">
       <a href="#contact" className="wvdi-cta">Register for a Course</a>
     </div>
   </section>
