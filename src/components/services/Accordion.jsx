@@ -14,7 +14,8 @@ const AccordionItem = ({ title, children }) => {
         aria-expanded="false"
       >
         <span>{title}</span>
-        <svg className="w-4 h-4 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="#F57C00" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+        {/* Remove giant chevron, use a small inline arrow instead */}
+        <svg className="w-4 h-4 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="#F57C00" strokeWidth="3" viewBox="0 0 24 24" style={{ minWidth: 16, minHeight: 16, display: 'inline', verticalAlign: 'middle' }}><polyline points="6 9 12 15 18 9" /></svg>
       </summary>
       <div id={id} className="px-4 pb-3 pt-1 text-[#333]">
         {children}
