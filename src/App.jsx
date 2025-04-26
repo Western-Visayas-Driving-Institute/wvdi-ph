@@ -19,6 +19,7 @@ import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
 import React from 'react';
+import ServicesSection from "./components/services/ServicesSection";
 
 const ContactForm = React.lazy(() => import('./ContactForm.jsx'));
 
@@ -40,6 +41,7 @@ function App() {
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
         <a href="#courses">Driving Courses</a>
+        <a href="#services">Services</a>
         <a href="#instructors">Meet Your Instructors</a>
         <a href="#branches">Branches</a>
         <a href="#contact">Contact</a>
@@ -114,6 +116,10 @@ function App() {
             <a href="#contact" className="wvdi-cta">Register for a Course</a>
           </div>
         </section>
+
+        {/* Services Section */}
+        <div id="services-section-anchor" className="scroll-mt-24"></div>
+        <ServicesSection />
 
         <section id="instructors" className="wvdi-instructors">
           <h2>Meet Your Instructors</h2>
