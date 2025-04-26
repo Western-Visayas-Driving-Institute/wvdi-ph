@@ -19,6 +19,9 @@ import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
 import FrogGame from './FrogGame.jsx'
+import React from 'react';
+
+const ContactForm = React.lazy(() => import('./ContactForm.jsx'));
 
 function App() {
   return (
@@ -135,13 +138,17 @@ function App() {
                 <p><strong>Phone:</strong> 09178100009 / 0917 825 4580 / 0917 594 7890</p>
               </div>
               <div className="wvdi-branch-map">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920.0096019983294!2d122.9423129758617!3d10.6737531899383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aed0425ef5cb13%3A0x35e8533a454736be!2sAyala%20Malls%20Capitol%20Central!5e0!3m2!1sen!2sph!4v1713438300724!5m2!1sen!2sph&markers=color:red%7Clabel:WVDI%7C10.6737531899383,122.9423129758617" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d716.7199471575506!2d122.9493599464753!3d10.676673851172218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aed12977528ad9%3A0x6f7eee3fb19647c2!2sLTO%20-%20Land%20Transportation%20Office%20-%20Bacolod!5e0!3m2!1sen!2sph!4v1745648825528!5m2!1sen!2sph"
+                  width="100%"
+                  height="250"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="WVDI Bacolod Location"
-                  aria-label="Google Maps showing WVDI Bacolod location">
-                </iframe>
+                  aria-label="Google Maps showing WVDI Bacolod location"
+                ></iframe>
               </div>
             </div>
             
@@ -152,13 +159,17 @@ function App() {
                 <p><strong>Phone:</strong> 09171587908 / 09190938891</p>
               </div>
               <div className="wvdi-branch-map">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15679.072487687352!2d122.85597792745607!3d10.10990687416476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aefc7a3c76b8af%3A0xbc5ad8c1fdb983dd!2sHimamaylan%2C%20Negros%20Occidental!5e0!3m2!1sen!2sph!4v1713438400328!5m2!1sen!2sph&markers=color:red%7Clabel:WVDI%7C10.10990687416476,122.85597792745607" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6297.050148544658!2d122.8709813868982!3d10.097490834791443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aefc7a3c76b8af%3A0x8f8f8f8f8f8f8f8f!2sZone%203%2C%20Brgy.%201%2C%20Poblacion%20St.%2C%20Gatuslao%20Blvd.%2C%20Himamaylan%20City%2C%20Negros%20Occidental!5e0!3m2!1sen!2sph!4v1713438400328!5m2!1sen!2sph"
+                  width="100%"
+                  height="250"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="WVDI Himamaylan Location"
-                  aria-label="Google Maps showing WVDI Himamaylan location">
-                </iframe>
+                  aria-label="Google Maps showing WVDI Himamaylan location"
+                ></iframe>
               </div>
             </div>
             
@@ -169,22 +180,26 @@ function App() {
                 <p><strong>Phone:</strong> 09690505125 / 09178619706</p>
               </div>
               <div className="wvdi-branch-map">
-                <iframe 
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.6598396536844!2d123.30322327584683!3d9.315694387103788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33ab6dc166995953%3A0xf9152f520fd1cd0f!2sDumaguete%20City%20Capitol%20Area!5e0!3m2!1sen!2sph!4v1713438457461!5m2!1sen!2sph&markers=color:red%7Clabel:WVDI%7C9.315694387103788,123.30322327584683" 
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d463.489265070263!2d123.30110315600122!3d9.311234089293514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33ab6fd88e193ab9%3A0xd43373c72262ecf7!2sWestern%20Visayas%20Driving%20Institute!5e0!3m2!1sen!2sph!4v1745648607261!5m2!1sen!2sph"
+                  width="100%"
+                  height="250"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   title="WVDI Dumaguete Location"
-                  aria-label="Google Maps showing WVDI Dumaguete location">
-                </iframe>
+                  aria-label="Google Maps showing WVDI Dumaguete location"
+                ></iframe>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="frog-game-section">
+        {/* <section className="frog-game-section">
           <h2>Frog Crossing Game</h2>
           <FrogGame />
-        </section>
+        </section> */}
 
         <section className="wvdi-gallery">
           <h2>Photo Gallery</h2>
@@ -201,22 +216,21 @@ function App() {
         <section id="contact" className="wvdi-contact-section">
           <h2>Contact Us</h2>
           <p>Ready to start your journey to becoming a skilled and confident driver? Reach out to us today!</p>
-          
           <p><strong>Phones:</strong><br />
           BACOLOD: 09178100009 / 0917 825 4580 / 0917 594 7890 / 0908 873 3598 / 0908705 4162<br />
           HIMAMAYLAN: 09171587908 / 09190938891<br />
           DUMAGUETE: 09690505125 / 09178619706</p>
-          
           <p><strong>Email:</strong><br />
           info@wvdi-ph.com<br />
-          dina.espanola@wvdi-ph.com<br />
-          elviejoy.sarrosa@wvdi-ph.com</p>
-          
+          </p>
           <p><strong>Opening Hours:</strong><br />
           8 AM - 7 PM (Mondays - Sundays)</p>
-          
           <a href="tel:+63344355803" className="wvdi-cta">Call Us Now</a>
-          
+          <div style={{margin: '2.5rem auto', maxWidth: 500}}>
+            <React.Suspense fallback={<div>Loading form...</div>}>
+              <ContactForm />
+            </React.Suspense>
+          </div>
           <div className="wvdi-socials">
             <a href="https://www.facebook.com/bacolodphilippinesdrivingschool" target="_blank" rel="noopener noreferrer">Facebook</a>
             <a href="https://twitter.com/WVDI_Corp" target="_blank" rel="noopener noreferrer">Twitter</a>
