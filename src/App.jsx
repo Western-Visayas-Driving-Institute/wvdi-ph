@@ -18,7 +18,6 @@ import adminJpg from './assets/wvdi-admin.jpg'
 import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
-import FrogGame from './FrogGame.jsx'
 import React from 'react';
 
 const ContactForm = React.lazy(() => import('./ContactForm.jsx'));
@@ -195,11 +194,6 @@ function App() {
             </div>
           </div>
         </section>
-
-        {/* <section className="frog-game-section">
-          <h2>Frog Crossing Game</h2>
-          <FrogGame />
-        </section> */}
 
         <section className="wvdi-gallery">
           <h2>Photo Gallery</h2>
