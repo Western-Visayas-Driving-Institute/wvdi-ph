@@ -55,9 +55,9 @@ export default function DriveBotWidget() {
         headers: { 'Content-Type': 'application/json' },
         credentials: 'omit', // Important for cross-origin requests
         body: JSON.stringify({
-          messages: [...conversationHistory, userMsg],
-          language: getUserLanguage(),
-          model: 'gpt-4-turbo' // Using latest model name
+          message: input.trim(),       // the text the user just typed
+          history: conversationHistory, // prior { role, content } tuples
+          language: getUserLanguage()  // keep if you want, server will ignore otherwise
         })
       });
       
@@ -72,6 +72,8 @@ export default function DriveBotWidget() {
         setMessages((msgs) => [...msgs, { role: 'assistant', content: data.response }]);
       } else if (data.choices && data.choices.length > 0) {
         setMessages((msgs) => [...msgs, { role: 'assistant', content: data.choices[0].message.content }]);
+      } else if (data.reply) {
+        setMessages((msgs) => [...msgs, { role: 'assistant', content: data.reply }]);
       } else {
         throw new Error('Invalid response format');
       }
