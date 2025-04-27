@@ -19,6 +19,7 @@ export default function DriveBotWidget() {
   const [loading, setLoading] = useState(false);
   const [pulseAnimation, setPulseAnimation] = useState(true);
   const chatEndRef = useRef(null);
+  const inputRef = useRef(null);
 
   // Stop pulsing animation after initial attention
   useEffect(() => {
@@ -32,6 +33,9 @@ export default function DriveBotWidget() {
   useEffect(() => {
     if (open && chatEndRef.current) {
       chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (open && inputRef.current) {
+      inputRef.current.focus();
     }
   }, [messages, open]);
 
@@ -254,6 +258,7 @@ export default function DriveBotWidget() {
             background: '#fff'
           }}>
             <input
+              ref={inputRef}
               type="text"
               value={input}
               onChange={e => setInput(e.target.value)}
