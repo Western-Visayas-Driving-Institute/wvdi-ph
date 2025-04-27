@@ -19,7 +19,7 @@ import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
 import React from 'react';
-import UnifiedCoursesSection from './components/courses/UnifiedCoursesSection';
+import CoursesSection from './components/courses/CoursesSection';
 import Seo from './Seo.jsx';
 
 const ContactForm = React.lazy(() => import('./ContactForm.jsx'));
@@ -74,7 +74,7 @@ function App() {
           </section>
 
           <div id="courses" className="scroll-mt-24"></div>
-          <UnifiedCoursesSection 
+          <CoursesSection 
             drivingLesson={drivingLesson}
             onSiteLecture={onSiteLecture}
             theoreticalLecture={theoreticalLecture}
