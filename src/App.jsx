@@ -1,20 +1,20 @@
 import './App.css'
-import wvdiLogo from './assets/wvdi-logo.jpg'
-import autoPng from './assets/Automatic.png'
-import bestSeal from './assets/Best-Company-high-res-seal-small-768x768.png'
-import ltoAccredited from './assets/LTO-accredited.png'
-import ltoPng from './assets/LTO.png'
-import trophyPng from './assets/Trophy.png'
-import adminStaff from './assets/admin staff.jpg'
-import teamLacson from './assets/all team in lacson office.jpg'
-import drivingLesson from './assets/driving lesson .jpg'
-import instructorsJpg from './assets/instructors.jpg'
-import motorLesson from './assets/motor lesson.jpg'
-import onSiteLecture from './assets/on site lecture.jpg'
-import teamTransparent from './assets/team on transparent.png'
-import theoreticalLecture from './assets/theoritical lecture.jpeg'
-import carsInLine from './assets/wvdi cars in line.jpg'
-import adminJpg from './assets/wvdi-admin.jpg'
+import wvdiLogo from './assets/wvdi-logo.webp'
+import autoWebp from './assets/Automatic.webp'
+import bestSeal from './assets/Best-Company-high-res-seal-small-768x768.webp'
+import ltoAccredited from './assets/LTO-accredited.webp'
+import ltoWebp from './assets/LTO.webp'
+import trophyWebp from './assets/Trophy.webp'
+import adminStaff from './assets/admin staff.webp'
+import teamLacson from './assets/all team in lacson office.webp'
+import drivingLesson from './assets/driving lesson .webp'
+import instructorsWebp from './assets/instructors.webp'
+import motorLesson from './assets/motor lesson.webp'
+import onSiteLecture from './assets/on site lecture.webp'
+import teamTransparent from './assets/team on transparent.webp'
+import theoreticalLecture from './assets/theoritical lecture.webp'
+import carsInLine from './assets/wvdi cars in line.webp'
+import adminWebp from './assets/wvdi-admin.webp'
 import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
@@ -30,7 +30,7 @@ function App() {
       <Seo
         title="Western Visayas Driving Institute - WVDI"
         description="Get professional driving training from LTO-accredited instructors on Negros Island. WVDI is your trusted partner for driving education."
-        image="https://wvdi-ph.com/assets/wvdi-logo.jpg"
+        image="https://wvdi-ph.com/assets/wvdi-logo.webp"
         locale="en"
       />
       <div className="wvdi-root">
@@ -67,7 +67,7 @@ function App() {
             <div className="wvdi-instructor-gallery">
               <img src={ltoAccredited} alt="LTO Accredited" />
               <img src={bestSeal} alt="Best Company Seal" />
-              <img src={trophyPng} alt="Trophy" />
+              <img src={trophyWebp} alt="Trophy" />
             </div>
             <p>WVDI Corp. is an LTO accredited driving school which has evolved to become the first driving school to offer comprehensive packages including FREE class lectures on Defensive Driving, Preventive Maintenance, Site Lectures and Hands-On Car Maintenance.</p>
             <a href="#courses" className="wvdi-cta">View Our Courses</a>
@@ -84,7 +84,7 @@ function App() {
             <h2>Meet Your Instructors</h2>
             <p>Our team of professional instructors are LTO-certified and committed to providing you with the highest quality driving education.</p>
             <div className="wvdi-instructor-gallery">
-              <img src={instructorsJpg} alt="Instructors" />
+              <img src={instructorsWebp} alt="Instructors" />
               <img src={adminStaff} alt="Admin Staff" />
               <img src={teamLacson} alt="Team at Lacson Office" />
             </div>
@@ -164,11 +164,11 @@ function App() {
             <h2>Photo Gallery</h2>
             <p>Discover our facilities, vehicles, and training environment:</p>
             <div className="wvdi-gallery-images">
-              <img src={autoPng} alt="Automatic Transmission Vehicle" />
+              <img src={autoWebp} alt="Automatic Transmission Vehicle" />
               <img src={motorLesson} alt="Motorcycle Lesson" />
               <img src={teamTransparent} alt="Our Team" />
-              <img src={adminJpg} alt="Administration" />
-              <img src={ltoPng} alt="LTO Certified" />
+              <img src={adminWebp} alt="Administration" />
+              <img src={ltoWebp} alt="LTO Certified" />
             </div>
           </section>
 

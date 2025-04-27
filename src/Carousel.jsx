@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import img1 from './assets/carroussel/20250419_154231.jpg';
-import img2 from './assets/carroussel/20250419_154533.jpg';
-import img3 from './assets/carroussel/327566808_722893742752791_5223380376576230867_n.jpg';
-import img4 from './assets/carroussel/489759159_1105053924991996_7787271511780815861_n (1).jpg';
+import img1 from './assets/carroussel/20250419_154231.webp';
+import img2 from './assets/carroussel/20250419_154533.webp';
+import img3 from './assets/carroussel/327566808_722893742752791_5223380376576230867_n.webp';
+import img4 from './assets/carroussel/489759159_1105053924991996_7787271511780815861_n (1).webp';
 
 const images = [
   { src: img1, alt: '20250419_154231' },

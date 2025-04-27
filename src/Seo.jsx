@@ -10,7 +10,7 @@ import React from 'react';
 export default function Seo({
   title = 'Western Visayas Driving Institute',
   description = 'Get professional driving training from LTO-accredited instructors on Negros Island. WVDI is your trusted partner for driving education.',
-  image = 'https://wvdi-ph.com/assets/wvdi-logo.jpg',
+  image = 'https://wvdi-ph.com/assets/wvdi-logo.webp',
   locale = 'en',
 }) {
   const canonical = 'https://wvdi-ph.com/';
