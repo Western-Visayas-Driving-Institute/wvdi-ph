@@ -194,24 +194,35 @@
 }
 
 .wvdi-courses ul {
-  list-style-type: none;
+  list-style: none;
   padding-left: 1rem;
   margin-bottom: 1.5rem;
 }
 
-.wvdi-courses ul li {
+.wvdi-courses ul li::before {
+  content: none;
+}
+
+.wvdi-courses ul.with-checkmarks li {
   position: relative;
   padding-left: 1.5rem;
   margin-bottom: 0.5rem;
   line-height: 1.6;
 }
 
-.wvdi-courses ul li::before {
+.wvdi-courses ul.with-checkmarks li::before {
   content: "✓";
   position: absolute;
   left: 0;
   color: var(--wvdi-red);
   font-weight: bold;
+}
+
+.wvdi-courses ul:not(.with-checkmarks) li,
+.wvdi-courses ul.no-checkmarks li {
+  position: relative;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
 }
 
 .wvdi-qualifications {
@@ -678,6 +689,51 @@
   margin-bottom: 1.2rem;
   font-size: 2.2rem;
   letter-spacing: 0.03em;
+}
+
+/* Services Section */
+.wvdi-services ul,
+.wvdi-services ul li,
+#services ul,
+#services ul li {
+  list-style-image: none;
+  list-style-type: none;
+  list-style-position: outside;
+}
+
+.wvdi-services li:before,
+.wvdi-services ul li:before,
+.wvdi-services li::before,
+.wvdi-services ul li::before,
+#services li:before,
+#services ul li:before,
+#services li::before,
+#services ul li::before {
+  content: "";
+  display: none;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  position: absolute;
+  left: -9999px;
+}
+
+/* Direct fix for Chrome targeting the Theory tab by its specific ID */
+#tab-panel-Theory li::before,
+#tab-panel-Theory ul li::before,
+div[id="tab-panel-Theory"] li::before,
+div[aria-labelledby="tab-Theory"] li::before {
+  display: none !important;
+  content: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Reset any additional CSS for these elements */
+#tab-panel-Theory li,
+#tab-panel-Theory ul li {
+  list-style: none !important;
+  padding-left: 0 !important;
 }
 
 /* Media Queries */

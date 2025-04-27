@@ -17,7 +17,7 @@ const AccordionItem = ({ title, children }) => {
         {/* Remove giant chevron, use a small inline arrow instead */}
         <svg className="w-4 h-4 ml-2 transition-transform group-open:rotate-180" fill="none" stroke="#a00c0c" strokeWidth="3" viewBox="0 0 24 24" style={{ minWidth: 16, minHeight: 16, display: 'inline', verticalAlign: 'middle' }}><polyline points="6 9 12 15 18 9" /></svg>
       </summary>
-      <div id={id} className="px-4 pb-3 pt-1 text-[#141f54]">
+      <div id={id} className="px-4 pb-3 pt-1 text-[#141f54] no-checkmarks">
         {children}
       </div>
     </details>

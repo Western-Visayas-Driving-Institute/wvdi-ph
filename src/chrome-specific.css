@@ -1,0 +1,50 @@
+/* Chrome-specific overrides for checkmark issue */
+
+/* Force overriding all checkmarks in service sections */
+#services *::before,
+.wvdi-services *::before {
+  content: none !important;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Direct override specifically for the Theory tab */
+[id="tab-panel-Theory"] li::before,
+[aria-labelledby="tab-Theory"] li::before,
+[id^="15-hour"] li::before,
+[id^="online-theoretical"] li::before,
+[id^="defensive-driving"] li::before,
+[id^="preventive-maintenance"] li::before,
+[id^="renewal"] li::before {
+  content: "" !important;
+  background-image: none !important;
+  background: none !important;
+}
+
+/* Force list styles to none */
+.wvdi-services li,
+#services li,
+.tab-panel li {
+  list-style-type: none !important;
+  list-style-image: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  background-image: none !important;
+}
+
+/* Target by content */
+[id*="theoretical"] *::before,
+[id*="driving"] *::before {
+  content: none !important;
+}
+
+/* Additional selector targeting list items in theoretical and practical sections */
+#services .accordion-15-hour-theoretical-driving-course li::before,
+#services .accordion-defensive-driving-course li::before,
+#services li::before {
+  display: none !important;
+  content: none !important;
+}

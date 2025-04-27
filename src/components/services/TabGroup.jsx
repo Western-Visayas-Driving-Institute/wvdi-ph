@@ -6,7 +6,7 @@ const TabGroup = ({ defaultTab, children }) => {
 
   return (
     <div className="w-full p-3">
-      <div role="tablist" aria-label="Service Tabs" className="flex flex-wrap justify-center md:flex-nowrap border-b border-[#141f54]/30 mb-6 gap-4 md:gap-6 bg-[#f5f5f5] rounded-lg p-3 shadow-sm">
+      <div role="tablist" aria-label="Service Tabs" className="flex flex-wrap justify-center md:flex-nowrap border-b border-[#141f54]/30 mb-6 gap-x-6 gap-y-3 bg-[#f5f5f5] rounded-lg p-3 shadow-sm">
         {tabs.map(tab => (
           <button
             key={tab.props.label}
@@ -30,7 +30,7 @@ const TabGroup = ({ defaultTab, children }) => {
             role="tabpanel"
             aria-labelledby={`tab-${tab.props.label}`}
             hidden={activeTab !== tab.props.label}
-            className="transition-all duration-300"
+            className="transition-all duration-300 tab-panel no-checkmarks"
           >
             {tab.props.children}
           </div>

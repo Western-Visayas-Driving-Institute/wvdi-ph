@@ -29,23 +29,11 @@ const UnifiedCoursesSection = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white p-6 rounded-lg shadow-md border border-[#141f54]/10">
                 <h3 className="text-xl font-bold text-[#141f54] mb-3 border-b-2 border-[#a00c0c] pb-2">SEDAN Package</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start">
-                    <span className="text-[#a00c0c] font-bold mr-2">✓</span>
-                    <span>Defensive Driving Seminar (2 hours)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#a00c0c] font-bold mr-2">✓</span>
-                    <span>On-Road Driving Skill Assessment (M/T vehicle)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#a00c0c] font-bold mr-2">✓</span>
-                    <span>30-60 minutes written exam</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#a00c0c] font-bold mr-2">✓</span>
-                    <span>Certificate of Completion</span>
-                  </li>
+                <ul className="space-y-2 list-none p-0">
+                  <li className="flex items-start">Defensive Driving Seminar (2 hours)</li>
+                  <li className="flex items-start">On-Road Driving Skill Assessment (M/T vehicle)</li>
+                  <li className="flex items-start">30-60 minutes written exam</li>
+                  <li className="flex items-start">Certificate of Completion</li>
                 </ul>
                 <div className="mt-4 bg-[#f5f5f5] p-3 rounded-lg inline-block">
                   <span className="font-bold text-lg text-[#a00c0c]">Price: ₱2,000.00/pax</span>
@@ -54,15 +42,9 @@ const UnifiedCoursesSection = ({
               
               <div className="bg-white p-6 rounded-lg shadow-md border border-[#141f54]/10">
                 <h3 className="text-xl font-bold text-[#141f54] mb-3 border-b-2 border-[#a00c0c] pb-2">Assessment Course</h3>
-                <ul className="space-y-2">
-                  <li className="flex items-start">
-                    <span className="text-[#a00c0c] font-bold mr-2">✓</span>
-                    <span>Written Exam</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-[#a00c0c] font-bold mr-2">✓</span>
-                    <span>Hands-on Driving Assessment</span>
-                  </li>
+                <ul className="space-y-2 list-none p-0">
+                  <li className="flex items-start">Written Exam</li>
+                  <li className="flex items-start">Hands-on Driving Assessment</li>
                 </ul>
                 <div className="mt-4 bg-[#f5f5f5] p-3 rounded-lg inline-block">
                   <span className="font-bold text-lg text-[#a00c0c]">Price: ₱500.00/pax</span>
