@@ -19,12 +19,16 @@ import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
 import React from 'react';
-import CoursesSection from './components/courses/CoursesSection';
+import CoursesServicesSection from './components/CoursesServicesSection';
 import Seo from './Seo.jsx';
 
 const ContactForm = React.lazy(() => import('./ContactForm.jsx'));
 
 function App() {
+  function handleBookNow(course_id) {
+    // Implementation for auto-scroll and pre-fill (to be completed)
+  }
+
   return (
     <>
       <Seo
@@ -74,7 +78,7 @@ function App() {
           </section>
 
           <div id="courses" className="scroll-mt-24"></div>
-          <CoursesSection 
+          <CoursesServicesSection onBookNow={handleBookNow} 
             drivingLesson={drivingLesson}
             onSiteLecture={onSiteLecture}
             theoreticalLecture={theoreticalLecture}

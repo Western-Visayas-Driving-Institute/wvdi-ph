@@ -1,0 +1,21 @@
+[
+  { "id": "tdc-f2f", "group": "theoretical", "title": "15-Hour Theoretical Driving Course (TDC) - F2F", "hours": 15, "price": 1000, "note": "Face-to-face class, required for Student Permit." },
+  { "id": "tdc-online", "group": "theoretical", "title": "Online TDC (15 h)", "hours": 15, "price": 900, "note": "April promo" },
+  { "id": "defensive-driving", "group": "theoretical", "title": "Defensive Driving Seminar", "price": 1500 },
+  { "id": "preventive-maintenance", "group": "theoretical", "title": "Preventive Maintenance Workshop", "price": 1200 },
+  { "id": "renewal-theory", "group": "theoretical", "title": "Online Renewal Theory Review", "price": 500 },
+
+  { "id": "pdc-motorcycle", "group": "practical", "vehicle": "Motorcycle", "hours": 8, "price": 2000 },
+  { "id": "pdc-sidecar", "group": "practical", "vehicle": "Motorcycle w/ sidecar", "hours": 8, "price": 2500 },
+  { "id": "pdc-car", "group": "practical", "vehicle": "Motor vehicle (car)", "hours": 8, "price": 4000 },
+
+  { "id": "beginner", "group": "driving-lessons", "title": "Beginner Package", "hours": "15-20", "price": 6500 },
+  { "id": "master", "group": "driving-lessons", "title": "Master Package", "hours": "20-30", "price": 8500 },
+  { "id": "refresher", "group": "driving-lessons", "title": "Refresher Course", "hours": "8-10", "price": 4000 },
+  { "id": "assessment-car", "group": "driving-lessons", "title": "Driving Assessment (car)", "hours": 0.5, "price": 500 },
+  { "id": "assessment-motorcycle", "group": "driving-lessons", "title": "Driving Assessment (motorcycle)", "hours": 0.5, "price": 300 },
+
+  { "id": "intl-license", "group": "other", "title": "International Driver’s License Assistance", "price": 6200 },
+  { "id": "renewal", "group": "other", "title": "Driver’s-License Renewal (incl. medical)", "price": 1200 },
+  { "id": "corporate", "group": "other", "title": "Custom Corporate Training", "price": null }
+]
