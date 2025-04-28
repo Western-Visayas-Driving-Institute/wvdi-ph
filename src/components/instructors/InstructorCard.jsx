@@ -1,5 +1,4 @@
 import React from 'react';
-import { instructorImages } from '../../assets/instructors';
 
 export default function InstructorCard({ p }) {
   const handleBook = (e) => {
@@ -18,15 +17,14 @@ export default function InstructorCard({ p }) {
     }
   };
 
-  // Get the proper image from our imports
-  const instructorImage = instructorImages[p.id];
-  
-  // Add timestamp for cache busting
-  const timestamp = new Date().getTime();
+  // Generate instructor image path from the public directory
+  // This should work in both development and production environments
+  const baseUrl = import.meta.env.BASE_URL || '/';
+  const imageUrl = `${baseUrl}instructors/${p.id}.jpg?v=${new Date().getTime()}`;
 
   return (
     <article className="wvdi-card" itemScope itemType="https://schema.org/Person">
-      <img src={instructorImage} alt={`${p.name} – Driving Instructor`} loading="lazy" />
+      <img src={imageUrl} alt={`${p.name} – Driving Instructor`} loading="lazy" />
       <h3 itemProp="name">{p.name}</h3>
 
       <p className="wvdi-accred" itemProp="identifier">
