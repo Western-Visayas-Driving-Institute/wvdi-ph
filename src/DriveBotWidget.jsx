@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaFacebookMessenger } from 'react-icons/fa';
+import { FaComments } from 'react-icons/fa';
 
 // Make the API URL configurable via environment variables
 const API_URL = import.meta.env.VITE_CHAT_API_URL || 'https://wvdi-ph-vercel.vercel.app/api/chat';
@@ -134,7 +134,7 @@ export default function DriveBotWidget() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: 28,
+          padding: 0,
           transition: 'all 0.3s ease',
           animation: pulseAnimation ? 'pulse 2s infinite' : 'none',
           overflow: 'hidden'
@@ -149,12 +149,8 @@ export default function DriveBotWidget() {
           e.currentTarget.style.boxShadow = '0 4px 16px rgba(20, 31, 84, 0.4)';
         }}
       >
-        {/* Using messenger icon with explicit styling to ensure visibility */}
-        <FaFacebookMessenger style={{ 
-          fontSize: '24px', 
-          color: 'white',
-          display: 'block'
-        }} />
+        {/* Using a simple chat icon that will display properly */}
+        <FaComments size={28} color="#ffffff" />
       </button>
 
       {/* Chat Window with improved design */}
