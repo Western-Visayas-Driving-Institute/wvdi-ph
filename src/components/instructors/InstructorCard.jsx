@@ -37,7 +37,11 @@ export default function InstructorCard({ p }) {
       <p className="wvdi-bio" itemProp="description">{p.bio}</p>
 
       <footer>
-        <button className="wvdi-button wvdi-button-primary" onClick={handleBook}>
+        <button
+          className="wvdi-cta"
+          style={{ margin: '1rem 0', padding: '0.75rem 1.5rem', fontSize: '1rem' }}
+          onClick={handleBook}
+        >
           Book with {p.name.split(' ')[0]}
         </button>
       </footer>
