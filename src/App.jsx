@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import './App.css'
 import wvdiLogo from './assets/wvdi-logo.webp'
 import autoWebp from './assets/Automatic.webp'
@@ -18,13 +19,35 @@ import adminWebp from './assets/wvdi-admin.webp'
 import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
-import React from 'react';
-import CoursesServicesSection from './components/CoursesServicesSection';
+import CoursesSection from './components/courses/CoursesSection';
+// import CoursesServicesSection from './components/CoursesServicesSection';
 import Seo from './Seo.jsx';
+import InstructorSection from './components/instructors/InstructorSection';
 
 const ContactForm = React.lazy(() => import('./ContactForm.jsx'));
 
+import gallery1 from './assets/gallery/20250419_154231 copy.png';
+import gallery2 from './assets/gallery/20250419_154533 copy.png';
+import gallery3 from './assets/gallery/20250419_154700 copy.png';
+import gallery4 from './assets/gallery/241533560_7112173432129959_6928486960725854342_n-1536x1025.webp';
+import gallery5 from './assets/gallery/325993997_847073779713280_8527340081142169849_n.webp';
+import gallery6 from './assets/gallery/327967147_558173626250616_5940790339520307325_n.webp';
+import gallery7 from './assets/gallery/462647315_1354106722235459_5443750022520858324_n.webp';
+import gallery8 from './assets/gallery/489686914_1105053818325340_1149231703761836535_n.webp';
+
 function App() {
+  const [lightboxImage, setLightboxImage] = useState(null);
+  
+  const openLightbox = (imageSrc) => {
+    setLightboxImage(imageSrc);
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when lightbox is open
+  };
+  
+  const closeLightbox = () => {
+    setLightboxImage(null);
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+  };
+
   function handleBookNow(course_id) {
     // Implementation for auto-scroll and pre-fill (to be completed)
   }
@@ -76,15 +99,11 @@ function App() {
             <p>WVDI Corp. is an LTO accredited driving school which has evolved to become the first driving school to offer comprehensive packages including FREE class lectures on Defensive Driving, Preventive Maintenance, Site Lectures and Hands-On Car Maintenance.</p>
             <a href="#courses" className="wvdi-cta">View Our Courses</a>
           </section>
-
+          <InstructorSection />
           <div id="courses" className="scroll-mt-24"></div>
-          <CoursesServicesSection onBookNow={handleBookNow} 
-            drivingLesson={drivingLesson}
-            onSiteLecture={onSiteLecture}
-            theoreticalLecture={theoreticalLecture}
-          />
+          <CoursesSection />
 
-          <section id="instructors" className="wvdi-instructors">
+          {/* <section id="instructors" className="wvdi-instructors">
             <h2>Meet Your Instructors</h2>
             <p>Our team of professional instructors are LTO-certified and committed to providing you with the highest quality driving education.</p>
             <div className="wvdi-instructor-gallery">
@@ -92,11 +111,11 @@ function App() {
               <img src={adminStaff} alt="Admin Staff" />
               <img src={teamLacson} alt="Team at Lacson Office" />
             </div>
-          </section>
+          </section> */}
 
           <section id="branches" className="wvdi-branches">
-            <h2>Our Branches</h2>
-            <p>Visit us at any of our convenient locations across Negros Island:</p>
+            <h2 className="wvdi-section-title wvdi-section-title-underline">Our Branches</h2>
+            <p className="wvdi-branches-description">Visit us at any of our convenient locations across Negros Island:</p>
             
             <div className="wvdi-branches-list">
               <div className="wvdi-branch-item">
@@ -168,11 +187,14 @@ function App() {
             <h2>Photo Gallery</h2>
             <p>Discover our facilities, vehicles, and training environment:</p>
             <div className="wvdi-gallery-images">
-              <img src={autoWebp} alt="Automatic Transmission Vehicle" />
-              <img src={motorLesson} alt="Motorcycle Lesson" />
-              <img src={teamTransparent} alt="Our Team" />
-              <img src={adminWebp} alt="Administration" />
-              <img src={ltoWebp} alt="LTO Certified" />
+              <img src={gallery1} alt="Gallery image 1" loading="lazy" onClick={() => openLightbox(gallery1)} />
+              <img src={gallery2} alt="Gallery image 2" loading="lazy" onClick={() => openLightbox(gallery2)} />
+              <img src={gallery3} alt="Gallery image 3" loading="lazy" onClick={() => openLightbox(gallery3)} />
+              <img src={gallery4} alt="Gallery image 4" loading="lazy" onClick={() => openLightbox(gallery4)} />
+              <img src={gallery5} alt="Gallery image 5" loading="lazy" onClick={() => openLightbox(gallery5)} />
+              <img src={gallery6} alt="Gallery image 6" loading="lazy" onClick={() => openLightbox(gallery6)} />
+              <img src={gallery7} alt="Gallery image 7" loading="lazy" onClick={() => openLightbox(gallery7)} />
+              <img src={gallery8} alt="Gallery image 8" loading="lazy" onClick={() => openLightbox(gallery8)} />
             </div>
           </section>
 
@@ -209,6 +231,16 @@ function App() {
           <p>LTO Accredited Driving School</p>
         </footer>
       </div>
+      
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div className="wvdi-lightbox" onClick={closeLightbox}>
+          <div className="wvdi-lightbox-content" onClick={(e) => e.stopPropagation()}>
+            <span className="wvdi-lightbox-close" onClick={closeLightbox}>&times;</span>
+            <img src={lightboxImage} alt="Enlarged gallery image" />
+          </div>
+        </div>
+      )}
     </>
   )
 }
