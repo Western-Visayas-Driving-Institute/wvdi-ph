@@ -1,5 +1,16 @@
 [
   {
+    "id": "jo-francisco-ramos",
+    "name": "Jo Francisco B. Ramos",
+    "accreditationNo": "IDS-2024-00001-06",
+    "validFrom": "2024-01-24",
+    "validTo": "2026-01-24",
+    "courses": ["Theoretical & Practical Driving Course – Light Vehicles"],
+    "branch": "Kabankalan",
+    "photo": "src/assets/instructors/jo-francisco-ramos.jpg",
+    "bio": "Jo Francisco is dedicated to helping students become confident, skilled drivers. With his patient approach and clear instructions, he ensures everyone masters the fundamentals of safe driving."
+  },
+  {
     "id": "ian-mata-obrero",
     "name": "Ian Mata Obrero",
     "accreditationNo": "DS-2020000776-06",
