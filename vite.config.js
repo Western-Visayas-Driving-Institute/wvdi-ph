@@ -5,9 +5,4 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/wvdi-ph/', // Set base path to match repository name for GitHub Pages
-  build: {
-    rollupOptions: {
-      external: ['react-icons/fa', 'react-icons/bs'],
-    }
-  }
 })
