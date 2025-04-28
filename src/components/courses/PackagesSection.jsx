@@ -40,15 +40,14 @@ export default function PackagesSection() {
               <thead>
                 <tr>
                   <th>Service</th>
-                  <th>Hours</th>
                   <th>Price (PHP)</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td><b>15-Hour Theoretical Driving Course (TDC, face-to-face or online)</b></td><td>15 h</td><td><b>1,000</b></td></tr>
-                <tr><td>Defensive Driving Course</td><td>n/a</td><td><b>1,500</b></td></tr>
-                <tr><td>Preventive-Maintenance Seminar</td><td>n/a</td><td></td></tr>
-                <tr><td>Medical Examination</td><td>n/a</td><td><b>500</b></td></tr>
+                <tr><td><b>15-Hour Theoretical Driving Course (TDC, face-to-face or online)</b></td><td><b>1,000</b></td></tr>
+                <tr><td>Defensive Driving Course</td><td><b>1,500</b></td></tr>
+                <tr><td>Preventive-Maintenance Seminar</td><td></td></tr>
+                <tr><td>Medical Examination</td><td><b>500</b></td></tr>
               </tbody>
             </table>
           </div>
