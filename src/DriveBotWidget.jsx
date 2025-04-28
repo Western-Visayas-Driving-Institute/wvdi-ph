@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaComments } from 'react-icons/fa';
+import { FaPaperPlane, FaTimes } from 'react-icons/fa';
+import { BsMessenger } from 'react-icons/bs';
 
 // Make the API URL configurable via environment variables
 const API_URL = import.meta.env.VITE_CHAT_API_URL || 'https://wvdi-ph-vercel.vercel.app/api/chat';
@@ -149,8 +150,8 @@ export default function DriveBotWidget() {
           e.currentTarget.style.boxShadow = '0 4px 16px rgba(20, 31, 84, 0.4)';
         }}
       >
-        {/* Using a simple chat icon that will display properly */}
-        <FaComments size={28} color="#ffffff" />
+        {/* Using a single messenger icon */}
+        <BsMessenger size={28} color="#ffffff" />
       </button>
 
       {/* Chat Window with improved design */}
@@ -160,181 +161,157 @@ export default function DriveBotWidget() {
             position: 'fixed',
             bottom: 92,
             right: 24,
-            width: 340,
-            maxWidth: '95vw',
-            height: 420,
-            background: '#fff',
-            borderRadius: 16,
-            boxShadow: '0 8px 32px rgba(0,0,0,0.25)',
+            width: 320,
+            height: 450,
+            backgroundColor: '#fff',
+            borderRadius: 12,
+            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
             display: 'flex',
             flexDirection: 'column',
+            overflow: 'hidden',
             zIndex: 1000,
-            animation: 'fadeIn 0.3s ease',
-            overflow: 'hidden'
+            border: '1px solid #e0e0e0'
           }}
         >
-          <div style={{ 
-            background: 'linear-gradient(135deg, #0D47A1 0%, #1976D2 100%)', 
-            color: '#fff', 
-            padding: '12px 16px', 
-            borderTopLeftRadius: 16, 
-            borderTopRightRadius: 16, 
-            fontWeight: 600, 
-            fontSize: 18,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <svg 
-                width="20" 
-                height="20" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
+          {/* Chat Header */}
+          <div
+            style={{
+              padding: '12px 16px',
+              backgroundColor: 'var(--wvdi-navy)',
+              color: '#fff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              borderBottom: '1px solid rgba(0, 0, 0, 0.1)'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div
+                style={{
+                  width: 32,
+                  height: 32,
+                  borderRadius: '50%',
+                  backgroundColor: '#fff',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginRight: 10
+                }}
               >
-                <path 
-                  d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z" 
-                  fill="white" 
-                />
-              </svg>
+                <span style={{ fontSize: 18, color: 'var(--wvdi-navy)' }}>🚗</span>
+              </div>
               DriveBot
             </div>
             <button
-              aria-label="Close chat"
-              style={{ 
-                background: 'rgba(255,255,255,0.2)', 
-                border: 'none', 
-                color: '#fff', 
-                height: '24px',
-                width: '24px',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: 16,
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#fff',
                 cursor: 'pointer',
-                transition: 'all 0.2s ease'
+                fontSize: 20,
+                padding: 0
               }}
+              aria-label="Close chat"
               onClick={() => setOpen(false)}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.3)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = 'rgba(255,255,255,0.2)';
-              }}
-            >×</button>
+            >
+              <FaTimes />
+            </button>
           </div>
-          <div style={{ flex: 1, padding: 16, overflowY: 'auto', background: '#f5f7fa' }}>
-            {messages.map((msg, i) => (
-              <div key={i} style={{ 
-                margin: '8px 0', 
-                textAlign: msg.role === 'user' ? 'right' : 'left',
-                animation: 'fadeIn 0.3s ease'
-              }}>
-                <span
-                  style={{
-                    display: 'inline-block',
-                    background: msg.role === 'user' ? '#0D47A1' : '#e3eafc',
-                    color: msg.role === 'user' ? '#fff' : '#222',
-                    borderRadius: msg.role === 'user' ? '16px 16px 0 16px' : '16px 16px 16px 0',
-                    padding: '10px 14px',
-                    maxWidth: '80%',
-                    wordBreak: 'break-word',
-                    boxShadow: '0 1px 2px rgba(0,0,0,0.1)',
-                    fontSize: '15px',
-                    lineHeight: '1.4'
-                  }}
-                >
-                  {msg.content}
-                </span>
+
+          {/* Chat Messages */}
+          <div
+            style={{
+              flex: 1,
+              overflowY: 'auto',
+              padding: '12px 16px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 12
+            }}
+          >
+            {messages.map((message, index) => (
+              <div
+                key={index}
+                style={{
+                  alignSelf: message.role === 'user' ? 'flex-end' : 'flex-start',
+                  maxWidth: '80%',
+                  padding: '10px 14px',
+                  borderRadius: message.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
+                  backgroundColor: message.role === 'user' ? 'var(--wvdi-navy)' : '#f1f1f1',
+                  color: message.role === 'user' ? '#fff' : '#333',
+                  boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+                {message.content}
               </div>
             ))}
+            {loading && (
+              <div
+                style={{
+                  alignSelf: 'flex-start',
+                  maxWidth: '80%',
+                  padding: '10px 14px',
+                  borderRadius: '18px 18px 18px 4px',
+                  backgroundColor: '#f1f1f1',
+                  color: '#333',
+                  boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
+                }}
+              >
+                <div style={{ display: 'flex', gap: 4 }}>
+                  <div style={{ animation: 'pulse 1s infinite' }}>•</div>
+                  <div style={{ animation: 'pulse 1s infinite 0.2s' }}>•</div>
+                  <div style={{ animation: 'pulse 1s infinite 0.4s' }}>•</div>
+                </div>
+              </div>
+            )}
             <div ref={chatEndRef}></div>
           </div>
-          <form onSubmit={sendMessage} style={{ 
-            display: 'flex', 
-            borderTop: '1px solid #eee', 
-            padding: '12px',
-            background: '#fff'
-          }}>
+
+          {/* Chat Input */}
+          <form
+            onSubmit={sendMessage}
+            style={{
+              display: 'flex',
+              padding: '12px 16px',
+              borderTop: '1px solid #e0e0e0',
+              backgroundColor: '#f9f9f9'
+            }}
+          >
             <input
               ref={inputRef}
               type="text"
               value={input}
-              onChange={e => setInput(e.target.value)}
+              onChange={(e) => setInput(e.target.value)}
               placeholder="Type your question..."
-              style={{ 
-                flex: 1, 
-                border: '1px solid #e0e0e0', 
-                outline: 'none', 
-                borderRadius: 12, 
-                padding: '10px 14px', 
-                fontSize: 15, 
-                background: '#f9f9f9',
-                transition: 'all 0.2s ease'
+              style={{
+                flex: 1,
+                padding: '10px 14px',
+                border: '1px solid #ddd',
+                borderRadius: 20,
+                outline: 'none',
+                fontSize: 14
               }}
-              onFocus={(e) => {
-                e.target.style.border = '1px solid #1976D2';
-                e.target.style.background = '#fff';
-              }}
-              onBlur={(e) => {
-                e.target.style.border = '1px solid #e0e0e0';
-                e.target.style.background = '#f9f9f9';
-              }}
-              disabled={loading}
-              aria-label="Type your message"
             />
             <button
               type="submit"
-              style={{ 
-                marginLeft: 8, 
-                background: '#0D47A1', 
-                color: '#fff', 
-                border: 'none', 
-                borderRadius: 12, 
-                padding: '0 18px', 
-                fontSize: 15, 
-                cursor: loading ? 'default' : 'pointer',
-                opacity: loading || !input.trim() ? 0.7 : 1,
-                transition: 'all 0.2s ease',
+              style={{
+                background: 'var(--wvdi-navy)',
+                color: '#fff',
+                border: 'none',
+                width: 36,
+                height: 36,
+                borderRadius: '50%',
+                marginLeft: 8,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                height: '40px'
+                cursor: 'pointer'
               }}
               disabled={loading || !input.trim()}
-              aria-label="Send message"
-              onMouseEnter={(e) => {
-                if (!loading && input.trim()) {
-                  e.currentTarget.style.background = '#1565C0';
-                }
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = '#0D47A1';
-              }}
             >
-              {loading ? (
-                <div style={{ width: '20px', height: '20px', borderRadius: '50%', border: '2px solid #fff', borderTopColor: 'transparent', animation: 'spin 1s linear infinite' }} />
-              ) : (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="white" />
-                </svg>
-              )}
+              <FaPaperPlane size={14} />
             </button>
           </form>
-          
-          {/* Add animations */}
-          <style>{`
-            @keyframes fadeIn {
-              from { opacity: 0; transform: translateY(10px); }
-              to { opacity: 1; transform: translateY(0); }
-            }
-            @keyframes spin {
-              0% { transform: rotate(0deg); }
-              100% { transform: rotate(360deg); }
-            }
-          `}</style>
         </div>
       )}
     </>
