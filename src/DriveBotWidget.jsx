@@ -309,7 +309,7 @@ export default function DriveBotWidget() {
               }}
               disabled={loading || !input.trim()}
             >
-              <FaPaperPlane size={14} />
+              <FaPaperPlane style={{ fontSize: '14px', display: 'block' }} />
             </button>
           </form>
         </div>
