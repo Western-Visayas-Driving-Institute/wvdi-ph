@@ -40,8 +40,11 @@
 }
 
 .wvdi-logo {
-  height: 80px;
+  height: 90px;
   width: auto;
+  max-height: calc(100% - 10px);
+  margin: -8px 0;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
