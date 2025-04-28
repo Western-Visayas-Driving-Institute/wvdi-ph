@@ -5,7 +5,7 @@ import { resolve } from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/wvdi-ph/', // Set base path to match repository name for GitHub Pages
+  base: '/', // Update base path for custom domain
   define: {
     // Define environment variables for conditional rendering
     'import.meta.env.VITE_IS_PROD': JSON.stringify(process.env.NODE_ENV === 'production')

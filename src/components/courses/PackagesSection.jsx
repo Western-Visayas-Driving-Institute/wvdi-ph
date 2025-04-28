@@ -40,17 +40,14 @@ export default function PackagesSection() {
               <thead>
                 <tr>
                   <th>Service</th>
-                  <th>Hours</th>
-                  <th>Price (PHP)</th>
+                  <th>Price</th>
                 </tr>
               </thead>
               <tbody>
-                <tr><td><b>15-Hour Theoretical Driving Course (TDC, face-to-face)</b></td><td>15 h</td><td><b>1,000</b></td></tr>
-                <tr><td>TDC (online)</td><td>15 h</td><td></td></tr>
-                <tr><td>Defensive Driving Course</td><td>n/a</td><td><b>1,500</b></td></tr>
-                <tr><td>Preventive-Maintenance Seminar</td><td>n/a</td><td></td></tr>
-                <tr><td>Medical Examination</td><td>n/a</td><td><b>500</b></td></tr>
-                <tr><td>Drug Test</td><td>n/a</td><td><b>1,200</b></td></tr>
+                <tr><td><b>15-Hour Theoretical Driving Course (TDC, face-to-face or online)</b></td><td><b>1,000</b></td></tr>
+                <tr><td>Defensive Driving Course</td><td><b>1,500</b></td></tr>
+                <tr><td>Preventive-Maintenance Seminar</td><td></td></tr>
+                <tr><td>Medical Examination</td><td><b>500</b></td></tr>
               </tbody>
             </table>
           </div>
@@ -63,7 +60,7 @@ export default function PackagesSection() {
               <thead>
                 <tr>
                   <th>Vehicle type</th>
-                  <th>Price (PHP)</th>
+                  <th>Price</th>
                 </tr>
               </thead>
               <tbody>
@@ -81,15 +78,15 @@ export default function PackagesSection() {
         <div className="wvdi-card wvdi-packages-card wvdi-packages-table-card">
           <h3 className="wvdi-section-title wvdi-packages-group-title" style={{fontWeight:700, fontSize:'1.05rem', marginBottom:'1.1rem', textAlign:'left'}}>3. Driving-Lesson Packages</h3>
           {/* a) Motorcycle Riding */}
-          <div style={{fontWeight:600, fontSize:'1em', marginBottom:'0.5em'}}>a) Motorcycle Riding</div>
+          <div style={{fontWeight:600, fontSize:'1em', marginBottom:'0.5em'}}>a) Motorcycle Riding (PHP)</div>
           <div className="wvdi-table-wrapper">
             <table className="wvdi-packages-table">
               <thead>
                 <tr>
                   <th>Course</th>
                   <th>Hours</th>
-                  <th>Manual (PHP)</th>
-                  <th>Automatic (PHP)</th>
+                  <th>Manual</th>
+                  <th>Automatic</th>
                 </tr>
               </thead>
               <tbody>
@@ -100,14 +97,14 @@ export default function PackagesSection() {
             </table>
           </div>
           {/* b) Motor-Vehicle (Sedan / SUV) */}
-          <div style={{fontWeight:600, fontSize:'1em', margin:'1.2em 0 0.5em 0'}}>b) Motor-Vehicle (Sedan / SUV)</div>
+          <div style={{fontWeight:600, fontSize:'1em', margin:'1.2em 0 0.5em 0'}}>b) Motor-Vehicle (Sedan / SUV) (PHP)</div>
           <div className="wvdi-table-wrapper">
             <table className="wvdi-packages-table">
               <thead>
                 <tr>
                   <th>Course</th>
                   <th>Hours</th>
-                  <th>Sedan M (PHP)</th>
+                  <th>Sedan M</th>
                   <th>Sedan A</th>
                   <th>SUV M</th>
                   <th>SUV A</th>
@@ -132,7 +129,7 @@ export default function PackagesSection() {
               <thead>
                 <tr>
                   <th>Service</th>
-                  <th>Price (PHP)</th>
+                  <th>Price</th>
                 </tr>
               </thead>
               <tbody>

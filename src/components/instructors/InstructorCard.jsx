@@ -1,3 +1,6 @@
+import React from 'react';
+import instructorImages from '../../assets/instructorImages';
+
 export default function InstructorCard({ p }) {
   const handleBook = (e) => {
     e.preventDefault();
@@ -15,30 +18,40 @@ export default function InstructorCard({ p }) {
     }
   };
 
+  // Get the instructor image from our imported map
+  const instructorImage = instructorImages[p.id];
+  
+  // Get preferred name for the button (nickname or first name)
+  const getPreferredName = () => {
+    if (p.id === 'ferdinand-jil-sulat-jadia') return 'Toto';
+    if (p.id === 'marc-celes-jadia') return 'Bimbo';
+    return p.name.split(' ')[0]; // Default to first name for other instructors
+  };
+
   return (
     <article className="wvdi-card" itemScope itemType="https://schema.org/Person">
-      <img src={p.photo} alt={`${p.name} – Driving Instructor`} loading="lazy" />
+      <img src={instructorImage} alt={`${p.name} – Driving Instructor`} loading="lazy" />
       <h3 itemProp="name">{p.name}</h3>
 
       <p className="wvdi-accred" itemProp="identifier">
         LTO Acc. #: <strong>{p.accreditationNo}</strong>
-      </p>
-      <p className="wvdi-validity">
-        Valid&nbsp;until {new Date(p.validTo).toLocaleDateString()}
       </p>
 
       <ul className="wvdi-courses">
         {p.courses.map(c => <li key={c}>{c}</li>)}
       </ul>
 
-      <p className="wvdi-bio">{p.bio}</p>
+      <p className="wvdi-bio" itemProp="description">{p.bio}</p>
 
-      <button
-        className="wvdi-btn"
-        onClick={handleBook}
-      >
-        Book&nbsp;{p.name.split(' ')[0]}
-      </button>
+      <footer>
+        <button
+          className="wvdi-cta"
+          style={{ margin: '1rem 0', padding: '0.75rem 1.5rem', fontSize: '1rem' }}
+          onClick={handleBook}
+        >
+          Book with {getPreferredName()}
+        </button>
+      </footer>
     </article>
   );
 }
