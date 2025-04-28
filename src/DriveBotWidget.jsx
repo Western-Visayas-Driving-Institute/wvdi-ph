@@ -149,8 +149,12 @@ export default function DriveBotWidget() {
           e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 106, 255, 0.4)';
         }}
       >
-        {/* Using messenger icon instead of car emoji */}
-        <FaFacebookMessenger />
+        {/* Using messenger icon with explicit styling to ensure visibility */}
+        <FaFacebookMessenger style={{ 
+          fontSize: '28px', 
+          color: 'white',
+          display: 'block'
+        }} />
       </button>
 
       {/* Chat Window with improved design */}
