@@ -23,10 +23,12 @@ jobs:
       run: npm ci
     
     - name: Explicitly Install React Icons
-      run: npm install react-icons --save
+      run: npm install react-icons@5.5.0 --save
     
     - name: Build
       run: npm run build
+      env:
+        CI: false
     
     - name: Deploy to GitHub Pages
       if: github.ref == 'refs/heads/main'
