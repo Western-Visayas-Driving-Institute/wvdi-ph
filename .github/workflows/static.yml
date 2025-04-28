@@ -2,9 +2,9 @@
 name: Deploy static content to Pages
 
 on:
-  # Temporarily disable automatic triggers
-  # push:
-  #   branches: ["main"]
+  # Triggers the workflow on push to the main branch
+  push:
+    branches: ["main"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
