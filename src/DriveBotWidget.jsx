@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaPaperPlane, FaTimes } from 'react-icons/fa';
+import { FaPaperPlane } from 'react-icons/fa6';
+import { IoClose } from 'react-icons/io5';
 import { BsMessenger } from 'react-icons/bs';
 
 // Make the API URL configurable via environment variables
@@ -214,7 +215,7 @@ export default function DriveBotWidget() {
               aria-label="Close chat"
               onClick={() => setOpen(false)}
             >
-              <FaTimes />
+              <IoClose />
             </button>
           </div>
 
