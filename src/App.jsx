@@ -1,7 +1,7 @@
 import React, { useState, lazy, Suspense } from 'react';
 import { FaFacebook, FaTwitter, FaYoutube, FaInstagram, FaSnapchat } from 'react-icons/fa';
 import './App.css'
-import wvdiLogo from './assets/WVDI-logo.png'
+import wvdiLogo from './assets/WVDI-logo.png?url'
 import autoWebp from './assets/Automatic.webp'
 import bestSeal from './assets/Best-Company-high-res-seal-small-768x768.webp'
 import ltoAccredited from './assets/LTO-accredited.webp'
