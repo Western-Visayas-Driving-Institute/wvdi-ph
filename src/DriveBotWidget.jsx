@@ -1,7 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaPaperPlane } from 'react-icons/fa';
-import { IoClose } from 'react-icons/io5';
-import { BsMessenger } from 'react-icons/bs';
 
 // Make the API URL configurable via environment variables
 const API_URL = import.meta.env.VITE_CHAT_API_URL || 'https://wvdi-ph-vercel.vercel.app/api/chat';
@@ -151,8 +148,8 @@ export default function DriveBotWidget() {
           e.currentTarget.style.boxShadow = '0 4px 16px rgba(20, 31, 84, 0.4)';
         }}
       >
-        {/* Using a single messenger icon */}
-        <BsMessenger size={28} color="#ffffff" />
+        {/* Using messenger icon emoji instead of BsMessenger component */}
+        <span style={{ fontSize: '28px' }}>💬</span>
       </button>
 
       {/* Chat Window with improved design */}
@@ -215,7 +212,7 @@ export default function DriveBotWidget() {
               aria-label="Close chat"
               onClick={() => setOpen(false)}
             >
-              <IoClose />
+              <span style={{ fontSize: '18px' }}>✕</span>
             </button>
           </div>
 
@@ -294,23 +291,25 @@ export default function DriveBotWidget() {
               }}
             />
             <button
+              aria-label="Send message"
               type="submit"
               style={{
-                background: 'var(--wvdi-navy)',
+                backgroundColor: 'var(--wvdi-navy)',
                 color: '#fff',
                 border: 'none',
-                width: 36,
-                height: 36,
                 borderRadius: '50%',
+                width: 40,
+                height: 40,
                 marginLeft: 8,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                transition: 'all 0.2s'
               }}
-              disabled={loading || !input.trim()}
+              disabled={loading}
             >
-              <FaPaperPlane style={{ fontSize: '14px', display: 'block' }} />
+              <span style={{ fontSize: '18px' }}>📤</span>
             </button>
           </form>
         </div>
