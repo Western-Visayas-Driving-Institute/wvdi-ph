@@ -1,5 +1,14 @@
 [
   {
+    "id": "gene-deygabi",
+    "name": "Gene G. Deygabi",
+    "accreditationNo": "IDS-2021-00088-06",
+    "validFrom": "2024-06-04",
+    "courses": ["Theoretical and Practical Driving Course Instructor – Motorcycles and Light Vehicles"],
+    "branch": "Dumaguete",
+    "bio": "Gene brings a perfect blend of fun and structure to his teaching. While punctual and strict on safety, his easygoing personality helps students feel at ease. His IT background means he's great at explaining technical concepts in simple terms, and his flexible teaching style adapts to each student's unique learning pace."
+  },
+  {
     "id": "marc-celes-jadia",
     "name": "Marc \"Bimbo\" Celes S. Jadia",
     "accreditationNo": "IDS-2021-00008-06",
