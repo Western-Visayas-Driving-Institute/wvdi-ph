@@ -1,10 +1,19 @@
 [
   {
+    "id": "ian-mata-obrero",
+    "name": "Ian Mata Obrero",
+    "accreditationNo": "IDS-2020-00117-06",
+    "validFrom": "2024-10-14",
+    "seniority": "2013",
+    "branch": "Bacolod",
+    "bio": "Ian is well-detailed when needed, ensuring students fully understand every aspect of driving. He knows how to capture the attention of his students and often uses humor to make lessons more engaging. Always punctual and accommodating, Ian creates a positive learning environment where students feel comfortable asking questions and developing their skills."
+  },
+  {
     "id": "sundae-maravilla",
     "name": "Sundae M. Maravilla",
     "accreditationNo": "IDS-2020-00025-06",
     "validFrom": "2022-06-22",
-    "courses": ["Theoretical and Practical Driving Course Instructor for Motorcycles and Light Vehicles"],
+    "seniority": "2020",
     "branch": "Dumaguete",
     "bio": "Sundae has the patience to provide detailed instructions when needed, ensuring every student fully understands the driving concepts. With an accommodating and easy-going personality, he makes the learning environment comfortable for drivers of all skill levels."
   },
@@ -13,7 +22,7 @@
     "name": "Gene G. Deygabi",
     "accreditationNo": "IDS-2021-00088-06",
     "validFrom": "2024-06-04",
-    "courses": ["Theoretical and Practical Driving Course Instructor – Motorcycles and Light Vehicles"],
+    "seniority": "2021",
     "branch": "Dumaguete",
     "bio": "Gene brings a perfect blend of fun and structure to his teaching. While punctual and strict on safety, his easygoing personality helps students feel at ease. His flexible teaching style adapts to each student's unique learning pace."
   },
@@ -22,7 +31,7 @@
     "name": "Marc Celes S. Jadia",
     "accreditationNo": "IDS-2021-00008-06",
     "validFrom": "2024-10-14",
-    "courses": ["Theoretical Driving & Practical Driving Course – Motorcycles and Light Vehicles"],
+    "seniority": "2009",
     "branch": "Kabankalan",
     "bio": "Everyone knows 'Bimbo' for his wealth of practical driving tips that you won't find in any manual. As one of the pioneers of WVDI, his experience shines through in every lesson. Students love his charming, accommodating style that makes even the most nervous drivers feel at ease."
   },
@@ -31,7 +40,7 @@
     "name": "Jo Francisco B. Ramos",
     "accreditationNo": "IDS-2024-00001-06",
     "validFrom": "2024-01-24",
-    "courses": ["Theoretical & Practical Driving Course – Light Vehicles"],
+    "seniority": "2023",
     "branch": "Kabankalan",
     "bio": "Jo Francisco is dedicated to helping students become confident, skilled drivers. With his patient approach and clear instructions, he ensures everyone masters the fundamentals of safe driving."
   },
@@ -40,7 +49,7 @@
     "name": "Harry Intrepido Morl",
     "accreditationNo": "DS-2020001796",
     "validFrom": "2024-06-04",
-    "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
+    "seniority": "2010",
     "branch": "Kabankalan",
     "bio": "Harry brings the energy! He loves a good driving pun and believes every lesson should end with a high five."
   },
@@ -49,7 +58,7 @@
     "name": "Ferdinand \"Toto\" Jil Sulat Jadia",
     "accreditationNo": "DS-20241021540",
     "validFrom": "2024-06-04",
-    "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
+    "seniority": "2015",
     "branch": "Bacolod",
     "bio": "Known to everyone as 'Toto', he runs a tight ship in his driving lessons. His strict adherence to safety protocols might seem demanding at first, but his students quickly appreciate how much they learn. As Toto says, 'You'll thank me when you avoid your first accident because of what I taught you.'"
   },
@@ -58,7 +67,7 @@
     "name": "Martin Amar Gellecañao",
     "accreditationNo": "DS-2020001232-06",
     "validFrom": "2024-06-04",
-    "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
+    "seniority": "2020",
     "branch": "Silay",
     "bio": "Martin's superpower? He can actually take a nap while his students drive! (Don't worry, he doesn't really do this!) But his students become so skilled that he says he could trust them to drive him home with his eyes closed."
   },
@@ -67,7 +76,7 @@
     "name": "Rolly Delos Santos Sastrado",
     "accreditationNo": "DS-2020001806",
     "validFrom": "2024-06-04",
-    "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
+    "seniority": "2013",
     "branch": "Talisay",
     "bio": "Need a driving lesson at 5AM? Rolly's your guy! With his infectious laugh and 'no silly question' policy, he makes even the most nervous students feel right at home. His students say driving with Rolly is like taking a road trip with your funniest friend!"
   }
