@@ -17,10 +17,8 @@ import teamTransparent from './assets/team on transparent.webp'
 import theoreticalLecture from './assets/theoritical lecture.webp'
 import carsInLine from './assets/wvdi cars in line.webp'
 import adminWebp from './assets/wvdi-admin.webp'
-// CHAT COMPONENTS REMOVED FOR GITHUB PAGES COMPATIBILITY
-// import MessengerChat from './MessengerChat'
-// Only import DriveBot in development, not in production
-// const DriveBotWidget = import.meta.env.VITE_IS_PROD ? React.Fragment : React.lazy(() => import('./DriveBotWidget'));
+import MessengerChat from './MessengerChat'
+import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
 import CoursesSection from './components/courses/CoursesSection';
 // import CoursesServicesSection from './components/CoursesServicesSection';
@@ -64,10 +62,8 @@ function App() {
         locale="en"
       />
       <div className="wvdi-root">
-        {/* CHAT COMPONENTS REMOVED FOR GITHUB PAGES COMPATIBILITY */}
-        {/* <MessengerChat /> */}
-        {/* Only render DriveBot in development, not in production */}
-        {/* {!import.meta.env.VITE_IS_PROD && <DriveBotWidget />} */}
+        <MessengerChat />
+        <DriveBotWidget />
         <header className="wvdi-header">
           <img src={wvdiLogo} className="wvdi-logo" alt="WVDI Logo" />
           <div className="wvdi-header-text">

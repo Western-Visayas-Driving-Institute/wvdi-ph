@@ -30,290 +30,147 @@ export default function DriveBotWidget() {
     return () => clearTimeout(timer);
   }, []);
 
+  // Scroll to bottom when messages change
   useEffect(() => {
-    if (open && chatEndRef.current) {
-      chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-    if (open && inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [messages, open]);
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
 
-  const sendMessage = async (e) => {
-    e.preventDefault();
+  // Focus input when chat is opened
+  useEffect(() => {
+    if (open) {
+      inputRef.current?.focus();
+    }
+  }, [open]);
+
+  const sendMessage = async () => {
     if (!input.trim()) return;
-    const userMsg = { role: 'user', content: input };
-    setMessages((msgs) => [...msgs, userMsg]);
+    
+    const userMessage = {
+      role: 'user',
+      content: input.trim()
+    };
+    
+    setMessages(prev => [...prev, userMessage]);
     setInput('');
     setLoading(true);
-    
-    // Format conversation history for OpenAI API
-    const conversationHistory = messages
-      .filter(m => m.role === 'user' || m.role === 'assistant')
-      .map(m => ({ role: m.role, content: m.content }));
-    
+
     try {
-      // Include credentials: 'omit' to handle CORS when calling from GitHub Pages to Vercel
-      const res = await fetch(API_URL, {
+      const response = await fetch(API_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'omit', // Important for cross-origin requests
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
-          message: input.trim(),       // the text the user just typed
-          history: conversationHistory, // prior { role, content } tuples
-          language: getUserLanguage()  // keep if you want, server will ignore otherwise
-        })
+          messages: [...messages, userMessage],
+          language: getUserLanguage()
+        }),
       });
       
-      if (!res.ok) {
-        throw new Error(`API request failed with status ${res.status}`);
-      }
+      const data = await response.json();
       
-      const data = await res.json();
-      
-      // Handle response from OpenAI API format
-      if (data.response) {
-        setMessages((msgs) => [...msgs, { role: 'assistant', content: data.response }]);
-      } else if (data.choices && data.choices.length > 0) {
-        setMessages((msgs) => [...msgs, { role: 'assistant', content: data.choices[0].message.content }]);
-      } else if (data.reply) {
-        setMessages((msgs) => [...msgs, { role: 'assistant', content: data.reply }]);
+      if (response.ok) {
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: data.message || "I'm sorry, I couldn't process that. Please try again."
+        }]);
       } else {
-        throw new Error('Invalid response format');
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: "I'm sorry, there was an error processing your request. Please try again later."
+        }]);
+        console.error('Error from chatbot API:', data);
       }
-    } catch (err) {
-      console.error('Chat API error:', err);
-      setMessages((msgs) => [...msgs, { 
-        role: 'assistant', 
-        content: "Sorry, I'm having trouble connecting right now. Please try again later or contact us directly at info@wvdi-ph.com." 
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: "I'm sorry, there was a connection error. Please check your internet connection and try again."
       }]);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
-  // Define keyframes for the pulse animation
-  const pulseKeyframes = `
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 4px 16px rgba(20, 31, 84, 0.3);
-      }
-      50% {
-        transform: scale(1.05);
-        box-shadow: 0 4px 20px rgba(20, 31, 84, 0.5);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 4px 16px rgba(20, 31, 84, 0.3);
-      }
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
     }
-  `;
+  };
 
   return (
-    <>
-      {/* Add keyframes to document */}
-      <style>{pulseKeyframes}</style>
-
-      {/* Floating Button with improved design */}
-      <button
-        aria-label="Open DriveBot Chat"
-        style={{
-          position: 'fixed',
-          bottom: 24,
-          right: 24,
-          background: 'var(--wvdi-navy)',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '50%',
-          width: 60,
-          height: 60,
-          boxShadow: '0 4px 16px rgba(20, 31, 84, 0.4)',
-          zIndex: 1000,
-          cursor: 'pointer',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: 0,
-          transition: 'all 0.3s ease',
-          animation: pulseAnimation ? 'pulse 2s infinite' : 'none',
-          overflow: 'hidden'
-        }}
-        onClick={() => setOpen(o => !o)}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.boxShadow = '0 6px 24px rgba(20, 31, 84, 0.5)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 4px 16px rgba(20, 31, 84, 0.4)';
-        }}
+    <div className="drivebot-container">
+      {/* Chat toggle button with Messenger-style icon */}
+      <button 
+        className={`drivebot-toggle ${pulseAnimation ? 'pulse' : ''}`}
+        onClick={() => setOpen(!open)}
+        aria-label={open ? "Close chat" : "Open chat"}
       >
-        {/* Using messenger icon emoji instead of BsMessenger component */}
         <span style={{ fontSize: '28px' }}>💬</span>
       </button>
-
-      {/* Chat Window with improved design */}
+      
+      {/* Chat window */}
       {open && (
-        <div
-          style={{
-            position: 'fixed',
-            bottom: 92,
-            right: 24,
-            width: 320,
-            height: 450,
-            backgroundColor: '#fff',
-            borderRadius: 12,
-            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
-            display: 'flex',
-            flexDirection: 'column',
-            overflow: 'hidden',
-            zIndex: 1000,
-            border: '1px solid #e0e0e0'
-          }}
-        >
-          {/* Chat Header */}
-          <div
-            style={{
-              padding: '12px 16px',
-              backgroundColor: 'var(--wvdi-navy)',
-              color: '#fff',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              borderBottom: '1px solid rgba(0, 0, 0, 0.1)'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center' }}>
-              <div
-                style={{
-                  width: 32,
-                  height: 32,
-                  borderRadius: '50%',
-                  backgroundColor: '#fff',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginRight: 10
-                }}
-              >
-                <span style={{ fontSize: 18, color: 'var(--wvdi-navy)' }}>🚗</span>
-              </div>
-              DriveBot
+        <div className="drivebot-chat-window">
+          {/* Chat header */}
+          <div className="drivebot-header">
+            <div className="drivebot-title">
+              <span>DriveBot</span>
+              <small>WVDI Assistant</small>
             </div>
-            <button
-              style={{
-                background: 'none',
-                border: 'none',
-                color: '#fff',
-                cursor: 'pointer',
-                fontSize: 20,
-                padding: 0
-              }}
-              aria-label="Close chat"
+            <button 
+              className="drivebot-close-btn"
               onClick={() => setOpen(false)}
+              aria-label="Close chat"
             >
               <span style={{ fontSize: '18px' }}>✕</span>
             </button>
           </div>
-
-          {/* Chat Messages */}
-          <div
-            style={{
-              flex: 1,
-              overflowY: 'auto',
-              padding: '12px 16px',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: 12
-            }}
-          >
+          
+          {/* Chat messages */}
+          <div className="drivebot-messages">
             {messages.map((message, index) => (
-              <div
-                key={index}
-                style={{
-                  alignSelf: message.role === 'user' ? 'flex-end' : 'flex-start',
-                  maxWidth: '80%',
-                  padding: '10px 14px',
-                  borderRadius: message.role === 'user' ? '18px 18px 4px 18px' : '18px 18px 18px 4px',
-                  backgroundColor: message.role === 'user' ? 'var(--wvdi-navy)' : '#f1f1f1',
-                  color: message.role === 'user' ? '#fff' : '#333',
-                  boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
-                }}
+              <div 
+                key={index} 
+                className={`drivebot-message ${message.role === 'user' ? 'user-message' : 'bot-message'}`}
               >
                 {message.content}
               </div>
             ))}
             {loading && (
-              <div
-                style={{
-                  alignSelf: 'flex-start',
-                  maxWidth: '80%',
-                  padding: '10px 14px',
-                  borderRadius: '18px 18px 18px 4px',
-                  backgroundColor: '#f1f1f1',
-                  color: '#333',
-                  boxShadow: '0 1px 2px rgba(0, 0, 0, 0.1)'
-                }}
-              >
-                <div style={{ display: 'flex', gap: 4 }}>
-                  <div style={{ animation: 'pulse 1s infinite' }}>•</div>
-                  <div style={{ animation: 'pulse 1s infinite 0.2s' }}>•</div>
-                  <div style={{ animation: 'pulse 1s infinite 0.4s' }}>•</div>
+              <div className="drivebot-message bot-message">
+                <div className="typing-indicator">
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
               </div>
             )}
-            <div ref={chatEndRef}></div>
+            <div ref={chatEndRef} />
           </div>
-
-          {/* Chat Input */}
-          <form
-            onSubmit={sendMessage}
-            style={{
-              display: 'flex',
-              padding: '12px 16px',
-              borderTop: '1px solid #e0e0e0',
-              backgroundColor: '#f9f9f9'
-            }}
-          >
-            <input
+          
+          {/* Chat input */}
+          <div className="drivebot-input-container">
+            <textarea
               ref={inputRef}
-              type="text"
+              className="drivebot-input"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Type your question..."
-              style={{
-                flex: 1,
-                padding: '10px 14px',
-                border: '1px solid #ddd',
-                borderRadius: 20,
-                outline: 'none',
-                fontSize: 14
-              }}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask a question..."
+              rows={1}
             />
-            <button
+            <button 
+              className="drivebot-send-btn"
+              onClick={sendMessage}
+              disabled={!input.trim() || loading}
               aria-label="Send message"
-              type="submit"
-              style={{
-                backgroundColor: 'var(--wvdi-navy)',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '50%',
-                width: 40,
-                height: 40,
-                marginLeft: 8,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                cursor: 'pointer',
-                transition: 'all 0.2s'
-              }}
-              disabled={loading}
             >
               <span style={{ fontSize: '18px' }}>📤</span>
             </button>
-          </form>
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
