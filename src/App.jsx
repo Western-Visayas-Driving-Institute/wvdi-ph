@@ -1,7 +1,7 @@
 import React, { useState, lazy, Suspense } from 'react';
 import './App.css'
-// Import logo as a variable to be used at runtime
-const wvdiLogoUrl = '/wvdi-ph/assets/WVDI-logo-C5EiWOGl.png';
+// Import the logo directly from assets
+import wvdiLogo from './assets/WVDI-logo.png'
 import autoWebp from './assets/Automatic.webp'
 import bestSeal from './assets/Best-Company-high-res-seal-small-768x768.webp'
 import ltoAccredited from './assets/LTO-accredited.webp'
@@ -65,7 +65,7 @@ function App() {
         <MessengerChat />
         <DriveBotWidget />
         <header className="wvdi-header">
-          <img src={wvdiLogoUrl} className="wvdi-logo" alt="WVDI Logo" />
+          <img src={wvdiLogo} className="wvdi-logo" alt="WVDI Logo" />
           <div className="wvdi-header-text">
             <h1>Western Visayas Driving Institute</h1>
             <h2>Driving Institute</h2>
