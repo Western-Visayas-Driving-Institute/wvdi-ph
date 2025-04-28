@@ -1,4 +1,5 @@
 import React from 'react';
+import instructorImages from '../../assets/instructorImages';
 
 export default function InstructorCard({ p }) {
   const handleBook = (e) => {
@@ -17,14 +18,12 @@ export default function InstructorCard({ p }) {
     }
   };
 
-  // Generate instructor image path from the public directory
-  // This should work in both development and production environments
-  const baseUrl = import.meta.env.BASE_URL || '/';
-  const imageUrl = `${baseUrl}instructors/${p.id}.jpg?v=${new Date().getTime()}`;
+  // Get the instructor image from our imported map
+  const instructorImage = instructorImages[p.id];
 
   return (
     <article className="wvdi-card" itemScope itemType="https://schema.org/Person">
-      <img src={imageUrl} alt={`${p.name} – Driving Instructor`} loading="lazy" />
+      <img src={instructorImage} alt={`${p.name} – Driving Instructor`} loading="lazy" />
       <h3 itemProp="name">{p.name}</h3>
 
       <p className="wvdi-accred" itemProp="identifier">
