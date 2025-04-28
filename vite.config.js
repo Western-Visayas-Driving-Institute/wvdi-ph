@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/wvdi-ph/', // Set base path to match repository name for GitHub Pages
+  base: '/', // Update base path for custom domain
 })
