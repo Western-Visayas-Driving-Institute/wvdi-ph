@@ -1,4 +1,5 @@
 import React from 'react';
+import { instructorImages } from '../../assets/instructors';
 
 export default function InstructorCard({ p }) {
   const handleBook = (e) => {
@@ -17,12 +18,15 @@ export default function InstructorCard({ p }) {
     }
   };
 
-  // Add timestamp to force image refresh
-  const imageUrl = `${p.photo}?v=${new Date().getTime()}`;
+  // Get the proper image from our imports
+  const instructorImage = instructorImages[p.id];
+  
+  // Add timestamp for cache busting
+  const timestamp = new Date().getTime();
 
   return (
     <article className="wvdi-card" itemScope itemType="https://schema.org/Person">
-      <img src={imageUrl} alt={`${p.name} – Driving Instructor`} loading="lazy" />
+      <img src={instructorImage} alt={`${p.name} – Driving Instructor`} loading="lazy" />
       <h3 itemProp="name">{p.name}</h3>
 
       <p className="wvdi-accred" itemProp="identifier">

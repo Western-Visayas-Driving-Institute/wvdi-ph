@@ -6,7 +6,6 @@
     "validFrom": "2024-10-14",
     "courses": ["Theoretical Driving & Practical Driving Course – Motorcycles and Light Vehicles"],
     "branch": "Kabankalan",
-    "photo": "src/assets/instructors/marc-celes-jadia.jpg",
     "bio": "Everyone knows 'Bimbo' for his wealth of practical driving tips that you won't find in any manual. As one of the pioneers of WVDI, his experience shines through in every lesson. Students love his charming, accommodating style that makes even the most nervous drivers feel at ease."
   },
   {
@@ -16,7 +15,6 @@
     "validFrom": "2024-01-24",
     "courses": ["Theoretical & Practical Driving Course – Light Vehicles"],
     "branch": "Kabankalan",
-    "photo": "src/assets/instructors/jo-francisco-ramos.jpg",
     "bio": "Jo Francisco is dedicated to helping students become confident, skilled drivers. With his patient approach and clear instructions, he ensures everyone masters the fundamentals of safe driving."
   },
   {
@@ -26,7 +24,6 @@
     "validFrom": "2024-10-14",
     "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
     "branch": "Bacolod",
-    "photo": "src/assets/instructors/ian-mata-obrero.jpg",
     "bio": "Ian is known for his cool head and fun quizzes. He can parallel park with his eyes closed (but he won't, don't worry!)."
   },
   {
@@ -36,7 +33,6 @@
     "validFrom": "2024-06-04",
     "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
     "branch": "Kabankalan",
-    "photo": "src/assets/instructors/harry-intrepido-morl.jpg",
     "bio": "Harry brings the energy! He loves a good driving pun and believes every lesson should end with a high five."
   },
   {
@@ -46,7 +42,6 @@
     "validFrom": "2024-06-04",
     "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
     "branch": "Bacolod",
-    "photo": "src/assets/instructors/ferdinand-jil-sulat-jadia.jpg",
     "bio": "Known to everyone as 'Toto', he runs a tight ship in his driving lessons. His strict adherence to safety protocols might seem demanding at first, but his students quickly appreciate how much they learn. As Toto says, 'You'll thank me when you avoid your first accident because of what I taught you.'"
   },
   {
@@ -56,7 +51,6 @@
     "validFrom": "2024-06-04",
     "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
     "branch": "Silay",
-    "photo": "src/assets/instructors/martin-amar-gellecanao.jpg",
     "bio": "Martin's superpower? He can actually take a nap while his students drive! (Don't worry, he doesn't really do this!) But his students become so skilled that he says he could trust them to drive him home with his eyes closed."
   },
   {
@@ -66,7 +60,6 @@
     "validFrom": "2024-06-04",
     "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
     "branch": "Talisay",
-    "photo": "src/assets/instructors/rolly-delos-santos-sastrado.jpg",
     "bio": "Need a driving lesson at 5AM? Rolly's your guy! With his infectious laugh and 'no silly question' policy, he makes even the most nervous students feel right at home. His students say driving with Rolly is like taking a road trip with your funniest friend!"
   }
 ]
