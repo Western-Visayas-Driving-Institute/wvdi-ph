@@ -50,7 +50,6 @@ export default function PackagesSection() {
                 <tr><td>Defensive Driving Course</td><td>n/a</td><td><b>1,500</b></td></tr>
                 <tr><td>Preventive-Maintenance Seminar</td><td>n/a</td><td></td></tr>
                 <tr><td>Medical Examination</td><td>n/a</td><td><b>500</b></td></tr>
-                <tr><td>Drug Test</td><td>n/a</td><td><b>1,200</b></td></tr>
               </tbody>
             </table>
           </div>
