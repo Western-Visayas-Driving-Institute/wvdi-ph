@@ -6,9 +6,11 @@ import ferdinandJilSulatJadia from './instructors/ferdinand-jil-sulat-jadia.jpg'
 import martinAmarGellecanao from './instructors/martin-amar-gellecanao.jpg';
 import rollyDelosSantosSastrado from './instructors/rolly-delos-santos-sastrado.jpg';
 import geneDeygabi from './instructors/gene-deygabi.jpg';
+import sundaeMaravilla from './instructors/sundae-maravilla.jpg';
 
 // Export as a map for easy access by instructor ID
 const instructorImages = {
+  'sundae-maravilla': sundaeMaravilla,
   'marc-celes-jadia': marcCelesJadia,
   'jo-francisco-ramos': joFranciscoRamos,
   'harry-intrepido-morl': harryIntrepidoMorl,

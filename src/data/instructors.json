@@ -1,5 +1,14 @@
 [
   {
+    "id": "sundae-maravilla",
+    "name": "Sundae M. Maravilla",
+    "accreditationNo": "IDS-2020-00025-06",
+    "validFrom": "2022-06-22",
+    "courses": ["Theoretical and Practical Driving Course Instructor for Motorcycles and Light Vehicles"],
+    "branch": "Dumaguete",
+    "bio": "Sundae has the patience to provide detailed instructions when needed, ensuring every student fully understands the driving concepts. With an accommodating and easy-going personality, she makes the learning environment comfortable for drivers of all skill levels."
+  },
+  {
     "id": "gene-deygabi",
     "name": "Gene G. Deygabi",
     "accreditationNo": "IDS-2021-00088-06",
