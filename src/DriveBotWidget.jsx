@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { FaFacebookMessenger } from 'react-icons/fa';
 
 // Make the API URL configurable via environment variables
 const API_URL = import.meta.env.VITE_CHAT_API_URL || 'https://wvdi-ph-vercel.vercel.app/api/chat';
@@ -96,15 +97,15 @@ export default function DriveBotWidget() {
     @keyframes pulse {
       0% {
         transform: scale(1);
-        box-shadow: 0 4px 16px rgba(13, 71, 161, 0.3);
+        box-shadow: 0 4px 16px rgba(0, 106, 255, 0.3);
       }
       50% {
         transform: scale(1.05);
-        box-shadow: 0 4px 20px rgba(13, 71, 161, 0.5);
+        box-shadow: 0 4px 20px rgba(0, 106, 255, 0.5);
       }
       100% {
         transform: scale(1);
-        box-shadow: 0 4px 16px rgba(13, 71, 161, 0.3);
+        box-shadow: 0 4px 16px rgba(0, 106, 255, 0.3);
       }
     }
   `;
@@ -121,19 +122,19 @@ export default function DriveBotWidget() {
           position: 'fixed',
           bottom: 24,
           right: 24,
-          background: '#0D47A1',
+          background: 'linear-gradient(135deg, #00B2FF 0%, #006AFF 100%)',
           color: '#fff',
           border: 'none',
           borderRadius: '50%',
           width: 60,
           height: 60,
-          boxShadow: '0 4px 16px rgba(13, 71, 161, 0.4)',
+          boxShadow: '0 4px 16px rgba(0, 106, 255, 0.4)',
           zIndex: 1000,
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: 32, // Increased font size
+          fontSize: 28, // Slightly smaller for the icon
           transition: 'all 0.3s ease',
           animation: pulseAnimation ? 'pulse 2s infinite' : 'none',
           overflow: 'hidden'
@@ -141,15 +142,15 @@ export default function DriveBotWidget() {
         onClick={() => setOpen(o => !o)}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.boxShadow = '0 6px 24px rgba(13, 71, 161, 0.5)';
+          e.currentTarget.style.boxShadow = '0 6px 24px rgba(0, 106, 255, 0.5)';
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 4px 16px rgba(13, 71, 161, 0.4)';
+          e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 106, 255, 0.4)';
         }}
       >
-        {/* Using car emoji relevant to driving institute */}
-        🚗
+        {/* Using messenger icon instead of car emoji */}
+        <FaFacebookMessenger />
       </button>
 
       {/* Chat Window with improved design */}
