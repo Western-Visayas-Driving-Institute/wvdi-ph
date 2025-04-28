@@ -28,9 +28,6 @@ export default function InstructorCard({ p }) {
       <p className="wvdi-accred" itemProp="identifier">
         LTO Acc. #: <strong>{p.accreditationNo}</strong>
       </p>
-      <p className="wvdi-validity">
-        Valid&nbsp;until {new Date(p.validTo).toLocaleDateString()}
-      </p>
 
       <ul className="wvdi-courses">
         {p.courses.map(c => <li key={c}>{c}</li>)}

@@ -1,10 +1,19 @@
 [
   {
+    "id": "marc-celes-jadia",
+    "name": "Marc Celes S. Jadia",
+    "accreditationNo": "IDS-2021-00008-06",
+    "validFrom": "2024-10-14",
+    "courses": ["Theoretical Driving & Practical Driving Course – Motorcycles and Light Vehicles"],
+    "branch": "Kabankalan",
+    "photo": "src/assets/instructors/marc-celes-jadia.jpg",
+    "bio": "Marc brings technical expertise and precision to his teaching. His methodical approach ensures students master both theoretical knowledge and practical skills for safe, confident driving."
+  },
+  {
     "id": "jo-francisco-ramos",
     "name": "Jo Francisco B. Ramos",
     "accreditationNo": "IDS-2024-00001-06",
     "validFrom": "2024-01-24",
-    "validTo": "2026-01-24",
     "courses": ["Theoretical & Practical Driving Course – Light Vehicles"],
     "branch": "Kabankalan",
     "photo": "src/assets/instructors/jo-francisco-ramos.jpg",
@@ -15,7 +24,6 @@
     "name": "Ian Mata Obrero",
     "accreditationNo": "DS-2020000776-06",
     "validFrom": "2024-10-14",
-    "validTo":   "2026-10-13",
     "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
     "branch": "Bacolod",
     "photo": "src/assets/instructors/ian-mata-obrero.jpg",
@@ -26,7 +34,6 @@
     "name": "Harry Intrepido Morl",
     "accreditationNo": "DS-2020001796",
     "validFrom": "2024-06-04",
-    "validTo":   "2026-06-13",
     "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
     "branch": "Kabankalan",
     "photo": "src/assets/instructors/harry-intrepido-morl.jpg",
@@ -37,18 +44,16 @@
     "name": "Ferdinand Jil Sulat Jadia",
     "accreditationNo": "DS-20241021540",
     "validFrom": "2024-06-04",
-    "validTo":   "2026-06-13",
     "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
     "branch": "Bacolod",
     "photo": "src/assets/instructors/ferdinand-jil-sulat-jadia.jpg",
-    "bio": "Ferdinand is the king of calm. He’s got a story for every road sign and a smile for every student."
+    "bio": "Ferdinand is the king of calm. He's got a story for every road sign and a smile for every student."
   },
   {
     "id": "martin-amar-gellecanao",
     "name": "Martin Amar Gellecañao",
     "accreditationNo": "DS-2020001232-06",
     "validFrom": "2024-06-04",
-    "validTo":   "2026-06-13",
     "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
     "branch": "Silay",
     "photo": "src/assets/instructors/martin-amar-gellecanao.jpg",
@@ -59,10 +64,9 @@
     "name": "Rolly Delos Santos Sastrado",
     "accreditationNo": "DS-2020001806",
     "validFrom": "2024-06-04",
-    "validTo":   "2026-06-13",
     "courses": ["Theoretical & Practical – Motorcycles / Light Vehicles"],
     "branch": "Talisay",
     "photo": "src/assets/instructors/rolly-delos-santos-sastrado.jpg",
-    "bio": "Rolly’s laughter is contagious! He’s the go-to guy for practical tips and unforgettable driving mnemonics."
+    "bio": "Rolly's laughter is contagious! He's the go-to guy for practical tips and unforgettable driving mnemonics."
   }
 ]
