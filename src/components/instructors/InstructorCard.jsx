@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function InstructorCard({ p }) {
   const handleBook = (e) => {
     e.preventDefault();
@@ -15,9 +17,12 @@ export default function InstructorCard({ p }) {
     }
   };
 
+  // Add timestamp to force image refresh
+  const imageUrl = `${p.photo}?v=${new Date().getTime()}`;
+
   return (
     <article className="wvdi-card" itemScope itemType="https://schema.org/Person">
-      <img src={p.photo} alt={`${p.name} – Driving Instructor`} loading="lazy" />
+      <img src={imageUrl} alt={`${p.name} – Driving Instructor`} loading="lazy" />
       <h3 itemProp="name">{p.name}</h3>
 
       <p className="wvdi-accred" itemProp="identifier">
@@ -31,14 +36,13 @@ export default function InstructorCard({ p }) {
         {p.courses.map(c => <li key={c}>{c}</li>)}
       </ul>
 
-      <p className="wvdi-bio">{p.bio}</p>
+      <p className="wvdi-bio" itemProp="description">{p.bio}</p>
 
-      <button
-        className="wvdi-btn"
-        onClick={handleBook}
-      >
-        Book&nbsp;{p.name.split(' ')[0]}
-      </button>
+      <footer>
+        <button className="wvdi-button wvdi-button-primary" onClick={handleBook}>
+          Book with {p.name.split(' ')[0]}
+        </button>
+      </footer>
     </article>
   );
 }
