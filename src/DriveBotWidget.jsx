@@ -97,15 +97,15 @@ export default function DriveBotWidget() {
     @keyframes pulse {
       0% {
         transform: scale(1);
-        box-shadow: 0 4px 16px rgba(0, 106, 255, 0.3);
+        box-shadow: 0 4px 16px rgba(20, 31, 84, 0.3);
       }
       50% {
         transform: scale(1.05);
-        box-shadow: 0 4px 20px rgba(0, 106, 255, 0.5);
+        box-shadow: 0 4px 20px rgba(20, 31, 84, 0.5);
       }
       100% {
         transform: scale(1);
-        box-shadow: 0 4px 16px rgba(0, 106, 255, 0.3);
+        box-shadow: 0 4px 16px rgba(20, 31, 84, 0.3);
       }
     }
   `;
@@ -122,19 +122,19 @@ export default function DriveBotWidget() {
           position: 'fixed',
           bottom: 24,
           right: 24,
-          background: 'linear-gradient(135deg, #00B2FF 0%, #006AFF 100%)',
+          background: 'var(--wvdi-navy)',
           color: '#fff',
           border: 'none',
           borderRadius: '50%',
           width: 60,
           height: 60,
-          boxShadow: '0 4px 16px rgba(0, 106, 255, 0.4)',
+          boxShadow: '0 4px 16px rgba(20, 31, 84, 0.4)',
           zIndex: 1000,
           cursor: 'pointer',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: 28, // Slightly smaller for the icon
+          fontSize: 28,
           transition: 'all 0.3s ease',
           animation: pulseAnimation ? 'pulse 2s infinite' : 'none',
           overflow: 'hidden'
@@ -142,16 +142,16 @@ export default function DriveBotWidget() {
         onClick={() => setOpen(o => !o)}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.boxShadow = '0 6px 24px rgba(0, 106, 255, 0.5)';
+          e.currentTarget.style.boxShadow = '0 6px 24px rgba(20, 31, 84, 0.5)';
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 4px 16px rgba(0, 106, 255, 0.4)';
+          e.currentTarget.style.boxShadow = '0 4px 16px rgba(20, 31, 84, 0.4)';
         }}
       >
         {/* Using messenger icon with explicit styling to ensure visibility */}
         <FaFacebookMessenger style={{ 
-          fontSize: '28px', 
+          fontSize: '24px', 
           color: 'white',
           display: 'block'
         }} />
