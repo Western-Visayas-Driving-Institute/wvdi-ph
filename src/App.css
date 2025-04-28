@@ -31,17 +31,16 @@
   align-items: center;
   background: var(--wvdi-white);
   border-bottom: 3px solid var(--wvdi-navy);
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   gap: 2rem;
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
   z-index: 100;
-  height: 80px;
 }
 
 .wvdi-logo {
-  height: 80px;
+  height: 100px;
   width: auto;
   object-fit: contain;
   transition: transform 0.3s ease;
@@ -96,7 +95,7 @@
   padding: 1rem 0;
   box-shadow: var(--shadow-md);
   position: sticky;
-  top: calc(80px + 2rem + 2px); /* Header height + padding + border */
+  top: calc(100px + 2rem + 2px); /* Header height + padding + border */
   z-index: 99;
 }
 
