@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
+import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaSnapchatGhost } from 'react-icons/fa';
 import './App.css'
 import wvdiLogo from './assets/WVDI-logo.png'
 import autoWebp from './assets/Automatic.webp'
@@ -217,11 +218,11 @@ function App() {
               </React.Suspense>
             </div>
             <div className="wvdi-socials">
-              <a href="https://www.facebook.com/bacolodphilippinesdrivingschool" target="_blank" rel="noopener noreferrer">Facebook</a>
-              <a href="https://twitter.com/WVDI_Corp" target="_blank" rel="noopener noreferrer">Twitter</a>
-              <a href="https://www.youtube.com/channel/UCxn0NJ9EjmsP96EsOZztkjQ" target="_blank" rel="noopener noreferrer">YouTube</a>
-              <a href="https://www.instagram.com/wvdi_corp/" target="_blank" rel="noopener noreferrer">Instagram</a>
-              <a href="https://www.snapchat.com/add/wvdi_corp?share_id=Dl8ZmUhWq9g&locale=en-US" target="_blank" rel="noopener noreferrer">Snapchat</a>
+              <a href="https://www.facebook.com/bacolodphilippinesdrivingschool" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><FaFacebookF /></a>
+              <a href="https://twitter.com/WVDI_Corp" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><FaTwitter /></a>
+              <a href="https://www.youtube.com/channel/UCxn0NJ9EjmsP96EsOZztkjQ" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube /></a>
+              <a href="https://www.instagram.com/wvdi_corp/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+              <a href="https://www.snapchat.com/add/wvdi_corp?share_id=Dl8ZmUhWq9g&locale=en-US" target="_blank" rel="noopener noreferrer" aria-label="Snapchat"><FaSnapchatGhost /></a>
             </div>
           </section>
         </main>

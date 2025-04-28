@@ -548,7 +548,7 @@
 .wvdi-socials {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.5rem;
   margin-top: 2rem;
   flex-wrap: wrap;
 }
@@ -556,10 +556,14 @@
 .wvdi-socials a {
   background-color: var(--wvdi-navy);
   color: var(--wvdi-white);
-  padding: 0.7rem 1.5rem;
-  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
   transition: all 0.3s ease;
-  font-weight: 600;
+  font-size: 1.25rem;
 }
 
 .wvdi-socials a:hover {
@@ -985,12 +989,15 @@ div[aria-labelledby="tab-Theory"] li::before {
   }
   
   .wvdi-socials {
-    flex-direction: column;
-    gap: 0.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
   }
   
   .wvdi-socials a {
-    width: 100%;
+    width: 2.75rem;
+    height: 2.75rem;
   }
 }
 
