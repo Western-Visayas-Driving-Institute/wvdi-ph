@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css'
-import wvdiLogo from './assets/wvdi-logo.webp'
+import wvdiLogo from './assets/WVDI-logo.png'
 import autoWebp from './assets/Automatic.webp'
 import bestSeal from './assets/Best-Company-high-res-seal-small-768x768.webp'
 import ltoAccredited from './assets/LTO-accredited.webp'
@@ -57,7 +57,7 @@ function App() {
       <Seo
         title="Western Visayas Driving Institute - WVDI"
         description="Get professional driving training from LTO-accredited instructors on Negros Island. WVDI is your trusted partner for driving education."
-        image="https://wvdi-ph.com/assets/wvdi-logo.webp"
+        image="https://wvdi-ph.com/assets/WVDI-logo.png"
         locale="en"
       />
       <div className="wvdi-root">
