@@ -22,6 +22,9 @@ jobs:
     - name: Clean Install Dependencies
       run: npm ci
     
+    - name: Explicitly Install React Icons
+      run: npm install react-icons --save
+    
     - name: Build
       run: npm run build
     
