@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FaPaperPlane } from 'react-icons/fa6';
+import { FaPaperPlane } from 'react-icons/fa';
 import { IoClose } from 'react-icons/io5';
 import { BsMessenger } from 'react-icons/bs';
 
