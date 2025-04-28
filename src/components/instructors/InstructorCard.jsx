@@ -20,6 +20,13 @@ export default function InstructorCard({ p }) {
 
   // Get the instructor image from our imported map
   const instructorImage = instructorImages[p.id];
+  
+  // Get preferred name for the button (nickname or first name)
+  const getPreferredName = () => {
+    if (p.id === 'ferdinand-jil-sulat-jadia') return 'Toto';
+    if (p.id === 'marc-celes-jadia') return 'Bimbo';
+    return p.name.split(' ')[0]; // Default to first name for other instructors
+  };
 
   return (
     <article className="wvdi-card" itemScope itemType="https://schema.org/Person">
@@ -42,7 +49,7 @@ export default function InstructorCard({ p }) {
           style={{ margin: '1rem 0', padding: '0.75rem 1.5rem', fontSize: '1rem' }}
           onClick={handleBook}
         >
-          Book with {p.name.split(' ')[0]}
+          Book with {getPreferredName()}
         </button>
       </footer>
     </article>
