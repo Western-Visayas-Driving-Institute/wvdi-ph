@@ -18,7 +18,8 @@ import theoreticalLecture from './assets/theoritical lecture.webp'
 import carsInLine from './assets/wvdi cars in line.webp'
 import adminWebp from './assets/wvdi-admin.webp'
 import MessengerChat from './MessengerChat'
-import DriveBotWidget from './DriveBotWidget'
+// Only import DriveBot in development, not in production
+const DriveBotWidget = import.meta.env.VITE_IS_PROD ? React.Fragment : React.lazy(() => import('./DriveBotWidget'));
 import Carousel from './Carousel.jsx'
 import CoursesSection from './components/courses/CoursesSection';
 // import CoursesServicesSection from './components/CoursesServicesSection';
@@ -63,7 +64,8 @@ function App() {
       />
       <div className="wvdi-root">
         <MessengerChat />
-        <DriveBotWidget />
+        {/* Only render DriveBot in development, not in production */}
+        {!import.meta.env.VITE_IS_PROD && <DriveBotWidget />}
         <header className="wvdi-header">
           <img src={wvdiLogo} className="wvdi-logo" alt="WVDI Logo" />
           <div className="wvdi-header-text">

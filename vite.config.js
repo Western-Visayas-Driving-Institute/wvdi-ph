@@ -6,6 +6,10 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [react()],
   base: '/wvdi-ph/', // Set base path to match repository name for GitHub Pages
+  define: {
+    // Define environment variables for conditional rendering
+    'import.meta.env.VITE_IS_PROD': JSON.stringify(process.env.NODE_ENV === 'production')
+  },
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
@@ -16,8 +20,7 @@ export default defineConfig({
       external: [],
       output: {
         manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'react-icons': ['react-icons/fa', 'react-icons/bs', 'react-icons/io5']
+          'react-vendor': ['react', 'react-dom']
         }
       }
     },
