@@ -304,7 +304,19 @@
 
 .wvdi-validity { font-size:.75rem; color:var(--wvdi-text-light); }
 
-.wvdi-accred { font-size:.85rem; color:var(--wvdi-navy); }
+.wvdi-accred, .wvdi-seniority { 
+  font-size: .85rem; 
+  color: var(--wvdi-navy); 
+}
+
+.wvdi-seniority {
+  display: inline-block;
+  background-color: #f5f5f5;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
 
 .wvdi-btn {
   background: var(--wvdi-red);

@@ -37,9 +37,9 @@ export default function InstructorCard({ p }) {
         LTO Acc. #: <strong>{p.accreditationNo}</strong>
       </p>
 
-      <ul className="wvdi-courses">
-        {p.courses.map(c => <li key={c}>{c}</li>)}
-      </ul>
+      <p className="wvdi-seniority">
+        Since <strong>{p.seniority}</strong>
+      </p>
 
       <p className="wvdi-bio" itemProp="description">{p.bio}</p>
 
