@@ -96,7 +96,7 @@ function App() {
               {/* <MessengerChat /> */}
               <DriveBotWidget />
               <header className="wvdi-header">
-                <img src="/wvdi-logo.jpg" className="wvdi-logo" alt="WVDI Logo" />
+                <img src="wvdi-logo.jpg" className="wvdi-logo" alt="WVDI Logo" />
                 <div className="wvdi-header-text">
                   <h1>Western Visayas</h1>
                   <h2>Driving Inst. Corp.</h2>
