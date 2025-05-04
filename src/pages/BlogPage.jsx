@@ -27,17 +27,7 @@ const BlogPage = () => {
           <div style={{flex: '0 0 auto'}}>
             <Link to="/" className="wvdi-nav-link">Home</Link>
           </div>
-          <div style={{flex: '0 0 auto', marginLeft: '2rem'}}>
-            <Link
-              to="/?scroll=services"
-              className="wvdi-nav-link"
-              onClick={e => {
-                // Let routing happen, then scroll on the main page
-              }}
-            >
-              Services
-            </Link>
-          </div>
+          {/* Services link removed as requested */}
           <div style={{flex: 1}}></div>
           <form onSubmit={e => e.preventDefault()} style={{display: 'flex', alignItems: 'center', marginRight: '1.5rem'}}>
             <input
