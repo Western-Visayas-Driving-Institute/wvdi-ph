@@ -17,18 +17,18 @@ const GROUP_LABELS = {
   other: "Other Services",
 };
 
-export default function PackagesSection() {
+export default function ServicesSection() {
   const grouped = groupByGroup(coursesData);
 
   return (
     <section
-      id="packages"
+      id="services"
       className="wvdi-section wvdi-section-bg-white py-16 px-3 md:px-8 rounded-2xl max-w-5xl mx-auto my-16"
       style={{ boxShadow: "0 2px 12px rgba(20,31,84,0.05)", border: "1px solid #e0e0e0" }}
     >
       <header className="mb-10">
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
-          <h2 className="wvdi-section-title wvdi-section-title-underline">Packages</h2>
+          <h2 className="wvdi-section-title wvdi-section-title-underline">Services</h2>
         </div>
       </header>
       <div className="wvdi-packages-grid wvdi-packages-grid-margin p-8">
@@ -46,8 +46,6 @@ export default function PackagesSection() {
               <tbody>
                 <tr><td><b>15-Hour Theoretical Driving Course (TDC, face-to-face or online)</b></td><td><b>1,000</b></td></tr>
                 <tr><td>Defensive Driving Course</td><td><b>1,500</b></td></tr>
-                <tr><td>Preventive-Maintenance Seminar</td><td></td></tr>
-                <tr><td>Medical Examination</td><td><b>500</b></td></tr>
               </tbody>
             </table>
           </div>
@@ -134,6 +132,7 @@ export default function PackagesSection() {
               </thead>
               <tbody>
                 <tr><td>Philippines International Driving Permit (PIDP)</td><td><b>5,350</b></td></tr>
+                <tr><td>Medical Examination</td><td><b>500</b></td></tr>
               </tbody>
             </table>
           </div>

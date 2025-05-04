@@ -1,8 +1,8 @@
 import React from "react";
-import PackagesSection from "./PackagesSection";
+import ServicesSection from "./PackagesSection";
 
 const CoursesSection = () => (
-  <PackagesSection />
+  <ServicesSection />
 );
 
 export default CoursesSection;
