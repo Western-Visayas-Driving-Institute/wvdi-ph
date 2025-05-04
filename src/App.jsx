@@ -30,15 +30,25 @@ import InstructorSection from './components/instructors/InstructorSection';
 
 const ContactForm = React.lazy(() => import('./ContactForm.jsx'));
 
+// Import gallery images
+import galleryImg1 from './assets/gallery/20250419_154231 copy.png';
+import galleryImg2 from './assets/gallery/20250419_154533 copy.png';
+import galleryImg3 from './assets/gallery/20250419_154700 copy.png';
+import galleryImg4 from './assets/gallery/241533560_7112173432129959_6928486960725854342_n-1536x1025.webp';
+import galleryImg5 from './assets/gallery/325993997_847073779713280_8527340081142169849_n.webp';
+import galleryImg6 from './assets/gallery/327967147_558173626250616_5940790339520307325_n.webp';
+import galleryImg7 from './assets/gallery/462647315_1354106722235459_5443750022520858324_n.webp';
+import galleryImg8 from './assets/gallery/489686914_1105053818325340_1149231703761836535_n.webp';
+
 const galleryImages = [
-  '/assets/gallery/20250419_154231 copy.png',
-  '/assets/gallery/20250419_154533 copy.png',
-  '/assets/gallery/20250419_154700 copy.png',
-  '/assets/gallery/241533560_7112173432129959_6928486960725854342_n-1536x1025.webp',
-  '/assets/gallery/325993997_847073779713280_8527340081142169849_n.webp',
-  '/assets/gallery/327967147_558173626250616_5940790339520307325_n.webp',
-  '/assets/gallery/462647315_1354106722235459_5443750022520858324_n.webp',
-  '/assets/gallery/489686914_1105053818325340_1149231703761836535_n.webp',
+  galleryImg1,
+  galleryImg2,
+  galleryImg3,
+  galleryImg4,
+  galleryImg5,
+  galleryImg6,
+  galleryImg7,
+  galleryImg8,
 ];
 
 function App() {
@@ -99,7 +109,7 @@ function App() {
                 <a href="#home">Home</a>
                 <a href="#about">About Us</a>
                 <a href="#courses">Driving Courses</a>
-                <a href="#services">Services</a>
+                {/* <a href="#services">Services</a> */}
                 <a href="#instructors">Meet Your Instructors</a>
                 <a href="#branches">Branches</a>
                 <a href="#contact">Contact</a>

@@ -37,15 +37,6 @@ const CourseTable = ({ caption, headers, rows }) => (
   </div>
 );
 
-const courseImages = [
-  '/assets/courses/B1.jpg',
-  '/assets/courses/B2.jpg',
-  '/assets/courses/B3.jpg',
-  '/assets/courses/B4.jpg',
-  '/assets/courses/B5.jpg',
-  '/assets/courses/B6.jpg',
-  '/assets/courses/B7.jpg',
-  '/assets/courses/B8.jpg',
-];
+// Course images array removed as files don't exist and it's not used in the component
 
 export default CourseTable;

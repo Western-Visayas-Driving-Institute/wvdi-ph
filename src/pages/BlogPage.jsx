@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import wvdiLogo from '../assets/WVDI-logo.png';
 import posts from '../data/blogPosts.json';
 
+// Blog images now in public/blog/ - update references accordingly in blog post data or render logic if needed
 const BlogPage = () => {
   const [search, setSearch] = useState('');
   const filteredPosts = posts.filter(post =>
