@@ -133,7 +133,7 @@ export default function PackagesSection() {
                 </tr>
               </thead>
               <tbody>
-                <tr><td>International-driver-license assistance</td><td><b>6,200</b></td></tr>
+                <tr><td>Philippines International Driving Permit (PIDP)</td><td><b>5,350</b></td></tr>
               </tbody>
             </table>
           </div>

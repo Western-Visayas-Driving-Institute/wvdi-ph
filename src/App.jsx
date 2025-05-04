@@ -70,7 +70,7 @@ function App() {
             <h1>Western Visayas Driving Institute</h1>
             <h2>Driving Institute</h2>
             <p className="wvdi-contact">(034) 435-5803</p>
-            <p className="wvdi-hours">Office Hours: Mondays to Saturdays, 8:00 AM to 6:00 PM</p>
+            <p className="wvdi-hours">Office Hours: Mondays to Sundays, 8:00 AM to 6:00 PM</p>
           </div>
         </header>
         <nav className="wvdi-nav">

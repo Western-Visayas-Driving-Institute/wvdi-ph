@@ -15,7 +15,7 @@
   { "id": "assessment-car", "group": "driving-lessons", "title": "Driving Assessment (car)", "hours": 0.5, "price": 500 },
   { "id": "assessment-motorcycle", "group": "driving-lessons", "title": "Driving Assessment (motorcycle)", "hours": 0.5, "price": 300 },
 
-  { "id": "intl-license", "group": "other", "title": "International Driver’s License Assistance", "price": 6200 },
+  { "id": "intl-license", "group": "other", "title": "Philippines International Driving Permit (PIDP)", "price": 5350 },
   { "id": "renewal", "group": "other", "title": "Driver’s-License Renewal (incl. medical)", "price": 1200 },
   { "id": "corporate", "group": "other", "title": "Custom Corporate Training", "price": null }
 ]
