@@ -1428,3 +1428,42 @@ div[aria-labelledby="tab-Theory"] li::before {
   border-radius: var(--border-radius);
   box-shadow: 0 2px 8px rgba(30, 41, 82, 0.08);
 }
+
+@media screen and (max-width: 768px) {
+  .wvdi-hero {
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    border-radius: 0 !important;
+    padding: 2rem 0 1rem 0 !important;
+    box-sizing: border-box !important;
+  }
+  .wvdi-carousel {
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+  }
+  .wvdi-carousel-img {
+    left: 0 !important;
+    right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    display: block;
+  }
+}
