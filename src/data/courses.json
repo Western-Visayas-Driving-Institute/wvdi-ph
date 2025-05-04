@@ -2,7 +2,6 @@
   { "id": "tdc-f2f", "group": "theoretical", "title": "15-Hour Theoretical Driving Course (TDC) - F2F", "hours": 15, "price": 1000, "note": "Face-to-face class, required for Student Permit." },
   { "id": "tdc-online", "group": "theoretical", "title": "Online TDC (15 h)", "hours": 15, "price": 900, "note": "April promo" },
   { "id": "defensive-driving", "group": "theoretical", "title": "Defensive Driving Seminar", "price": 1500 },
-  { "id": "preventive-maintenance", "group": "theoretical", "title": "Preventive Maintenance Workshop", "price": 1200 },
   { "id": "renewal-theory", "group": "theoretical", "title": "Online Renewal Theory Review", "price": 500 },
 
   { "id": "pdc-motorcycle", "group": "practical", "vehicle": "Motorcycle", "hours": 8, "price": 2000 },
@@ -17,5 +16,6 @@
 
   { "id": "intl-license", "group": "other", "title": "Philippines International Driving Permit (PIDP)", "price": 5350 },
   { "id": "renewal", "group": "other", "title": "Driver’s-License Renewal (incl. medical)", "price": 1200 },
-  { "id": "corporate", "group": "other", "title": "Custom Corporate Training", "price": null }
+  { "id": "corporate", "group": "other", "title": "Custom Corporate Training", "price": null },
+  { "id": "medical-exam", "group": "other", "title": "Medical Examination", "price": 500 }
 ]
