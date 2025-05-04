@@ -4,7 +4,6 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import './App.css'
-import wvdiLogo from './assets/WVDI-logo.png'
 import autoWebp from './assets/Automatic.webp'
 import bestSeal from './assets/Best-Company-high-res-seal-small-768x768.webp'
 import ltoAccredited from './assets/LTO-accredited.webp'
@@ -97,7 +96,7 @@ function App() {
               {/* <MessengerChat /> */}
               <DriveBotWidget />
               <header className="wvdi-header">
-                <img src={wvdiLogo} className="wvdi-logo" alt="WVDI Logo" />
+                <img src="/wvdi-logo.jpg" className="wvdi-logo" alt="WVDI Logo" />
                 <div className="wvdi-header-text">
                   <h1>Western Visayas Driving Institute</h1>
                   <h2>Driving Institute</h2>
