@@ -113,7 +113,7 @@ function App() {
                 <a href="#instructors">Meet Your Instructors</a>
                 <a href="#branches">Branches</a>
                 <a href="#contact">Contact</a>
-                <a href="/blog">Blog</a>
+                <a href="#/blog">Blog</a>
               </nav>
               <main>
                 <section id="home" className="wvdi-hero">
