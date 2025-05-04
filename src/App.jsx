@@ -129,7 +129,9 @@ function App() {
                     <img src={bestSeal} alt="Best Company Seal" />
                     <img src={trophyWebp} alt="Trophy" />
                   </div>
-                  <p>WVDI Corp. is an LTO accredited driving school which has evolved to become the first driving school to offer comprehensive packages including FREE class lectures on Defensive Driving, Preventive Maintenance, Site Lectures and Hands-On Car Maintenance.</p>
+                  <p>
+                    <strong>The Western Visayas Driving Institute Corporation (WVDI)</strong>, established in <strong>1997</strong>, is a <span style={{ color: '#a00c0c', fontWeight: 'bold' }}>pioneering</span> and <span style={{ color: '#a00c0c', fontWeight: 'bold' }}>LTO-accredited</span> driving school in the Philippines, proudly recognized as the <span style={{ color: '#a00c0c', fontWeight: 'bold' }}>first driving school in Bacolod City, Negros Occidental</span>. With a strong commitment to <span style={{ color: '#a00c0c', fontWeight: 'bold' }}>road safety</span> and <span style={{ color: '#a00c0c', fontWeight: 'bold' }}>quality driver education</span>, WVDI has expanded its presence across the Visayas region, now operating branches in <strong>Bacolod</strong>, <strong>Himamaylan</strong>, and <strong>Dumaguete</strong>—each conveniently located near the respective <strong>LTO offices</strong>, including the <strong>LTO Capitol office in Bacolod</strong>. Our programs are designed to equip learners with <span style={{ color: '#a00c0c', fontWeight: 'bold' }}>essential driving skills</span> through comprehensive <span style={{ color: '#a00c0c', fontWeight: 'bold' }}>theoretical and practical instruction</span>, all while upholding the <span style={{ color: '#a00c0c', fontWeight: 'bold' }}>highest standards set by the Land Transportation Office (LTO)</span>.
+                  </p>
                   <a href="#courses" className="wvdi-cta">View Our Courses</a>
                 </section>
                 <InstructorSection />
