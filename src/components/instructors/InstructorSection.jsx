@@ -7,7 +7,7 @@ export default function InstructorSection() {
       <h2 className="wvdi-section-title wvdi-section-title-underline">Meet Our Instructors</h2>
       <p className="wvdi-section-sub">All trainers are LTO-accredited for both theoretical and practical courses.</p>
       <div className="wvdi-grid">
-        {data.map(i => <Card key={i.id} p={i} />)}
+        {[...data].sort((a, b) => parseInt(a.seniority) - parseInt(b.seniority)).map(i => <Card key={i.id} p={i} />)}
       </div>
     </section>
   );
