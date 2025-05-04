@@ -26,7 +26,6 @@ import CoursesSection from './components/courses/CoursesSection';
 // import CoursesServicesSection from './components/CoursesServicesSection';
 import Seo from './Seo.jsx';
 import InstructorSection from './components/instructors/InstructorSection';
-import wvdiLogo from '/wvdi-logo.jpg';
 
 const ContactForm = React.lazy(() => import('./ContactForm.jsx'));
 
@@ -97,7 +96,7 @@ function App() {
               {/* <MessengerChat /> */}
               <DriveBotWidget />
               <header className="wvdi-header">
-                <img src={wvdiLogo} className="wvdi-logo" alt="WVDI Logo" />
+                <img src="/wvdi-logo.jpg" className="wvdi-logo" alt="WVDI Logo" />
                 <div className="wvdi-header-text">
                   <h1>Western Visayas</h1>
                   <h2>Driving Inst. Corp.</h2>
