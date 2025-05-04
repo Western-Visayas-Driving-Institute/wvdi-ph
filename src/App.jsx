@@ -30,14 +30,16 @@ import InstructorSection from './components/instructors/InstructorSection';
 
 const ContactForm = React.lazy(() => import('./ContactForm.jsx'));
 
-import gallery1 from './assets/gallery/20250419_154231 copy.png';
-import gallery2 from './assets/gallery/20250419_154533 copy.png';
-import gallery3 from './assets/gallery/20250419_154700 copy.png';
-import gallery4 from './assets/gallery/241533560_7112173432129959_6928486960725854342_n-1536x1025.webp';
-import gallery5 from './assets/gallery/325993997_847073779713280_8527340081142169849_n.webp';
-import gallery6 from './assets/gallery/327967147_558173626250616_5940790339520307325_n.webp';
-import gallery7 from './assets/gallery/462647315_1354106722235459_5443750022520858324_n.webp';
-import gallery8 from './assets/gallery/489686914_1105053818325340_1149231703761836535_n.webp';
+const galleryImages = [
+  '/assets/gallery/20250419_154231 copy.png',
+  '/assets/gallery/20250419_154533 copy.png',
+  '/assets/gallery/20250419_154700 copy.png',
+  '/assets/gallery/241533560_7112173432129959_6928486960725854342_n-1536x1025.webp',
+  '/assets/gallery/325993997_847073779713280_8527340081142169849_n.webp',
+  '/assets/gallery/327967147_558173626250616_5940790339520307325_n.webp',
+  '/assets/gallery/462647315_1354106722235459_5443750022520858324_n.webp',
+  '/assets/gallery/489686914_1105053818325340_1149231703761836535_n.webp',
+];
 
 function App() {
   const [lightboxImage, setLightboxImage] = useState(null);
@@ -209,14 +211,9 @@ function App() {
                   <h2>Photo Gallery</h2>
                   <p>Discover our facilities, vehicles, and training environment:</p>
                   <div className="wvdi-gallery-images">
-                    <img src={gallery1} alt="Gallery image 1" loading="lazy" onClick={() => openLightbox(gallery1)} />
-                    <img src={gallery2} alt="Gallery image 2" loading="lazy" onClick={() => openLightbox(gallery2)} />
-                    <img src={gallery3} alt="Gallery image 3" loading="lazy" onClick={() => openLightbox(gallery3)} />
-                    <img src={gallery4} alt="Gallery image 4" loading="lazy" onClick={() => openLightbox(gallery4)} />
-                    <img src={gallery5} alt="Gallery image 5" loading="lazy" onClick={() => openLightbox(gallery5)} />
-                    <img src={gallery6} alt="Gallery image 6" loading="lazy" onClick={() => openLightbox(gallery6)} />
-                    <img src={gallery7} alt="Gallery image 7" loading="lazy" onClick={() => openLightbox(gallery7)} />
-                    <img src={gallery8} alt="Gallery image 8" loading="lazy" onClick={() => openLightbox(gallery8)} />
+                    {galleryImages.map((image, index) => (
+                      <img src={image} alt={`Gallery image ${index + 1}`} loading="lazy" onClick={() => openLightbox(image)} key={index} />
+                    ))}
                   </div>
                 </section>
 

@@ -30,7 +30,12 @@ export default function InstructorCard({ p }) {
 
   return (
     <article className="wvdi-card" itemScope itemType="https://schema.org/Person">
-      <img src={instructorImage} alt={`${p.name} – Driving Instructor`} loading="lazy" />
+      <img
+        className="instructor-image"
+        src={instructorImage}
+        alt={`${p.name} – Driving Instructor`}
+        loading="lazy"
+      />
       <h3 itemProp="name">{p.name}</h3>
 
       <p className="wvdi-accred" itemProp="identifier">

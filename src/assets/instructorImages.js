@@ -1,25 +1,14 @@
-// Import all instructor images directly
-import marcCelesJadia from './instructors/marc-celes-jadia.jpg';
-import joFranciscoRamos from './instructors/jo-francisco-ramos.jpg';
-import harryIntrepidoMorl from './instructors/harry-intrepido-morl.jpg';
-import ferdinandJilSulatJadia from './instructors/ferdinand-jil-sulat-jadia.jpg';
-import martinAmarGellecanao from './instructors/martin-amar-gellecanao.jpg';
-import rollyDelosSantosSastrado from './instructors/rolly-delos-santos-sastrado.jpg';
-import geneDeygabi from './instructors/gene-deygabi.jpg';
-import sundaeMaravilla from './instructors/sundae-maravilla.jpg';
-import ianMataObrero from './instructors/ian-mata-obrero.jpg';
-
-// Export as a map for easy access by instructor ID
+// Export as a map for easy access by instructor ID using public/assets path
 const instructorImages = {
-  'sundae-maravilla': sundaeMaravilla,
-  'marc-celes-jadia': marcCelesJadia,
-  'jo-francisco-ramos': joFranciscoRamos,
-  'harry-intrepido-morl': harryIntrepidoMorl,
-  'ferdinand-jil-sulat-jadia': ferdinandJilSulatJadia,
-  'martin-amar-gellecanao': martinAmarGellecanao,
-  'rolly-delos-santos-sastrado': rollyDelosSantosSastrado,
-  'gene-deygabi': geneDeygabi,
-  'ian-mata-obrero': ianMataObrero
+  'sundae-maravilla': '/assets/instructors/sundae-maravilla.jpg',
+  'marc-celes-jadia': '/assets/instructors/marc-celes-jadia.jpg',
+  'jo-francisco-ramos': '/assets/instructors/jo-francisco-ramos.jpg',
+  'harry-intrepido-morl': '/assets/instructors/harry-intrepido-morl.jpg',
+  'ferdinand-jil-sulat-jadia': '/assets/instructors/ferdinand-jil-sulat-jadia.jpg',
+  'martin-amar-gellecanao': '/assets/instructors/martin-amar-gellecanao.jpg',
+  'rolly-delos-santos-sastrado': '/assets/instructors/rolly-delos-santos-sastrado.jpg',
+  'gene-deygabi': '/assets/instructors/gene-deygabi.jpg',
+  'ian-mata-obrero': '/assets/instructors/ian-mata-obrero.jpg'
 };
 
 export default instructorImages;
