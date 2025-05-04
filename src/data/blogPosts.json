@@ -4,7 +4,7 @@
     "title": "How to Get Your Driver’s License in the Philippines: Step-by-Step Guide",
     "excerpt": "A comprehensive walkthrough of the process, requirements, and tips for getting your driver’s license in the Philippines.",
     "date": "2025-05-10",
-    "cover": "/public/assets/blog/license-guide.jpg",
+    "cover": "/license-guide.jpg",
     "category": "Driving Education & Tips",
     "content": "## Getting Your Driver’s License\n\nStep-by-step process, requirements, and practical tips for first-time applicants..."
   },
@@ -13,7 +13,7 @@
     "title": "TDC vs. PDC: What’s the Difference and Which One Do You Need?",
     "excerpt": "Understand the differences between the Theoretical Driving Course and Practical Driving Course.",
     "date": "2025-05-09",
-    "cover": "/public/assets/blog/tdc-vs-pdc.jpg",
+    "cover": "/tdc-vs-pdc.jpg",
     "category": "Driving Education & Tips",
     "content": "## TDC vs. PDC\n\nA breakdown of the two required courses for new drivers in the Philippines..."
   },
@@ -22,7 +22,7 @@
     "title": "Top 10 Tips for First-Time Drivers in the Philippines",
     "excerpt": "Essential advice for new drivers to stay safe and confident on Philippine roads.",
     "date": "2025-05-08",
-    "cover": "/public/assets/blog/first-time-tips.jpg",
+    "cover": "/first-time-tips.jpg",
     "category": "Driving Education & Tips",
     "content": "## Tips for First-Time Drivers\n\nA list of practical tips for beginners..."
   },
@@ -31,7 +31,7 @@
     "title": "Defensive Driving: Why It’s More Important Than You Think",
     "excerpt": "Learn how defensive driving helps reduce accidents and keeps you and others safe on the road.",
     "date": "2025-05-01",
-    "cover": "/public/assets/blog/defensive-driving.jpg",
+    "cover": "/defensive-driving.jpg",
     "category": "Driving Education & Tips",
     "content": "## Defensive Driving\n\nDriving defensively is more than just being cautious..."
   },
@@ -40,7 +40,7 @@
     "title": "Common Mistakes New Drivers Make and How to Avoid Them",
     "excerpt": "A guide to the most frequent errors made by new drivers and how to steer clear of them.",
     "date": "2025-04-28",
-    "cover": "/public/assets/blog/common-mistakes.jpg",
+    "cover": "/common-mistakes.jpg",
     "category": "Driving Education & Tips",
     "content": "## Common Mistakes\n\nMistakes to watch out for as a new driver..."
   },
@@ -49,7 +49,7 @@
     "title": "Driving in Bacolod, Dumaguete, and Kabankalan: What You Should Know",
     "excerpt": "Local driving insights and unique road conditions in Bacolod, Dumaguete, and Kabankalan.",
     "date": "2025-04-25",
-    "cover": "/public/assets/blog/local-driving.jpg",
+    "cover": "/local-driving.jpg",
     "category": "Local & Regional Relevance",
     "content": "## Driving in Bacolod, Dumaguete, Kabankalan\n\nWhat makes driving in these cities unique..."
   },
@@ -58,7 +58,7 @@
     "title": "LTO Requirements: What’s Needed for Your Driving Lessons?",
     "excerpt": "A checklist of LTO requirements for enrolling in driving lessons in the Philippines.",
     "date": "2025-04-23",
-    "cover": "/public/assets/blog/lto-requirements.jpg",
+    "cover": "/lto-requirements.jpg",
     "category": "Local & Regional Relevance",
     "content": "## LTO Requirements\n\nWhat you need to start your driving lessons..."
   },
@@ -67,7 +67,7 @@
     "title": "How Weather in Negros Affects Driving: Rainy Season Safety Tips",
     "excerpt": "Stay safe on the road during Negros’ rainy season with these essential driving tips.",
     "date": "2025-04-21",
-    "cover": "/public/assets/blog/weather-negros.jpg",
+    "cover": "/weather-negros.jpg",
     "category": "Local & Regional Relevance",
     "content": "## Weather & Driving\n\nHow to adjust your driving in the rainy season..."
   },
@@ -76,7 +76,7 @@
     "title": "Motorcycle Safety: A Must-Read for Tricycle and Habal-Habal Drivers",
     "excerpt": "Critical safety advice for tricycle and habal-habal drivers in the region.",
     "date": "2025-04-19",
-    "cover": "/public/assets/blog/motorcycle-safety.jpg",
+    "cover": "/motorcycle-safety.jpg",
     "category": "Local & Regional Relevance",
     "content": "## Motorcycle Safety\n\nImportant safety tips for local motorcycle drivers..."
   },
@@ -85,7 +85,7 @@
     "title": "Road Etiquette in the Philippines: Unwritten Rules Every Driver Follows",
     "excerpt": "Discover the unspoken rules and etiquette that guide Filipino drivers.",
     "date": "2025-04-17",
-    "cover": "/public/assets/blog/road-etiquette.jpg",
+    "cover": "/road-etiquette.jpg",
     "category": "Local & Regional Relevance",
     "content": "## Road Etiquette\n\nThe unwritten rules of the road in the Philippines..."
   },
@@ -94,7 +94,7 @@
     "title": "Beginner’s Guide to Basic Car Maintenance",
     "excerpt": "Simple steps every driver should know to keep their vehicle running smoothly.",
     "date": "2025-04-15",
-    "cover": "/public/assets/blog/car-maintenance.jpg",
+    "cover": "/car-maintenance.jpg",
     "category": "Vehicle Care & Maintenance",
     "content": "## Car Maintenance Basics\n\nChanging oil, checking brakes..."
   },
@@ -103,7 +103,7 @@
     "title": "What is Preventive Maintenance and Why You Shouldn’t Skip It",
     "excerpt": "Learn the importance of preventive maintenance for your vehicle’s longevity.",
     "date": "2025-04-13",
-    "cover": "/public/assets/blog/preventive-maintenance.jpg",
+    "cover": "/preventive-maintenance.jpg",
     "category": "Vehicle Care & Maintenance",
     "content": "## Preventive Maintenance\n\nWhy regular maintenance matters..."
   },
@@ -112,7 +112,7 @@
     "title": "How to Prepare Your Vehicle for a Long Road Trip",
     "excerpt": "Essential checklist for preparing your vehicle for long drives.",
     "date": "2025-04-11",
-    "cover": "/public/assets/blog/road-trip-prep.jpg",
+    "cover": "/road-trip-prep.jpg",
     "category": "Vehicle Care & Maintenance",
     "content": "## Road Trip Prep\n\nWhat to check before a long journey..."
   },
@@ -121,7 +121,7 @@
     "title": "Understanding the LTO Exams: Theory and Practical Explained",
     "excerpt": "A guide to the LTO exams: what to expect and how to prepare.",
     "date": "2025-04-09",
-    "cover": "/public/assets/blog/lto-exams.jpg",
+    "cover": "/lto-exams.jpg",
     "category": "Educational & Awareness Campaigns",
     "content": "## LTO Exams\n\nTheory and practical exam breakdown..."
   },
@@ -130,7 +130,7 @@
     "title": "Why Road Safety Education Starts Before You Drive",
     "excerpt": "The importance of early road safety education for future drivers.",
     "date": "2025-04-07",
-    "cover": "/public/assets/blog/road-safety-education.jpg",
+    "cover": "/road-safety-education.jpg",
     "category": "Educational & Awareness Campaigns",
     "content": "## Road Safety Education\n\nWhy it’s crucial to start early..."
   },
@@ -139,7 +139,7 @@
     "title": "What Is the Anti-Distracted Driving Act and How Does It Affect You?",
     "excerpt": "An overview of the Anti-Distracted Driving Act and its impact on Filipino motorists.",
     "date": "2025-04-05",
-    "cover": "/public/assets/blog/anti-distracted-driving.jpg",
+    "cover": "/anti-distracted-driving.jpg",
     "category": "Educational & Awareness Campaigns",
     "content": "## Anti-Distracted Driving Act\n\nKey points of the law and how to comply..."
   },
@@ -148,7 +148,7 @@
     "title": "How Driving Schools Help Reduce Road Accidents",
     "excerpt": "Exploring the role of driving schools in improving road safety.",
     "date": "2025-04-03",
-    "cover": "/public/assets/blog/schools-safety.jpg",
+    "cover": "/schools-safety.jpg",
     "category": "Educational & Awareness Campaigns",
     "content": "## Driving Schools & Safety\n\nHow formal training saves lives..."
   },
@@ -157,7 +157,7 @@
     "title": "Meet Our Instructors: Local Heroes of Road Safety",
     "excerpt": "Get to know the WVDI instructors making a difference in your community.",
     "date": "2025-04-01",
-    "cover": "/public/assets/blog/meet-instructors.jpg",
+    "cover": "/meet-instructors.jpg",
     "category": "WVDI News & Updates",
     "content": "## Meet Our Instructors\n\nProfiles of our dedicated team..."
   },
@@ -166,7 +166,7 @@
     "title": "WVDI Expansion: New Branches and Upcoming Services",
     "excerpt": "Exciting updates on WVDI’s growth and new offerings.",
     "date": "2025-03-30",
-    "cover": "/public/assets/blog/expansion-news.jpg",
+    "cover": "/expansion-news.jpg",
     "category": "WVDI News & Updates",
     "content": "## WVDI Expansion\n\nWhat’s new at WVDI..."
   },
@@ -175,7 +175,7 @@
     "title": "Student Stories: How WVDI Helped Me Pass the LTO Exam",
     "excerpt": "Real stories from students who succeeded with WVDI’s help.",
     "date": "2025-03-28",
-    "cover": "/public/assets/blog/student-stories.jpg",
+    "cover": "/student-stories.jpg",
     "category": "WVDI News & Updates",
     "content": "## Student Stories\n\nTestimonials from WVDI students..."
   },
@@ -184,7 +184,7 @@
     "title": "How to Get an International Driver’s License with WVDI’s Help",
     "excerpt": "Step-by-step guide to getting your international driver’s license through WVDI.",
     "date": "2025-03-25",
-    "cover": "/public/assets/blog/intl-license.jpg",
+    "cover": "/intl-license.jpg",
     "category": "Special Topics",
     "content": "## International License\n\nHow WVDI can help you drive abroad..."
   },
@@ -193,7 +193,7 @@
     "title": "Driving Abroad: What Filipino Drivers Should Know",
     "excerpt": "Important considerations for Filipinos planning to drive outside the country.",
     "date": "2025-03-23",
-    "cover": "/public/assets/blog/driving-abroad.jpg",
+    "cover": "/driving-abroad.jpg",
     "category": "Special Topics",
     "content": "## Driving Abroad\n\nWhat to know before you go..."
   },
@@ -202,7 +202,7 @@
     "title": "Electric Vehicles in the Philippines: Are We Ready?",
     "excerpt": "A look at the readiness of the Philippines for electric vehicles.",
     "date": "2025-03-20",
-    "cover": "/public/assets/blog/electric-vehicles.jpg",
+    "cover": "/electric-vehicles.jpg",
     "category": "Special Topics",
     "content": "## Electric Vehicles\n\nThe future of EVs in the Philippines..."
   }
