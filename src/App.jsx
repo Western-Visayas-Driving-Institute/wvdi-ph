@@ -98,8 +98,8 @@ function App() {
               <header className="wvdi-header">
                 <img src="/wvdi-logo.jpg" className="wvdi-logo" alt="WVDI Logo" />
                 <div className="wvdi-header-text">
-                  <h1>Western Visayas Driving Institute</h1>
-                  <h2>Driving Institute</h2>
+                  <h1>Western Visayas</h1>
+                  <h2>Driving Inst. Corp.</h2>
                   <p className="wvdi-contact">(034) 435-5803</p>
                   <p className="wvdi-hours">Office Hours: Mondays to Sundays, 8:00 AM to 6:00 PM</p>
                 </div>

@@ -61,23 +61,25 @@
   font-size: 2.2rem;
   margin: 0;
   font-weight: 800;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
   letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .wvdi-header-text h2 {
   color: var(--wvdi-red);
-  font-size: 1.3rem;
-  margin: 0.2rem 0 0.5rem 0;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-size: 2.2rem;
+  margin: -0.5rem 0 0.5rem 0; /* Further reduced gap between lines */
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-family: 'Arial Black', 'Helvetica', sans-serif;
   text-transform: uppercase;
 }
 
 .wvdi-contact, .wvdi-hours {
   color: var(--wvdi-navy);
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 1.2rem; /* Increased font size */
+  font-weight: 700; /* Made bolder */
   margin: 0;
 }
 
