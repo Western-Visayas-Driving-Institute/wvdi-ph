@@ -1,6 +1,6 @@
 import React, { useState, lazy, Suspense, useEffect } from 'react';
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram, FaSnapchatGhost } from 'react-icons/fa';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import './App.css'
