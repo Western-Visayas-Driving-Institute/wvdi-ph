@@ -110,6 +110,8 @@ export default function DriveBotWidget() {
     }
   `;
 
+  if (true) return null;
+
   return (
     <>
       {/* Add keyframes to document */}
