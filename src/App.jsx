@@ -21,7 +21,7 @@ import carsInLine from './assets/wvdi cars in line.webp'
 import adminWebp from './assets/wvdi-admin.webp'
 // Import the logo as a URL to ensure it's properly included in the build
 import wvdiLogoSrc from './assets/WVDI-logo.png?url'
-import wvdiLogoJpg from './assets/wvdi-logo-.jpg';
+import wvdiLogoJpg from './assets/wvdi-logo.jpg';
 import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
