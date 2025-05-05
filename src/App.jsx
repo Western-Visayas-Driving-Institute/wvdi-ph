@@ -19,6 +19,9 @@ import teamTransparent from './assets/team on transparent.webp'
 import theoreticalLecture from './assets/theoritical lecture.webp'
 import carsInLine from './assets/wvdi cars in line.webp'
 import adminWebp from './assets/wvdi-admin.webp'
+// Import the logo as a URL to ensure it's properly included in the build
+import wvdiLogoSrc from './assets/WVDI-logo.png?url'
+import wvdiLogoJpg from './assets/wvdi-logo-.jpg';
 import MessengerChat from './MessengerChat'
 import DriveBotWidget from './DriveBotWidget'
 import Carousel from './Carousel.jsx'
@@ -96,7 +99,34 @@ function App() {
               {/* <MessengerChat /> */}
               <DriveBotWidget />
               <header className="wvdi-header">
-                <img src="wvdi-logo.jpg" className="wvdi-logo" alt="WVDI Logo" />
+                <div className="wvdi-logo-container">
+                  {/* Embedded SVG logo to avoid external file loading issues */}
+                  {/* <svg
+                    className="wvdi-logo"
+                    viewBox="0 0 200 200"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="100" cy="100" r="95" fill="#1a2b5e" stroke="#fff" strokeWidth="3" />
+                    <circle cx="100" cy="100" r="70" fill="none" stroke="#fff" strokeWidth="3" />
+                    <text
+                      x="100"
+                      y="110"
+                      textAnchor="middle"
+                      fill="#a00c0c"
+                      fontWeight="bold"
+                      fontSize="40"
+                      fontFamily="Arial, sans-serif"
+                    >
+                      WVDI
+                    </text>
+                  </svg> */}
+                  <img
+                    src={wvdiLogoJpg}
+                    alt="WVDI Logo"
+                    className="wvdi-logo"
+                    style={{ display: 'block', height: '100px', width: '100px', objectFit: 'contain' }}
+                  />
+                </div>
                 <div className="wvdi-header-text">
                   <h1>Western Visayas</h1>
                   <h2>Driving Inst. Corp.</h2>
