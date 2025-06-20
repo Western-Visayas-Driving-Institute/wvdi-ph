@@ -729,7 +729,7 @@
   font-size: 2rem;
   cursor: pointer;
   margin: 0 16px;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
   z-index: 2;
   position: absolute;
   top: 50%;
@@ -745,7 +745,8 @@
 }
 
 .wvdi-carousel-btn:hover {
-  background: var(--wvdi-red);
+  transform: translateY(-50%) scale(1.1);
+  background: transparent !important;
 }
 
 .wvdi-carousel-dots {
