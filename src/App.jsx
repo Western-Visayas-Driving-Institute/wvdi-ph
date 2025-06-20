@@ -62,8 +62,8 @@ function App() {
         locale="en"
       />
       <div className="wvdi-root">
-        <MessengerChat />
-        <DriveBotWidget />
+        {/* <MessengerChat /> */}
+        {/* <DriveBotWidget /> */}
         <header className="wvdi-header">
           <img src={wvdiLogo} className="wvdi-logo" alt="WVDI Logo" />
           <div className="wvdi-header-text">
