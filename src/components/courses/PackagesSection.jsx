@@ -27,8 +27,11 @@ export default function PackagesSection() {
       style={{ boxShadow: "0 2px 12px rgba(20,31,84,0.05)", border: "1px solid #e0e0e0" }}
     >
       <header className="mb-10">
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', position: 'relative' }}>
           <h2 className="wvdi-section-title wvdi-section-title-underline">Packages</h2>
+          <div className="wvdi-promo-circle">
+            2 hours free
+          </div>
         </div>
       </header>
       <div className="wvdi-packages-grid wvdi-packages-grid-margin p-8">
@@ -44,7 +47,8 @@ export default function PackagesSection() {
                 </tr>
               </thead>
               <tbody>
-                <tr><td><b>15-Hour Theoretical Driving Course (TDC, face-to-face or online)</b></td><td><b>1,000</b></td></tr>
+                <tr><td><b>TDC (Face-to-Face)</b></td><td><b>1,000</b></td></tr>
+                <tr><td><b>OTDC (Online TDC)</b></td><td><b>1,000</b></td></tr>
                 <tr><td>Defensive Driving Course</td><td><b>1,500</b></td></tr>
                 <tr><td>Preventive-Maintenance Seminar</td><td></td></tr>
                 <tr><td>Medical Examination</td><td><b>500</b></td></tr>
@@ -133,6 +137,7 @@ export default function PackagesSection() {
                 </tr>
               </thead>
               <tbody>
+                <tr><td>Renewal of Driver's License Assistance+Medical</td><td><b>1,000</b></td></tr>
                 <tr><td>International-driver-license assistance</td><td><b>6,200</b></td></tr>
               </tbody>
             </table>
