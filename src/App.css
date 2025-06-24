@@ -745,6 +745,12 @@
   background: transparent !important;
 }
 
+.wvdi-carousel-btn:focus,
+.wvdi-carousel-btn:active {
+  outline: none;
+  background: transparent !important;
+}
+
 .wvdi-carousel-dots {
   display: flex;
   justify-content: center;
