@@ -1,7 +1,7 @@
 /**
- * AI Provider Factory
- * Supports: ollama, gemini, openai
- * Selection based on AI_PROVIDER environment variable
+ * AI Provider Factory with Automatic Fallback
+ * Supports: gemini, ollama, openai
+ * Priority order configurable via AI_PROVIDER_PRIORITY env var
  */
 
 import { createOllamaProvider } from './ollama.js';
@@ -9,26 +9,93 @@ import { createGeminiProvider } from './gemini.js';
 
 // Provider registry
 const providers = {
-  ollama: createOllamaProvider,
   gemini: createGeminiProvider,
+  ollama: createOllamaProvider,
   // Future providers:
   // openai: createOpenAIProvider,
 };
 
+// Default priority order (cloud first, local fallback)
+const DEFAULT_PRIORITY = 'gemini,ollama';
+
 /**
- * Get the configured AI provider
+ * Get priority order from env or default
+ */
+function getPriorityOrder() {
+  const priority = process.env.AI_PROVIDER_PRIORITY || DEFAULT_PRIORITY;
+  return priority.split(',').map(p => p.trim()).filter(p => providers[p]);
+}
+
+/**
+ * Get a provider with automatic fallback support
  * @returns {Object} Provider with chat() and healthCheck() methods
  */
 export function getProvider() {
-  const providerName = process.env.AI_PROVIDER || 'ollama';
+  const priorityOrder = getPriorityOrder();
 
-  const createProvider = providers[providerName];
+  return {
+    name: 'fallback',
+    priorityOrder,
 
-  if (!createProvider) {
-    throw new Error(`Unknown AI provider: ${providerName}. Available: ${Object.keys(providers).join(', ')}`);
-  }
+    /**
+     * Chat with automatic fallback between providers
+     */
+    async chat(params) {
+      const errors = [];
 
-  return createProvider();
+      for (const providerName of priorityOrder) {
+        try {
+          const provider = providers[providerName]();
+          const response = await provider.chat(params);
+
+          // Success - return response with provider info
+          return {
+            content: response,
+            provider: providerName,
+            model: provider.model,
+          };
+        } catch (error) {
+          console.log(`Provider ${providerName} failed: ${error.message}`);
+          errors.push({ provider: providerName, error: error.message });
+
+          // Continue to next provider
+          continue;
+        }
+      }
+
+      // All providers failed
+      throw new Error(`All providers failed: ${errors.map(e => `${e.provider}: ${e.error}`).join('; ')}`);
+    },
+
+    /**
+     * Health check - returns first available provider
+     */
+    async healthCheck() {
+      for (const providerName of priorityOrder) {
+        try {
+          const provider = providers[providerName]();
+          const result = await provider.healthCheck();
+
+          if (result.available) {
+            return {
+              available: true,
+              provider: providerName,
+              model: result.model,
+              fallbackOrder: priorityOrder,
+            };
+          }
+        } catch (error) {
+          continue;
+        }
+      }
+
+      return {
+        available: false,
+        fallbackOrder: priorityOrder,
+        error: 'No providers available',
+      };
+    },
+  };
 }
 
 /**
@@ -41,13 +108,14 @@ export async function checkHealth() {
     const result = await provider.healthCheck();
     return {
       available: result.available,
-      provider: process.env.AI_PROVIDER || 'ollama',
+      provider: result.provider || 'none',
       model: result.model || null,
+      fallbackOrder: result.fallbackOrder,
     };
   } catch (error) {
     return {
       available: false,
-      provider: process.env.AI_PROVIDER || 'ollama',
+      provider: 'none',
       error: error.message,
     };
   }

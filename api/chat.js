@@ -97,13 +97,18 @@ export default async function handler(req, res) {
     // Get AI provider and generate response with JSON mode
     const provider = getProvider();
 
-    const rawResponse = await provider.chat({
+    const aiResponse = await provider.chat({
       systemPrompt,
       messages,
       temperature: 0.7,
       maxTokens: 800, // Increased for JSON overhead
       jsonMode: true, // Enable JSON structured output
     });
+
+    // Extract raw content from provider response (supports fallback format)
+    const rawResponse = typeof aiResponse === 'string' ? aiResponse : aiResponse.content;
+    const usedProvider = typeof aiResponse === 'object' ? aiResponse.provider : null;
+    const usedModel = typeof aiResponse === 'object' ? aiResponse.model : null;
 
     // Parse JSON response from AI
     let responseText = rawResponse;
@@ -153,6 +158,8 @@ export default async function handler(req, res) {
       sessionId: sessionId,
       leadCaptured: hasLeadData(session.lead),
       lead: session.lead, // Return accumulated lead data
+      provider: usedProvider, // Which AI provider was used
+      model: usedModel, // Which model was used
     });
 
   } catch (error) {
