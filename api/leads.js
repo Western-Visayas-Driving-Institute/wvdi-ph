@@ -266,8 +266,15 @@ async function appendRow(accessToken, leadData) {
 /**
  * Upsert lead data to Google Sheets
  * Updates existing row if threadId found, otherwise appends new row
+ * REQUIRES valid threadId - will not save without it
  */
 async function upsertToSheet(leadData) {
+  // Double-check threadId exists before any write operation
+  if (!leadData.threadId) {
+    console.error('upsertToSheet called without threadId - aborting');
+    throw new Error('Thread ID is required for saving lead data');
+  }
+
   const accessToken = await getAccessToken();
 
   // Ensure headers exist in row 1
