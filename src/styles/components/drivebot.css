@@ -52,6 +52,10 @@
   right: 0;
   width: 320px;
   height: 450px;
+  min-width: 280px;
+  min-height: 300px;
+  max-width: 500px;
+  max-height: 600px;
   background-color: white;
   border-radius: 12px;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
@@ -59,6 +63,8 @@
   flex-direction: column;
   overflow: hidden;
   border: 1px solid #e0e0e0;
+  resize: both;
+  overflow: auto;
 }
 
 .drivebot-header {
