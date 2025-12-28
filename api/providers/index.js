@@ -5,12 +5,13 @@
  */
 
 import { createOllamaProvider } from './ollama.js';
+import { createGeminiProvider } from './gemini.js';
 
 // Provider registry
 const providers = {
   ollama: createOllamaProvider,
+  gemini: createGeminiProvider,
   // Future providers:
-  // gemini: createGeminiProvider,
   // openai: createOpenAIProvider,
 };
 
