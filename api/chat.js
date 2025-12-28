@@ -94,22 +94,56 @@ export default async function handler(req, res) {
     // Generate system prompt with knowledge base
     const systemPrompt = generateSystemPrompt(language);
 
-    // Get AI provider and generate response
+    // Get AI provider and generate response with JSON mode
     const provider = getProvider();
 
-    const response = await provider.chat({
+    const rawResponse = await provider.chat({
       systemPrompt,
       messages,
       temperature: 0.7,
-      maxTokens: 500,
+      maxTokens: 800, // Increased for JSON overhead
+      jsonMode: true, // Enable JSON structured output
     });
+
+    // Parse JSON response from AI
+    let responseText = rawResponse;
+    let aiExtractedLead = null;
+
+    try {
+      const parsed = JSON.parse(rawResponse);
+      responseText = parsed.response || rawResponse;
+      aiExtractedLead = parsed.extractedLead || null;
+
+      // Merge AI-extracted lead with session lead
+      if (aiExtractedLead) {
+        if (aiExtractedLead.name) session.lead.name = aiExtractedLead.name;
+        if (aiExtractedLead.phone) {
+          const phones = Array.isArray(aiExtractedLead.phone) ? aiExtractedLead.phone : [aiExtractedLead.phone];
+          session.lead.phones = [...new Set([...session.lead.phones, ...phones.filter(p => p)])];
+        }
+        if (aiExtractedLead.email) {
+          const emails = Array.isArray(aiExtractedLead.email) ? aiExtractedLead.email : [aiExtractedLead.email];
+          session.lead.emails = [...new Set([...session.lead.emails, ...emails.filter(e => e)])];
+        }
+        if (aiExtractedLead.services && Array.isArray(aiExtractedLead.services)) {
+          session.lead.services = [...new Set([...session.lead.services, ...aiExtractedLead.services.filter(s => s)])];
+        }
+        if (aiExtractedLead.callbackTime) {
+          session.lead.callbackTime = aiExtractedLead.callbackTime;
+        }
+      }
+    } catch (parseError) {
+      // If JSON parsing fails, use raw response as text
+      console.warn('Failed to parse AI JSON response:', parseError.message);
+      responseText = rawResponse;
+    }
 
     // Store messages in session for context
     session.messages = messages.slice(-10); // Keep last 10 messages
 
     // Return response with session info and lead data
     return res.status(200).json({
-      response: response,
+      response: responseText,
       sessionId: sessionId,
       leadCaptured: hasLeadData(session.lead),
       lead: session.lead, // Return accumulated lead data

@@ -23,24 +23,31 @@ export function createOllamaProvider() {
      * @param {number} params.maxTokens - Maximum response length
      * @returns {Promise<string>} AI response text
      */
-    async chat({ systemPrompt, messages, temperature = 0.7, maxTokens = 500 }) {
+    async chat({ systemPrompt, messages, temperature = 0.7, maxTokens = 500, jsonMode = false }) {
       const formattedMessages = [
         { role: 'system', content: systemPrompt },
         ...messages,
       ];
+
+      const requestBody = {
+        model: OLLAMA_MODEL,
+        messages: formattedMessages,
+        temperature,
+        max_tokens: maxTokens,
+        stream: false,
+      };
+
+      // Enable JSON format mode if requested
+      if (jsonMode) {
+        requestBody.format = 'json';
+      }
 
       const response = await fetch(`${OLLAMA_API_URL}/v1/chat/completions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          model: OLLAMA_MODEL,
-          messages: formattedMessages,
-          temperature,
-          max_tokens: maxTokens,
-          stream: false,
-        }),
+        body: JSON.stringify(requestBody),
       });
 
       if (!response.ok) {
