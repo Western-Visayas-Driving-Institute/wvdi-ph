@@ -1,6 +1,6 @@
 [
   { "id": "tdc-f2f", "group": "theoretical", "title": "15-Hour Theoretical Driving Course (TDC) - F2F", "hours": 15, "price": 1000, "note": "Face-to-face class, required for Student Permit." },
-  { "id": "tdc-online", "group": "theoretical", "title": "Online TDC (15 h)", "hours": 15, "price": 900, "note": "April promo" },
+  { "id": "tdc-online", "group": "theoretical", "title": "Online TDC (15 h)", "hours": 15, "price": 900 },
   { "id": "defensive-driving", "group": "theoretical", "title": "Defensive Driving Seminar", "price": 1500 },
   { "id": "preventive-maintenance", "group": "theoretical", "title": "Preventive Maintenance Workshop", "price": 1200 },
   { "id": "renewal-theory", "group": "theoretical", "title": "Online Renewal Theory Review", "price": 500 },
