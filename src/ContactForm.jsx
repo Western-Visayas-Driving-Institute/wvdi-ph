@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -51,11 +50,20 @@ export default function ContactForm() {
   }
 
   if (submitted) {
-    return <div className="wvdi-contact-success">Thank you! Your request has been sent. We'll get back to you soon.</div>;
+    return (
+      <div className="wvdi-contact-success">
+        <strong>Thank you for reaching out!</strong>
+        <p>Your request has been sent successfully. We typically respond within 2 hours during business hours (8 AM - 7 PM).</p>
+        <p>You can also reach us directly via WhatsApp for faster response.</p>
+      </div>
+    );
   }
 
   return (
     <form className="wvdi-contact-form" onSubmit={handleSubmit}>
+      <p className="wvdi-form-response-time">
+        We typically respond within 2 hours during business hours.
+      </p>
       <div className="wvdi-form-group">
         <label htmlFor="email">Email<span>*</span></label>
         <input

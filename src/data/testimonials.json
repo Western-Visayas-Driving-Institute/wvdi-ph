@@ -1,0 +1,47 @@
+{
+  "stats": {
+    "passRate": "95%",
+    "yearsExperience": "15+",
+    "totalGraduates": "10,000+",
+    "instructors": 8,
+    "branches": 3
+  },
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Maria Santos",
+      "location": "Bacolod City",
+      "course": "TDC + Practical Driving",
+      "rating": 5,
+      "text": "I was nervous about learning to drive, but the instructors at WVDI made me feel so comfortable. I passed my LTO test on the first try! The free defensive driving lecture was incredibly helpful.",
+      "date": "2024"
+    },
+    {
+      "id": 2,
+      "name": "Juan dela Cruz",
+      "location": "Himamaylan",
+      "course": "Master Course Package",
+      "rating": 5,
+      "text": "Best driving school in Negros! The hands-on car maintenance training is something you won't find anywhere else. Worth every peso.",
+      "date": "2024"
+    },
+    {
+      "id": 3,
+      "name": "Ana Reyes",
+      "location": "Dumaguete City",
+      "course": "Refresher Course",
+      "rating": 5,
+      "text": "After 10 years of not driving, I needed a refresher. Sir Martin was patient and helped me regain my confidence on the road. Highly recommend!",
+      "date": "2023"
+    },
+    {
+      "id": 4,
+      "name": "Carlo Mendoza",
+      "location": "Bacolod City",
+      "course": "Professional Driver's Course",
+      "rating": 5,
+      "text": "I got my professional license thanks to WVDI. The corporate training prepared me well for my job as a delivery driver. Very professional instructors.",
+      "date": "2024"
+    }
+  ]
+}

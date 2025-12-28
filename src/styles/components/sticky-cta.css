@@ -1,0 +1,154 @@
+/* ===========================================
+   Mobile Sticky CTA Styles
+   =========================================== */
+
+.wvdi-sticky-cta {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: none;
+}
+
+/* Show only on mobile/tablet */
+@media screen and (max-width: 992px) {
+  .wvdi-sticky-cta {
+    display: block;
+  }
+}
+
+.wvdi-sticky-cta-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--wvdi-red);
+  color: var(--wvdi-white);
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+.wvdi-sticky-cta-trigger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+
+.wvdi-sticky-cta-trigger svg {
+  font-size: 1.2rem;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(178, 34, 34, 0.5);
+  }
+}
+
+/* Expanded state */
+.wvdi-sticky-cta-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--wvdi-white);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wvdi-sticky-cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.wvdi-sticky-cta-btn.phone {
+  background: var(--wvdi-navy);
+  color: var(--wvdi-white);
+}
+
+.wvdi-sticky-cta-btn.phone:hover {
+  background: #1a3a5c;
+}
+
+.wvdi-sticky-cta-btn.whatsapp {
+  background: #25D366;
+  color: var(--wvdi-white);
+}
+
+.wvdi-sticky-cta-btn.whatsapp:hover {
+  background: #1da851;
+}
+
+.wvdi-sticky-cta-btn svg {
+  font-size: 1.25rem;
+}
+
+.wvdi-sticky-cta-close {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--wvdi-navy);
+  color: var(--wvdi-white);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.wvdi-sticky-cta-close:hover {
+  background: var(--wvdi-red);
+  transform: scale(1.1);
+}
+
+/* Extra small screens */
+@media screen and (max-width: 400px) {
+  .wvdi-sticky-cta {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .wvdi-sticky-cta-trigger {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .wvdi-sticky-cta-trigger span {
+    display: none;
+  }
+
+  .wvdi-sticky-cta-trigger svg {
+    font-size: 1.4rem;
+  }
+}

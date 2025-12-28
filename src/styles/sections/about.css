@@ -1,0 +1,43 @@
+/* ===========================================
+   About/Accreditation Section Styles
+   =========================================== */
+
+.wvdi-accreditation {
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin: var(--spacing-md) auto 0;
+  max-width: 90%;
+}
+
+.wvdi-accreditation h2 {
+  color: var(--wvdi-navy);
+  font-size: 2.2rem;
+  margin-bottom: var(--spacing-md);
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.wvdi-accreditation img {
+  max-width: 250px;
+  margin: 0 auto var(--spacing-md);
+  border-radius: var(--border-radius);
+}
+
+.wvdi-accreditation p {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Remove underline from About section title if needed */
+#about .wvdi-section-title {
+  border-bottom: none;
+}
+
+@media screen and (max-width: 768px) {
+  .wvdi-accreditation {
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin: var(--spacing-sm) auto;
+  }
+}

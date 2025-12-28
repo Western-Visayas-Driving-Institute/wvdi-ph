@@ -1,0 +1,136 @@
+/* ===========================================
+   Why Choose Us Section Styles
+   =========================================== */
+
+.wvdi-why-choose-section {
+  background-color: var(--wvdi-gray);
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  border-radius: var(--border-radius);
+  max-width: 1200px;
+}
+
+.wvdi-why-choose-section h2 {
+  color: var(--wvdi-navy);
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: var(--spacing-sm);
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.wvdi-why-intro {
+  text-align: center;
+  color: #555;
+  margin-bottom: var(--spacing-md);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wvdi-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.wvdi-benefit-card {
+  background: var(--wvdi-white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wvdi-benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.wvdi-benefit-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--wvdi-navy) 0%, #1a3a5c 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.wvdi-benefit-icon svg {
+  font-size: 1.5rem;
+  color: var(--wvdi-white);
+}
+
+.wvdi-benefit-card h3 {
+  color: var(--wvdi-navy);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+}
+
+.wvdi-benefit-card p {
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Guarantee Box */
+.wvdi-guarantee-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: linear-gradient(135deg, var(--wvdi-navy) 0%, #1a3a5c 100%);
+  color: var(--wvdi-white);
+  padding: 1.5rem 2rem;
+  border-radius: var(--border-radius);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.wvdi-guarantee-icon {
+  font-size: 2.5rem;
+  color: #4ade80;
+  flex-shrink: 0;
+}
+
+.wvdi-guarantee-box strong {
+  color: #4ade80;
+}
+
+.wvdi-guarantee-box div {
+  line-height: 1.6;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .wvdi-why-choose-section {
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin: var(--spacing-sm) auto;
+  }
+
+  .wvdi-why-choose-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .wvdi-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wvdi-guarantee-box {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem;
+  }
+
+  .wvdi-guarantee-icon {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "bacolod",
+    "name": "BACOLOD",
+    "address": "4/F Space #4007 Ayala Malls Capitol Central, Gatuslao St. Bacolod City",
+    "phones": ["09178100009", "0917 825 4580", "0917 594 7890"],
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d716.7199471575506!2d122.9493599464753!3d10.676673851172218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aed12977528ad9%3A0x6f7eee3fb19647c2!2sLTO%20-%20Land%20Transportation%20Office%20-%20Bacolod!5e0!3m2!1sen!2sph!4v1745648825528!5m2!1sen!2sph"
+  },
+  {
+    "id": "himamaylan",
+    "name": "HIMAMAYLAN",
+    "address": "Zone 3, Brgy. 1, Poblacion St., Gatuslao Blvd., Himamaylan City",
+    "phones": ["09171587908", "09190938891"],
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6297.050148544658!2d122.8709813868982!3d10.097490834791443!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33aefc7a3c76b8af%3A0x8f8f8f8f8f8f8f8f!2sZone%203%2C%20Brgy.%201%2C%20Poblacion%20St.%2C%20Gatuslao%20Blvd.%2C%20Himamaylan%20City%2C%20Negros%20Occidental!5e0!3m2!1sen!2sph!4v1713438400328!5m2!1sen!2sph"
+  },
+  {
+    "id": "dumaguete",
+    "name": "DUMAGUETE",
+    "address": "Capitol Area, Taclobo, Dumaguete City, Negros Oriental",
+    "phones": ["09690505125", "09178619706"],
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d463.489265070263!2d123.30110315600122!3d9.311234089293514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33ab6fd88e193ab9%3A0xd43373c72262ecf7!2sWestern%20Visayas%20Driving%20Institute!5e0!3m2!1sen!2sph!4v1745648607261!5m2!1sen!2sph"
+  }
+]

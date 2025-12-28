@@ -1,13 +1,59 @@
-import { OpenAI } from 'openai';
+/**
+ * Chat API - Main endpoint for DriveBot
+ * Uses configurable AI provider and extracts lead information
+ */
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+import { getProvider } from './providers/index.js';
+import { generateSystemPrompt } from './lib/knowledge.js';
+import { extractLeadInfo, mergeLeadInfo, hasLeadData, formatLeadForStorage } from './lib/extract.js';
 
+// In-memory session storage (for lead accumulation)
+// In production, use Redis or similar
+const sessions = new Map();
+
+// Session cleanup interval (30 minutes)
+const SESSION_TIMEOUT = 30 * 60 * 1000;
+
+/**
+ * Get or create a session
+ */
+function getSession(sessionId) {
+  if (!sessionId) {
+    sessionId = `session_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  }
+
+  if (!sessions.has(sessionId)) {
+    sessions.set(sessionId, {
+      lead: { phones: [], emails: [], name: null, services: [] },
+      messages: [],
+      createdAt: Date.now(),
+    });
+  }
+
+  return { sessionId, session: sessions.get(sessionId) };
+}
+
+/**
+ * Cleanup old sessions
+ */
+function cleanupSessions() {
+  const now = Date.now();
+  for (const [id, session] of sessions.entries()) {
+    if (now - session.createdAt > SESSION_TIMEOUT) {
+      sessions.delete(id);
+    }
+  }
+}
+
+// Run cleanup every 10 minutes
+setInterval(cleanupSessions, 10 * 60 * 1000);
+
+/**
+ * API Handler
+ */
 export default async function handler(req, res) {
-  // Enable CORS
-  res.setHeader('Access-Control-Allow-Credentials', true);
+  // CORS headers
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
   res.setHeader(
@@ -15,7 +61,6 @@ export default async function handler(req, res) {
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
   );
 
-  // Handle preflight OPTIONS request
   if (req.method === 'OPTIONS') {
     res.status(200).end();
     return;
@@ -26,51 +71,77 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { messages, model = 'gpt-4-turbo', language = 'en' } = req.body;
+    const { messages, language = 'en', sessionId: inputSessionId } = req.body;
 
     if (!messages || !Array.isArray(messages)) {
       return res.status(400).json({ error: 'Messages array is required' });
     }
 
-    // Add system message for context about WVDI
-    const systemMessage = {
-      role: 'system',
-      content: `You are DriveBot, a helpful assistant for Western Visayas Driving Institute (WVDI).
-      
-Respond in the user's language, which is currently: ${language}.
+    // Get or create session
+    const { sessionId, session } = getSession(inputSessionId);
 
-Here is information about WVDI:
-- WVDI is an LTO accredited driving school
-- Branches: Bacolod, Himamaylan, and Dumaguete
-- Office hours: 8 AM - 7 PM (Monday to Sunday)
-- Services: Driving courses, theoretical lectures, site lectures, hands-on car maintenance
-- Phone numbers:
-  * BACOLOD: 09178100009 / 0917 825 4580 / 0917 594 7890 / 0908 873 3598 / 0908705 4162
-  * HIMAMAYLAN: 09171587908 / 09190938891
-  * DUMAGUETE: 09690505125 / 09178619706
-- Email: info@wvdi-ph.com
+    // Get the last user message for lead extraction
+    const lastUserMessage = [...messages].reverse().find(m => m.role === 'user');
 
-Be friendly, helpful, and concise in your answers. If you don't know the answer to a question, suggest that the user contact WVDI directly through phone or email.`
-    };
+    if (lastUserMessage) {
+      // Extract lead info from the message
+      const newLeadInfo = extractLeadInfo(lastUserMessage.content);
 
-    // Make request to OpenAI API
-    const completion = await openai.chat.completions.create({
-      model: model,
-      messages: [systemMessage, ...messages],
+      // Merge with existing lead data
+      session.lead = mergeLeadInfo(session.lead, newLeadInfo);
+    }
+
+    // Generate system prompt with knowledge base
+    const systemPrompt = generateSystemPrompt(language);
+
+    // Get AI provider and generate response
+    const provider = getProvider();
+
+    const response = await provider.chat({
+      systemPrompt,
+      messages,
       temperature: 0.7,
-      max_tokens: 500,
+      maxTokens: 500,
     });
 
-    // Return the response to the client
-    return res.status(200).json({ 
-      response: completion.choices[0].message.content.trim() 
+    // Store messages in session for context
+    session.messages = messages.slice(-10); // Keep last 10 messages
+
+    // Return response with session info
+    return res.status(200).json({
+      response: response,
+      sessionId: sessionId,
+      leadCaptured: hasLeadData(session.lead),
     });
 
   } catch (error) {
-    console.error('OpenAI API error:', error);
-    return res.status(500).json({ 
+    console.error('Chat API error:', error);
+
+    // Provide helpful error for provider issues
+    if (error.message.includes('Ollama')) {
+      return res.status(503).json({
+        error: 'AI service temporarily unavailable',
+        details: 'The AI backend is not responding. Please try again later.',
+      });
+    }
+
+    return res.status(500).json({
       error: 'An error occurred while processing your request',
-      details: error.message
+      details: error.message,
     });
   }
+}
+
+/**
+ * Export function to get session lead data (for leads.js)
+ */
+export function getSessionLead(sessionId) {
+  const session = sessions.get(sessionId);
+  if (!session) return null;
+
+  const conversationSummary = session.messages
+    .map(m => `${m.role}: ${m.content.substring(0, 100)}`)
+    .join('\n');
+
+  return formatLeadForStorage(session.lead, conversationSummary);
 }

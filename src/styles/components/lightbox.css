@@ -1,0 +1,58 @@
+/* ===========================================
+   Lightbox Modal Styles
+   =========================================== */
+
+.wvdi-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: var(--spacing-md);
+}
+
+.wvdi-lightbox-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.wvdi-lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.wvdi-lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.wvdi-lightbox-close:hover {
+  color: var(--wvdi-red);
+}
+
+@media (max-width: 768px) {
+  .wvdi-lightbox-content {
+    max-width: 95%;
+  }
+
+  .wvdi-lightbox-close {
+    top: -35px;
+    right: 0;
+    font-size: 2rem;
+  }
+}

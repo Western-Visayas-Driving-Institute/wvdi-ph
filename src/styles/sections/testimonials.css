@@ -1,0 +1,170 @@
+/* ===========================================
+   Testimonials Section Styles
+   =========================================== */
+
+.wvdi-testimonials-section {
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  max-width: 1200px;
+}
+
+.wvdi-testimonials-section h2 {
+  color: var(--wvdi-navy);
+  text-align: center;
+  font-size: 2.2rem;
+  margin: var(--spacing-lg) auto var(--spacing-md);
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Statistics Bar */
+.wvdi-stats-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, var(--wvdi-navy) 0%, #1a3a5c 100%);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+}
+
+.wvdi-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--wvdi-white);
+  padding: 1rem 2rem;
+  min-width: 140px;
+}
+
+.wvdi-stat-icon {
+  font-size: 2rem;
+  color: var(--wvdi-red);
+  margin-bottom: 0.5rem;
+}
+
+.wvdi-stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+.wvdi-stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Testimonials Grid */
+.wvdi-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.wvdi-testimonial-card {
+  background: var(--wvdi-white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wvdi-testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.wvdi-quote-icon {
+  color: var(--wvdi-red);
+  font-size: 1.5rem;
+  opacity: 0.3;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.wvdi-testimonial-text {
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.wvdi-testimonial-rating {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.wvdi-star {
+  color: #f5c518;
+  font-size: 1rem;
+}
+
+.wvdi-testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-top: 1px solid #eee;
+  padding-top: 0.75rem;
+}
+
+.wvdi-testimonial-author strong {
+  color: var(--wvdi-navy);
+  font-size: 1.1rem;
+}
+
+.wvdi-testimonial-author span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.wvdi-testimonial-course {
+  color: var(--wvdi-red) !important;
+  font-weight: 500;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .wvdi-testimonials-section {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+
+  .wvdi-stats-bar {
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+
+  .wvdi-stat-card {
+    padding: 0.75rem 1rem;
+    min-width: 100px;
+  }
+
+  .wvdi-stat-icon {
+    font-size: 1.5rem;
+  }
+
+  .wvdi-stat-value {
+    font-size: 1.5rem;
+  }
+
+  .wvdi-stat-label {
+    font-size: 0.75rem;
+  }
+
+  .wvdi-testimonials-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .wvdi-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}

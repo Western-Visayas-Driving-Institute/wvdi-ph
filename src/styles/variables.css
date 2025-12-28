@@ -1,0 +1,42 @@
+/* ===========================================
+   WVDI Brand Variables
+   =========================================== */
+
+:root {
+  /* Brand Colors */
+  --wvdi-navy: #141f54;
+  --wvdi-navy-light: #273272;
+  --wvdi-red: #a00c0c;
+  --wvdi-red-light: #c41212;
+  --wvdi-white: #fff;
+  --wvdi-gray: #f5f5f5;
+  --wvdi-gray-dark: #e0e0e0;
+  --wvdi-primary: #0D47A1;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.16);
+  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.2);
+
+  /* Border Radius */
+  --border-radius: 8px;
+
+  /* Typography */
+  --font-primary: 'Roboto', 'Segoe UI', Arial, sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+  --font-display: 'Bebas Neue', 'Arial Black', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+
+  /* Breakpoints (for reference) */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 900px;
+  --breakpoint-xl: 1200px;
+}

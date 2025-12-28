@@ -1,0 +1,140 @@
+/* ===========================================
+   Branches Section Styles
+   =========================================== */
+
+.wvdi-branches-bg {
+  background-color: var(--wvdi-gray);
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: var(--spacing-lg) 0;
+  min-width: 100vw;
+  z-index: 0;
+}
+
+.wvdi-branches {
+  background-color: var(--wvdi-gray);
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin: 0 auto;
+  border-radius: var(--border-radius);
+  max-width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.wvdi-branches h2 {
+  color: var(--wvdi-navy);
+  text-align: center;
+  font-size: 2.4rem;
+  margin: 2.5rem auto 2.2rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+  letter-spacing: 0.5px;
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: block;
+  width: fit-content;
+}
+
+.wvdi-branches-description {
+  text-align: center;
+  color: var(--wvdi-navy);
+  font-weight: 700;
+  margin-bottom: var(--spacing-md);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wvdi-branches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: var(--spacing-md);
+  padding: 0 var(--spacing-md);
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wvdi-branch-item {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  transition: box-shadow 0.3s ease;
+  padding: var(--spacing-md);
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--spacing-md);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.wvdi-branch-item:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.wvdi-branch-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wvdi-branch-info h3 {
+  color: var(--wvdi-red);
+  margin-top: 0;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.4rem;
+}
+
+.wvdi-branch-info p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.wvdi-branch-map {
+  height: 250px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.wvdi-branch-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Responsive Branches */
+@media (max-width: 900px) {
+  .wvdi-branch-item {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .wvdi-branches {
+    padding: var(--spacing-md) 0.5rem;
+  }
+
+  .wvdi-branches-list {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .wvdi-branch-item {
+    grid-template-columns: 1fr;
+  }
+
+  .wvdi-branch-map {
+    height: 200px;
+  }
+
+  .wvdi-branches {
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin: var(--spacing-sm) auto;
+  }
+}

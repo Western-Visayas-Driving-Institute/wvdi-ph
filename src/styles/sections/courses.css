@@ -1,0 +1,319 @@
+/* ===========================================
+   Courses & Packages Section Styles
+   =========================================== */
+
+.wvdi-courses {
+  background-color: var(--wvdi-gray);
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  border-radius: var(--border-radius);
+  max-width: 90%;
+}
+
+/* Packages Section Container */
+.wvdi-packages-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  border-radius: 16px;
+  max-width: 1400px;
+  width: calc(100% - 2rem);
+  box-shadow: 0 2px 12px rgba(20, 31, 84, 0.05);
+  border: 1px solid #e0e0e0;
+  overflow: visible;
+  position: relative;
+}
+
+.wvdi-packages-section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+.wvdi-packages-section-header h2 {
+  color: var(--wvdi-navy);
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.wvdi-courses h2 {
+  color: var(--wvdi-navy);
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: var(--spacing-md);
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.wvdi-courses h3 {
+  color: var(--wvdi-red);
+  font-size: 1.8rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.wvdi-courses h4 {
+  color: var(--wvdi-navy);
+  font-size: 1.4rem;
+  margin: 1.5rem 0 0.5rem;
+  background-color: var(--wvdi-gray-dark);
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  display: inline-block;
+}
+
+/* Course Lists */
+.wvdi-courses ul {
+  list-style: none;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.wvdi-courses ul li::before {
+  content: none;
+}
+
+.wvdi-courses ul.with-checkmarks li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.wvdi-courses ul.with-checkmarks li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  color: var(--wvdi-red);
+  font-weight: bold;
+}
+
+.wvdi-courses ul:not(.with-checkmarks) li,
+.wvdi-courses ul.no-checkmarks li {
+  position: relative;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Packages Grid */
+.wvdi-packages-grid {
+  padding: var(--spacing-md) 0 0 0;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .wvdi-packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .wvdi-packages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.wvdi-packages-grid-margin {
+  margin-left: 0;
+  margin-right: 0;
+  border-left: none;
+  border-right: none;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .wvdi-packages-grid-margin {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .wvdi-packages-grid-margin {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+}
+
+.wvdi-packages-cta-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.wvdi-packages-cta {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wvdi-packages-group-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--wvdi-navy);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  border-bottom: 2px solid var(--wvdi-red);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Services Section */
+.wvdi-services ul,
+.wvdi-services ul li,
+#services ul,
+#services ul li {
+  list-style-image: none;
+  list-style-type: none;
+  list-style-position: outside;
+}
+
+.wvdi-services li:before,
+.wvdi-services ul li:before,
+#services li:before,
+#services ul li:before {
+  content: "";
+  display: none;
+}
+
+.with-checkmarks li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.with-checkmarks li::before {
+  content: "\2713";
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: var(--wvdi-red);
+  font-weight: bold;
+}
+
+/* Chrome-specific tab panel fix */
+#tab-panel-Theory li::before,
+#tab-panel-Theory ul li::before {
+  display: none !important;
+  content: none !important;
+}
+
+#tab-panel-Theory li,
+#tab-panel-Theory ul li {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+
+/* Promotional Circle - Now positioned inline for better visibility */
+.wvdi-promo-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(145deg, #ffd700, #ffaa00);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: bold;
+  font-size: 15px;
+  color: #dc143c;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+  animation: promo-pulse 2s infinite;
+  border: 3px solid #ffa500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  flex-shrink: 0;
+}
+
+@keyframes promo-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Packages Table Card - Equal Heights */
+.wvdi-packages-table-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.wvdi-packages-table-card .wvdi-table-wrapper {
+  flex: 1;
+}
+
+/* Info Note Box - Replaces italic text */
+.wvdi-packages-info-note {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-left: 4px solid var(--wvdi-navy);
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+  color: var(--wvdi-navy);
+  line-height: 1.5;
+}
+
+.wvdi-packages-info-note strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .wvdi-courses {
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin: var(--spacing-sm) auto;
+  }
+
+  .wvdi-packages-section {
+    padding: var(--spacing-md) var(--spacing-sm);
+    width: calc(100% - 1rem);
+    margin: var(--spacing-sm) auto;
+  }
+
+  .wvdi-promo-circle {
+    width: 80px;
+    height: 80px;
+    font-size: 12px;
+    margin-left: 0.75rem;
+  }
+
+  .wvdi-packages-section-header h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wvdi-promo-circle {
+    width: 70px;
+    height: 70px;
+    font-size: 11px;
+    padding: 0.25rem;
+  }
+}

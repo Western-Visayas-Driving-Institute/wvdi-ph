@@ -1,0 +1,54 @@
+/* ===========================================
+   Gallery Section Styles
+   =========================================== */
+
+.wvdi-gallery {
+  text-align: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  max-width: 90%;
+}
+
+.wvdi-gallery h2 {
+  color: var(--wvdi-navy);
+  font-size: 2.2rem;
+  margin-bottom: var(--spacing-md);
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.wvdi-gallery-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.wvdi-gallery-images img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.wvdi-gallery-images img:hover {
+  transform: scale(1.15);
+  box-shadow: var(--shadow-lg);
+  z-index: 10;
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .wvdi-gallery {
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin: var(--spacing-sm) auto;
+  }
+
+  .wvdi-gallery-images {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-sm);
+  }
+}

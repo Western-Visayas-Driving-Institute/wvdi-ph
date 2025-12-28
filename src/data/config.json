@@ -1,0 +1,58 @@
+{
+  "company": {
+    "name": "Western Visayas Driving Institute",
+    "fullName": "Western Visayas Driving Institute Corporation",
+    "phone": "(034) 435-5803",
+    "whatsapp": "639178100009",
+    "email": "info@wvdi-ph.com",
+    "hours": "8 AM - 7 PM (Mondays - Sundays)",
+    "officeHours": "Mondays to Saturdays, 8:00 AM to 6:00 PM"
+  },
+  "social": [
+    {
+      "platform": "facebook",
+      "url": "https://www.facebook.com/bacolodphilippinesdrivingschool",
+      "label": "Facebook"
+    },
+    {
+      "platform": "twitter",
+      "url": "https://twitter.com/WVDI_Corp",
+      "label": "Twitter"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/channel/UCxn0NJ9EjmsP96EsOZztkjQ",
+      "label": "YouTube"
+    },
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/wvdi_corp/",
+      "label": "Instagram"
+    },
+    {
+      "platform": "snapchat",
+      "url": "https://www.snapchat.com/add/wvdi_corp?share_id=Dl8ZmUhWq9g&locale=en-US",
+      "label": "Snapchat"
+    },
+    {
+      "platform": "whatsapp",
+      "url": "https://wa.me/639178100009?text=Hi! I'm interested in driving lessons at WVDI.",
+      "label": "WhatsApp"
+    }
+  ],
+  "navigation": [
+    { "href": "#home", "label": "Home" },
+    { "href": "#about", "label": "About Us" },
+    { "href": "#courses", "label": "Driving Courses" },
+    { "href": "#services", "label": "Services" },
+    { "href": "#instructors", "label": "Meet Your Instructors" },
+    { "href": "#branches", "label": "Branches" },
+    { "href": "#contact", "label": "Contact" }
+  ],
+  "seo": {
+    "title": "Western Visayas Driving Institute - WVDI",
+    "description": "Get professional driving training from LTO-accredited instructors on Negros Island. WVDI is your trusted partner for driving education.",
+    "image": "https://wvdi-ph.com/assets/WVDI-logo.png",
+    "locale": "en"
+  }
+}

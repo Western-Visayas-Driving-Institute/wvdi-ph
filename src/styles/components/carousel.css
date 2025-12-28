@@ -1,0 +1,166 @@
+/* ===========================================
+   Carousel Styles
+   =========================================== */
+
+.wvdi-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--spacing-md) auto var(--spacing-sm) auto;
+  position: relative;
+  background: none;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 504px;
+  overflow: hidden;
+}
+
+.wvdi-carousel-img {
+  width: 100%;
+  max-width: 100%;
+  height: 504px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  margin: 0 auto;
+}
+
+.wvdi-carousel-btn {
+  background: transparent;
+  color: var(--wvdi-white);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 2rem;
+  cursor: pointer;
+  margin: 0 16px;
+  transition: all 0.3s ease;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.wvdi-carousel-btn.prev {
+  left: 32px;
+}
+
+.wvdi-carousel-btn.next {
+  right: 32px;
+}
+
+.wvdi-carousel-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  background: transparent !important;
+}
+
+.wvdi-carousel-btn:focus,
+.wvdi-carousel-btn:active {
+  outline: none;
+  background: transparent !important;
+}
+
+/* Carousel Dots */
+.wvdi-carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  gap: 0.5rem;
+  width: 100%;
+  position: static;
+}
+
+.wvdi-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--wvdi-gray-dark);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.wvdi-dot.active {
+  background: var(--wvdi-red);
+}
+
+/* Carousel Responsive */
+@media (max-width: 768px) {
+  .wvdi-carousel {
+    min-height: 300px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: var(--spacing-sm) 0;
+    overflow: hidden;
+  }
+
+  .wvdi-carousel-img {
+    width: 100%;
+    height: 300px;
+    max-width: 100%;
+    border-radius: 0;
+    object-fit: cover;
+  }
+
+  .wvdi-carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    margin: 0 8px;
+  }
+
+  .wvdi-carousel-btn.prev {
+    left: 16px;
+  }
+
+  .wvdi-carousel-btn.next {
+    right: 16px;
+  }
+
+  .wvdi-carousel-dots {
+    margin-top: 16px;
+    gap: 0.4rem;
+  }
+
+  .wvdi-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .wvdi-carousel {
+    min-height: 200px;
+    margin: 0.5rem 0;
+  }
+
+  .wvdi-carousel-img {
+    height: 200px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .wvdi-carousel-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1.2rem;
+    margin: 0 4px;
+  }
+
+  .wvdi-carousel-btn.prev {
+    left: 8px;
+  }
+
+  .wvdi-carousel-btn.next {
+    right: 8px;
+  }
+
+  .wvdi-dot {
+    width: 8px;
+    height: 8px;
+  }
+}

@@ -1,0 +1,118 @@
+/* ===========================================
+   FAQ Section Styles
+   =========================================== */
+
+.wvdi-faq-section {
+  padding: var(--spacing-lg) var(--spacing-md);
+  margin: var(--spacing-md) auto;
+  max-width: 900px;
+}
+
+.wvdi-faq-section h2 {
+  color: var(--wvdi-navy);
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: var(--spacing-sm);
+  border-bottom: 3px solid var(--wvdi-red);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  width: 100%;
+}
+
+.wvdi-faq-intro {
+  text-align: center;
+  color: #555;
+  margin-bottom: var(--spacing-md);
+  font-size: 1.1rem;
+}
+
+.wvdi-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.wvdi-faq-item {
+  background: var(--wvdi-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.wvdi-faq-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.wvdi-faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--wvdi-navy);
+  font-family: var(--font-heading);
+  gap: 1rem;
+}
+
+.wvdi-faq-question:hover {
+  color: var(--wvdi-red);
+}
+
+.wvdi-faq-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: var(--wvdi-red);
+  font-size: 0.9rem;
+}
+
+.wvdi-faq-item.open .wvdi-faq-icon {
+  transform: rotate(180deg);
+}
+
+.wvdi-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.wvdi-faq-item.open .wvdi-faq-answer {
+  max-height: 500px;
+}
+
+.wvdi-faq-answer p {
+  padding: 0 1.5rem 1.25rem;
+  margin: 0;
+  color: #444;
+  line-height: 1.7;
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 768px) {
+  .wvdi-faq-section {
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin: var(--spacing-sm) auto;
+  }
+
+  .wvdi-faq-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .wvdi-faq-question {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  .wvdi-faq-answer p {
+    padding: 0 1.25rem 1rem;
+    font-size: 0.95rem;
+  }
+}

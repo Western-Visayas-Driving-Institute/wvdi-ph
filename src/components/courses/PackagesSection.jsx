@@ -21,20 +21,16 @@ export default function PackagesSection() {
   const grouped = groupByGroup(coursesData);
 
   return (
-    <section
-      id="packages"
-      className="wvdi-section wvdi-section-bg-white py-16 px-3 md:px-8 rounded-2xl max-w-5xl mx-auto my-16"
-      style={{ boxShadow: "0 2px 12px rgba(20,31,84,0.05)", border: "1px solid #e0e0e0" }}
-    >
-      <header className="mb-10">
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'center', position: 'relative' }}>
-          <h2 className="wvdi-section-title wvdi-section-title-underline">Packages</h2>
+    <section id="packages" className="wvdi-packages-section">
+      <header className="wvdi-packages-section-header">
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '0.5rem' }}>
+          <h2>Packages</h2>
           <div className="wvdi-promo-circle">
-            2 hours free
+            2 Hours Free
           </div>
         </div>
       </header>
-      <div className="wvdi-packages-grid wvdi-packages-grid-margin p-8">
+      <div className="wvdi-packages-grid wvdi-packages-grid-margin">
         {/* 1. Theory-only Courses */}
         <div className="wvdi-card wvdi-packages-card wvdi-packages-table-card">
           <h3 className="wvdi-section-title wvdi-packages-group-title" style={{fontWeight:700, fontSize:'1.05rem', marginBottom:'1.1rem', textAlign:'left'}}>1. Theory-only Courses</h3>
@@ -73,8 +69,8 @@ export default function PackagesSection() {
                 <tr><td>Motor vehicle (car)</td><td><b>4,000</b></td></tr>
               </tbody>
             </table>
-            <div style={{fontSize:'0.95em', color:'#444', marginTop:'0.5em', fontStyle:'italic'}}>
-              If you also offer an 8-hour Practical Driving Course (PDC) required by the LTO, its price still needs to be added.
+            <div className="wvdi-packages-info-note">
+              <strong>Note:</strong> 8-hour Practical Driving Course (PDC) required by LTO is available. Contact us for pricing.
             </div>
           </div>
         </div>
@@ -144,8 +140,8 @@ export default function PackagesSection() {
           </div>
         </div>
       </div>
-      <div className="flex justify-center mt-8 wvdi-packages-cta-center">
-        <a href="#contact" className="wvdi-cta wvdi-packages-cta">Contact us to book a package</a>
+      <div className="wvdi-packages-cta-center" style={{ marginTop: '2rem' }}>
+        <a href="#contact" className="wvdi-cta wvdi-packages-cta">Contact Us to Book a Package</a>
       </div>
     </section>
   );

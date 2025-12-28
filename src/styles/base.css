@@ -1,0 +1,115 @@
+/* ===========================================
+   Base Styles & Utilities
+   =========================================== */
+
+/* Root Container */
+.wvdi-root {
+  background: var(--wvdi-white);
+  min-height: 100vh;
+  font-family: var(--font-primary);
+  max-width: 1600px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Scroll Margin for Anchor Links */
+.scroll-mt-24 {
+  scroll-margin-top: 6rem;
+}
+
+/* Section Base */
+.wvdi-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) 1.5rem;
+  background: var(--wvdi-white);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(20, 31, 84, 0.05);
+  border: 1px solid var(--wvdi-gray-dark);
+}
+
+/* Section Title Styles */
+.wvdi-section-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--wvdi-navy);
+  margin-bottom: 0.5rem;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wvdi-section-title-underline {
+  border-bottom: 3px solid var(--wvdi-red);
+  display: inline-block;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.wvdi-section-sub {
+  font-size: 1.1rem;
+  color: var(--wvdi-navy);
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 700px;
+}
+
+/* Background Utilities */
+.wvdi-section-bg-blue {
+  background: var(--wvdi-navy-light);
+}
+
+.wvdi-section-bg-gray {
+  background: var(--wvdi-gray);
+}
+
+.wvdi-section-bg-white {
+  background: var(--wvdi-white);
+}
+
+.wvdi-section-bg-blue,
+.wvdi-section-bg-gray,
+.wvdi-section-bg-white {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  box-shadow: none;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Grid System */
+.wvdi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Ensure grid is centered in full-width sections */
+.wvdi-section .wvdi-grid {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}

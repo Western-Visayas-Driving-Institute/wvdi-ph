@@ -1,0 +1,108 @@
+/* ===========================================
+   Form Styles
+   =========================================== */
+
+/* Contact Form */
+.wvdi-contact-form {
+  background: #fff;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-md) 1.5rem;
+  margin: var(--spacing-md) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  max-width: 100%;
+  align-items: stretch;
+}
+
+.wvdi-form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.wvdi-contact-form label {
+  font-weight: 600;
+  color: var(--wvdi-navy);
+  margin-bottom: 0.2rem;
+}
+
+.wvdi-contact-form label span {
+  color: var(--wvdi-red);
+  margin-left: 2px;
+}
+
+.wvdi-contact-form input,
+.wvdi-contact-form textarea {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid var(--wvdi-gray-dark);
+  border-radius: 6px;
+  font-size: 1.05rem;
+  font-family: inherit;
+  transition: border 0.2s;
+  background: #f8fafc;
+}
+
+.wvdi-contact-form input:focus,
+.wvdi-contact-form textarea:focus {
+  border: 1.5px solid var(--wvdi-navy-light);
+  outline: none;
+}
+
+.wvdi-contact-form button {
+  align-self: flex-end;
+  min-width: 160px;
+}
+
+/* Response Time Note */
+.wvdi-form-response-time {
+  background: #e8f4fd;
+  color: var(--wvdi-navy);
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0 0 0.5rem 0;
+  border-left: 3px solid var(--wvdi-navy);
+}
+
+/* Form Messages */
+.wvdi-contact-success {
+  background: #e6ffe6;
+  color: #145a1f;
+  border: 1.5px solid #b2fab2;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin: var(--spacing-md) 0;
+  text-align: center;
+}
+
+.wvdi-contact-success strong {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.wvdi-contact-success p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.wvdi-contact-error {
+  background: #ffe6e6;
+  color: var(--wvdi-red);
+  border: 1.5px solid #fab2b2;
+  border-radius: var(--border-radius);
+  padding: 0.8rem 1.2rem;
+  margin-top: var(--spacing-sm);
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 600px) {
+  .wvdi-contact-form {
+    padding: 1.2rem 0.5rem;
+  }
+}
