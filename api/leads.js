@@ -80,6 +80,7 @@ async function getAccessToken() {
 
 /**
  * Check if headers exist and add them if not
+ * If data exists without headers, insert a new row at the top
  */
 async function ensureHeaders(accessToken) {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A1:I1`;
@@ -102,6 +103,40 @@ async function ensureHeaders(accessToken) {
   // Check if headers already exist (first cell should be "Thread ID")
   if (existingHeaders[0] === 'Thread ID') {
     return; // Headers already exist
+  }
+
+  // If there's existing data (not headers), insert a new row at top first
+  if (existingHeaders.length > 0 && existingHeaders[0]) {
+    console.log('Existing data found, inserting new row for headers');
+
+    // Insert a new row at position 0 (top)
+    const insertUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}:batchUpdate`;
+    const insertResponse = await fetch(insertUrl, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${accessToken}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        requests: [{
+          insertDimension: {
+            range: {
+              sheetId: 0, // First sheet
+              dimension: 'ROWS',
+              startIndex: 0,
+              endIndex: 1
+            },
+            inheritFromBefore: false
+          }
+        }]
+      }),
+    });
+
+    if (!insertResponse.ok) {
+      const errorText = await insertResponse.text();
+      console.error('Failed to insert row:', errorText);
+      // Continue anyway - we'll try to write headers
+    }
   }
 
   // Add headers to row 1
