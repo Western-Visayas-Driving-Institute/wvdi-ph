@@ -196,10 +196,8 @@ export default function DriveBotWidget() {
     setOpen(false);
   };
 
-  // Don't render if AI is not available or still checking
-  if (available === null || available === false) {
-    return null;
-  }
+  // Always show the widget - handle unavailability gracefully in chat
+  // The health check only logs status, doesn't block rendering
 
   return (
     <div className="drivebot-container">
