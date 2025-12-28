@@ -1,5 +1,69 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+/**
+ * Simple markdown parser for bot messages
+ * Converts basic markdown to HTML for display
+ */
+function parseMarkdown(text) {
+  if (!text) return '';
+
+  let html = text
+    // Escape HTML first
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    // Bold: **text** or __text__
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/__(.+?)__/g, '<strong>$1</strong>')
+    // Italic: *text* or _text_
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/_(.+?)_/g, '<em>$1</em>')
+    // Line breaks
+    .replace(/\n/g, '<br/>');
+
+  // Process bullet points (- item or * item at start of line)
+  const lines = html.split('<br/>');
+  let inList = false;
+  const processedLines = [];
+
+  for (const line of lines) {
+    const bulletMatch = line.match(/^[\-\*]\s+(.+)$/);
+    const numberMatch = line.match(/^(\d+)\.\s+(.+)$/);
+
+    if (bulletMatch) {
+      if (!inList) {
+        processedLines.push('<ul>');
+        inList = 'ul';
+      } else if (inList === 'ol') {
+        processedLines.push('</ol><ul>');
+        inList = 'ul';
+      }
+      processedLines.push(`<li>${bulletMatch[1]}</li>`);
+    } else if (numberMatch) {
+      if (!inList) {
+        processedLines.push('<ol>');
+        inList = 'ol';
+      } else if (inList === 'ul') {
+        processedLines.push('</ul><ol>');
+        inList = 'ol';
+      }
+      processedLines.push(`<li>${numberMatch[2]}</li>`);
+    } else {
+      if (inList) {
+        processedLines.push(inList === 'ul' ? '</ul>' : '</ol>');
+        inList = false;
+      }
+      processedLines.push(line);
+    }
+  }
+
+  if (inList) {
+    processedLines.push(inList === 'ul' ? '</ul>' : '</ol>');
+  }
+
+  return processedLines.join('');
+}
+
 // Make the API URL configurable via environment variables
 const API_BASE = import.meta.env.VITE_CHAT_API_URL || 'https://wvdi-ph.vercel.app';
 const CHAT_URL = `${API_BASE}/api/chat`;
@@ -12,7 +76,7 @@ function getUserLanguage() {
 
 const initialBotMessage = {
   role: 'assistant',
-  content: 'Hi! I am DriveBot, your WVDI assistant. Ask me anything about our courses, branches, office hours, or requirements!'
+  content: "Hi! I'm DriveBot, your WVDI assistant. I'd love to help you find the right driving course. May I know your name?"
 };
 
 export default function DriveBotWidget() {
@@ -93,22 +157,29 @@ export default function DriveBotWidget() {
     if (!sessionId || messages.length <= 1) return;
 
     try {
-      const conversationSummary = messages
-        .slice(-5)
-        .map(m => `${m.role}: ${m.content.substring(0, 100)}`)
-        .join('\n');
+      // Full conversation transcript
+      const fullConversation = messages
+        .map(m => `${m.role === 'user' ? 'Customer' : 'DriveBot'}: ${m.content}`)
+        .join('\n\n');
 
       // Use leadData if available, otherwise create empty lead structure
-      const lead = leadData || { phones: [], emails: [], name: null, services: [] };
+      const lead = leadData || {
+        phones: [],
+        emails: [],
+        name: null,
+        services: [],
+        preferredBranch: null,
+        needsDescription: null,
+      };
 
-      console.log('Saving lead:', { lead, conversationSummary });
+      console.log('Saving lead:', { lead, messageCount: messages.length });
 
       const response = await fetch(LEADS_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           lead,
-          conversationSummary,
+          fullConversation,
         }),
       });
 
@@ -250,9 +321,11 @@ export default function DriveBotWidget() {
               <div
                 key={index}
                 className={`drivebot-message ${message.role === 'user' ? 'user-message' : 'bot-message'}`}
-              >
-                {message.content}
-              </div>
+                {...(message.role === 'assistant'
+                  ? { dangerouslySetInnerHTML: { __html: parseMarkdown(message.content) } }
+                  : { children: message.content }
+                )}
+              />
             ))}
             {loading && (
               <div className="drivebot-message bot-message">

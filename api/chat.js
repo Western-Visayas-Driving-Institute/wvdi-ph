@@ -24,7 +24,14 @@ function getSession(sessionId) {
 
   if (!sessions.has(sessionId)) {
     sessions.set(sessionId, {
-      lead: { phones: [], emails: [], name: null, services: [] },
+      lead: {
+        phones: [],
+        emails: [],
+        name: null,
+        services: [],
+        preferredBranch: null,
+        needsDescription: null,
+      },
       messages: [],
       createdAt: Date.now(),
     });
@@ -139,8 +146,12 @@ export default async function handler(req, res) {
         if (aiExtractedLead.services && Array.isArray(aiExtractedLead.services)) {
           session.lead.services = [...new Set([...session.lead.services, ...aiExtractedLead.services.filter(s => s)])];
         }
-        if (aiExtractedLead.callbackTime) {
-          session.lead.callbackTime = aiExtractedLead.callbackTime;
+        if (aiExtractedLead.preferredBranch) {
+          session.lead.preferredBranch = aiExtractedLead.preferredBranch;
+        }
+        if (aiExtractedLead.needsDescription) {
+          // Update needs description with latest understanding
+          session.lead.needsDescription = aiExtractedLead.needsDescription;
         }
       }
     } catch (parseError) {
@@ -187,9 +198,15 @@ export function getSessionLead(sessionId) {
   const session = sessions.get(sessionId);
   if (!session) return null;
 
-  const conversationSummary = session.messages
-    .map(m => `${m.role}: ${m.content.substring(0, 100)}`)
-    .join('\n');
+  // Full conversation transcript
+  const fullConversation = session.messages
+    .map(m => `${m.role === 'user' ? 'Customer' : 'DriveBot'}: ${m.content}`)
+    .join('\n\n');
 
-  return formatLeadForStorage(session.lead, conversationSummary);
+  return {
+    ...session.lead,
+    fullConversation,
+    messageCount: session.messages.length,
+    sessionStart: new Date(session.createdAt).toISOString(),
+  };
 }

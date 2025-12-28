@@ -67,11 +67,12 @@ async function getAccessToken() {
 
 /**
  * Append lead data to Google Sheets
+ * Columns: Timestamp | Name | Email | Phone | Services | Branch | Needs Description | Full Conversation
  */
 async function appendToSheet(leadData) {
   const accessToken = await getAccessToken();
 
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A:F:append?valueInputOption=USER_ENTERED`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A:H:append?valueInputOption=USER_ENTERED`;
 
   const values = [[
     leadData.timestamp,
@@ -79,7 +80,9 @@ async function appendToSheet(leadData) {
     leadData.email,
     leadData.phone,
     leadData.services,
-    leadData.conversationSummary,
+    leadData.preferredBranch,
+    leadData.needsDescription,
+    leadData.fullConversation,
   ]];
 
   const response = await fetch(url, {
@@ -122,23 +125,25 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { lead, conversationSummary } = req.body;
+    const { lead, conversationSummary, fullConversation } = req.body;
 
     if (!lead) {
       return res.status(400).json({ error: 'Lead data is required' });
     }
 
-    // Format lead data
+    // Format lead data for Google Sheets
     const leadData = {
       timestamp: new Date().toISOString(),
       name: lead.name || '',
       email: Array.isArray(lead.emails) ? lead.emails.join(', ') : (lead.email || ''),
       phone: Array.isArray(lead.phones) ? lead.phones.join(', ') : (lead.phone || ''),
       services: Array.isArray(lead.services) ? lead.services.join(', ') : (lead.services || ''),
-      conversationSummary: (conversationSummary || '').substring(0, 500),
+      preferredBranch: lead.preferredBranch || '',
+      needsDescription: lead.needsDescription || '',
+      fullConversation: (fullConversation || lead.fullConversation || conversationSummary || '').substring(0, 5000),
     };
 
-    // Check if there's any useful data
+    // Check if there's any useful data (name OR contact info)
     if (!leadData.name && !leadData.email && !leadData.phone) {
       return res.status(200).json({
         success: false,
