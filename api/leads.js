@@ -1,11 +1,24 @@
 /**
  * Lead Capture API - Google Sheets Integration
- * Uses upsert logic: updates existing row if sessionId exists, otherwise appends new row
+ * Uses upsert logic: updates existing row if threadId exists, otherwise appends new row
  */
 
 // Google Sheets configuration
 const SHEETS_ID = process.env.GOOGLE_SHEETS_ID || '1LjJLLHIzGl-s78keZwkGV20GUgaJgw8qKacNTo6UgVk';
 const SHEET_NAME = process.env.GOOGLE_SHEET_NAME || 'Sheet1';
+
+// Column headers for the spreadsheet
+const HEADERS = [
+  'Thread ID',
+  'Timestamp',
+  'Name',
+  'Email',
+  'Phone',
+  'Services',
+  'Branch',
+  'Needs Description',
+  'Full Conversation'
+];
 
 /**
  * Get Google API access token using service account
@@ -66,11 +79,58 @@ async function getAccessToken() {
 }
 
 /**
- * Find row number by sessionId (Column A)
- * Returns row number (1-indexed) or null if not found
+ * Check if headers exist and add them if not
  */
-async function findRowBySessionId(accessToken, sessionId) {
-  // Get all values from column A (session IDs)
+async function ensureHeaders(accessToken) {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A1:I1`;
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+    },
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Failed to read headers: ${errorText}`);
+  }
+
+  const data = await response.json();
+  const existingHeaders = data.values?.[0] || [];
+
+  // Check if headers already exist (first cell should be "Thread ID")
+  if (existingHeaders[0] === 'Thread ID') {
+    return; // Headers already exist
+  }
+
+  // Add headers to row 1
+  const headerUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A1:I1?valueInputOption=USER_ENTERED`;
+
+  const headerResponse = await fetch(headerUrl, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ values: [HEADERS] }),
+  });
+
+  if (!headerResponse.ok) {
+    const errorText = await headerResponse.text();
+    throw new Error(`Failed to add headers: ${errorText}`);
+  }
+
+  console.log('Headers added to spreadsheet');
+}
+
+/**
+ * Find row number by threadId (Column A)
+ * Returns row number (1-indexed) or null if not found
+ * Skips row 1 (headers)
+ */
+async function findRowByThreadId(accessToken, threadId) {
+  // Get all values from column A (thread IDs)
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A:A`;
 
   const response = await fetch(url, {
@@ -88,9 +148,9 @@ async function findRowBySessionId(accessToken, sessionId) {
   const data = await response.json();
   const values = data.values || [];
 
-  // Find the row with matching sessionId
-  for (let i = 0; i < values.length; i++) {
-    if (values[i][0] === sessionId) {
+  // Find the row with matching threadId (skip row 0 which is headers)
+  for (let i = 1; i < values.length; i++) {
+    if (values[i][0] === threadId) {
       return i + 1; // Row numbers are 1-indexed
     }
   }
@@ -100,13 +160,13 @@ async function findRowBySessionId(accessToken, sessionId) {
 
 /**
  * Update existing row in Google Sheets
- * Columns: SessionID | Timestamp | Name | Email | Phone | Services | Branch | Needs Description | Full Conversation
+ * Columns: Thread ID | Timestamp | Name | Email | Phone | Services | Branch | Needs Description | Full Conversation
  */
 async function updateRow(accessToken, rowNumber, leadData) {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A${rowNumber}:I${rowNumber}?valueInputOption=USER_ENTERED`;
 
   const values = [[
-    leadData.sessionId,
+    leadData.threadId,
     leadData.timestamp,
     leadData.name,
     leadData.email,
@@ -136,13 +196,13 @@ async function updateRow(accessToken, rowNumber, leadData) {
 
 /**
  * Append new row to Google Sheets
- * Columns: SessionID | Timestamp | Name | Email | Phone | Services | Branch | Needs Description | Full Conversation
+ * Columns: Thread ID | Timestamp | Name | Email | Phone | Services | Branch | Needs Description | Full Conversation
  */
 async function appendRow(accessToken, leadData) {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A:I:append?valueInputOption=USER_ENTERED`;
 
   const values = [[
-    leadData.sessionId,
+    leadData.threadId,
     leadData.timestamp,
     leadData.name,
     leadData.email,
@@ -172,21 +232,24 @@ async function appendRow(accessToken, leadData) {
 
 /**
  * Upsert lead data to Google Sheets
- * Updates existing row if sessionId found, otherwise appends new row
+ * Updates existing row if threadId found, otherwise appends new row
  */
 async function upsertToSheet(leadData) {
   const accessToken = await getAccessToken();
 
-  // Find existing row by sessionId
-  const existingRow = await findRowBySessionId(accessToken, leadData.sessionId);
+  // Ensure headers exist in row 1
+  await ensureHeaders(accessToken);
+
+  // Find existing row by threadId
+  const existingRow = await findRowByThreadId(accessToken, leadData.threadId);
 
   if (existingRow) {
     // Update existing row
-    console.log(`Updating existing row ${existingRow} for session ${leadData.sessionId}`);
+    console.log(`Updating existing row ${existingRow} for thread ${leadData.threadId}`);
     return await updateRow(accessToken, existingRow, leadData);
   } else {
     // Append new row
-    console.log(`Appending new row for session ${leadData.sessionId}`);
+    console.log(`Appending new row for thread ${leadData.threadId}`);
     return await appendRow(accessToken, leadData);
   }
 }
@@ -221,12 +284,12 @@ export default async function handler(req, res) {
     }
 
     if (!sessionId) {
-      return res.status(400).json({ error: 'Session ID is required' });
+      return res.status(400).json({ error: 'Thread ID is required' });
     }
 
     // Format lead data for Google Sheets
     const leadData = {
-      sessionId: sessionId,
+      threadId: sessionId, // sessionId from frontend becomes threadId in sheets
       timestamp: new Date().toISOString(),
       name: lead.name || '',
       email: Array.isArray(lead.emails) ? lead.emails.join(', ') : (lead.email || ''),
