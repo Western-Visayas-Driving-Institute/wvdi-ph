@@ -7,7 +7,7 @@
 const SHEETS_ID = process.env.GOOGLE_SHEETS_ID || '1LjJLLHIzGl-s78keZwkGV20GUgaJgw8qKacNTo6UgVk';
 const SHEET_NAME = process.env.GOOGLE_SHEET_NAME || 'Sheet1';
 
-// Column headers for the spreadsheet
+// Column headers for the spreadsheet (8 columns: A-H)
 const HEADERS = [
   'Thread ID',
   'Timestamp',
@@ -15,9 +15,8 @@ const HEADERS = [
   'Email',
   'Phone',
   'Services',
-  'Branch',
-  'Needs Description',
-  'Full Conversation'
+  'Summary',
+  'Conversation'
 ];
 
 /**
@@ -83,7 +82,7 @@ async function getAccessToken() {
  * If data exists without headers, insert a new row at the top
  */
 async function ensureHeaders(accessToken) {
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A1:I1`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A1:H1`;
 
   const response = await fetch(url, {
     method: 'GET',
@@ -140,7 +139,7 @@ async function ensureHeaders(accessToken) {
   }
 
   // Add headers to row 1
-  const headerUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A1:I1?valueInputOption=USER_ENTERED`;
+  const headerUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A1:H1?valueInputOption=USER_ENTERED`;
 
   const headerResponse = await fetch(headerUrl, {
     method: 'PUT',
@@ -195,10 +194,10 @@ async function findRowByThreadId(accessToken, threadId) {
 
 /**
  * Update existing row in Google Sheets
- * Columns: Thread ID | Timestamp | Name | Email | Phone | Services | Branch | Needs Description | Full Conversation
+ * Columns: Thread ID | Timestamp | Name | Email | Phone | Services | Summary | Conversation
  */
 async function updateRow(accessToken, rowNumber, leadData) {
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A${rowNumber}:I${rowNumber}?valueInputOption=USER_ENTERED`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A${rowNumber}:H${rowNumber}?valueInputOption=USER_ENTERED`;
 
   const values = [[
     leadData.threadId,
@@ -207,9 +206,8 @@ async function updateRow(accessToken, rowNumber, leadData) {
     leadData.email,
     leadData.phone,
     leadData.services,
-    leadData.preferredBranch,
-    leadData.needsDescription,
-    leadData.fullConversation,
+    leadData.summary,
+    leadData.conversation,
   ]];
 
   const response = await fetch(url, {
@@ -231,10 +229,10 @@ async function updateRow(accessToken, rowNumber, leadData) {
 
 /**
  * Append new row to Google Sheets
- * Columns: Thread ID | Timestamp | Name | Email | Phone | Services | Branch | Needs Description | Full Conversation
+ * Columns: Thread ID | Timestamp | Name | Email | Phone | Services | Summary | Conversation
  */
 async function appendRow(accessToken, leadData) {
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A:I:append?valueInputOption=USER_ENTERED`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A:H:append?valueInputOption=USER_ENTERED`;
 
   const values = [[
     leadData.threadId,
@@ -243,9 +241,8 @@ async function appendRow(accessToken, leadData) {
     leadData.email,
     leadData.phone,
     leadData.services,
-    leadData.preferredBranch,
-    leadData.needsDescription,
-    leadData.fullConversation,
+    leadData.summary,
+    leadData.conversation,
   ]];
 
   const response = await fetch(url, {
@@ -323,16 +320,27 @@ export default async function handler(req, res) {
     }
 
     // Format lead data for Google Sheets
+    // Use Philippine timezone (Asia/Manila) for timestamp
+    const philippineTimestamp = new Date().toLocaleString('en-PH', {
+      timeZone: 'Asia/Manila',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    });
+
     const leadData = {
       threadId: sessionId, // sessionId from frontend becomes threadId in sheets
-      timestamp: new Date().toISOString(),
+      timestamp: philippineTimestamp,
       name: lead.name || '',
       email: Array.isArray(lead.emails) ? lead.emails.join(', ') : (lead.email || ''),
       phone: Array.isArray(lead.phones) ? lead.phones.join(', ') : (lead.phone || ''),
       services: Array.isArray(lead.services) ? lead.services.join(', ') : (lead.services || ''),
-      preferredBranch: lead.preferredBranch || '',
-      needsDescription: lead.needsDescription || '',
-      fullConversation: (fullConversation || lead.fullConversation || conversationSummary || '').substring(0, 5000),
+      summary: lead.needsDescription || '',
+      conversation: (fullConversation || lead.fullConversation || conversationSummary || '').substring(0, 5000),
     };
 
     // Check if there's any useful data (name OR contact info)
