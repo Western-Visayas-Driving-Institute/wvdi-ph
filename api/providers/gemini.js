@@ -1,10 +1,10 @@
 /**
  * Google Gemini AI Provider
- * Uses Gemini 3 Flash API
+ * Uses Gemini 2.5 Flash Lite API
  */
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3-flash';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash-lite';
 const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta';
 
 /**
