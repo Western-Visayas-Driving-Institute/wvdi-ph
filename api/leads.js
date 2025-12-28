@@ -201,14 +201,14 @@ async function updateRow(accessToken, rowNumber, leadData) {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A${rowNumber}:H${rowNumber}?valueInputOption=USER_ENTERED`;
 
   const values = [[
-    leadData.threadId,
-    leadData.timestamp,
-    leadData.name,
-    leadData.email,
-    leadData.phone,
-    leadData.services,
-    leadData.summary,
-    leadData.conversation,
+    leadData.threadId || '',
+    leadData.timestamp || '',
+    leadData.name || '',
+    leadData.email || '',
+    leadData.phone || '',
+    leadData.services || '',
+    leadData.summary || '',
+    leadData.conversation || '',
   ]];
 
   const response = await fetch(url, {
@@ -236,14 +236,14 @@ async function appendRow(accessToken, leadData) {
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A:H:append?valueInputOption=USER_ENTERED`;
 
   const values = [[
-    leadData.threadId,
-    leadData.timestamp,
-    leadData.name,
-    leadData.email,
-    leadData.phone,
-    leadData.services,
-    leadData.summary,
-    leadData.conversation,
+    leadData.threadId || '',
+    leadData.timestamp || '',
+    leadData.name || '',
+    leadData.email || '',
+    leadData.phone || '',
+    leadData.services || '',
+    leadData.summary || '',
+    leadData.conversation || '',
   ]];
 
   const response = await fetch(url, {
@@ -312,11 +312,19 @@ export default async function handler(req, res) {
   try {
     const { sessionId, lead, conversationSummary, fullConversation } = req.body;
 
+    // Debug logging
+    console.log('Leads API received:', {
+      sessionId: sessionId || 'MISSING',
+      hasLead: !!lead,
+      leadName: lead?.name
+    });
+
     if (!lead) {
       return res.status(400).json({ error: 'Lead data is required' });
     }
 
     if (!sessionId) {
+      console.log('ERROR: sessionId is missing from request');
       return res.status(400).json({ error: 'Thread ID is required' });
     }
 
