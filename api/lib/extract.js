@@ -18,8 +18,14 @@ const EMAIL_PATTERN = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
 
 // Name patterns (simple heuristics)
 const NAME_INDICATORS = [
-  /(?:my name is|i'm|i am|this is)\s+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)/i,
-  /(?:name|call me)\s*[:\s]+([A-Z][a-z]+(?:\s+[A-Z][a-z]+)*)/i,
+  // Standard introductions: "my name is John Smith" or "I'm John"
+  /(?:my name is|i'm|i am|this is)\s+([A-Za-z]+(?:\s+[A-Za-z]+)*)/i,
+  // Direct statement: "name: John" or "call me John"
+  /(?:name|call me)\s*[:\s]+([A-Za-z]+(?:\s+[A-Za-z]+)*)/i,
+  // Full name patterns: "JOHN SMITH" or "John SMITH" (all caps or mixed)
+  /(?:full name|complete name)\s*[:\s]+([A-Za-z]+(?:\s+[A-Za-z]+)*)/i,
+  // Name followed by confirmation context
+  /([A-Z][A-Za-z]+(?:\s+[A-Z][A-Za-z]+)+)(?:\s+(?:here|speaking|po|ako))/i,
 ];
 
 // Service/interest keywords

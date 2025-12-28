@@ -88,7 +88,8 @@ export default function DriveBotWidget() {
   }, [sessionId, leadCaptured, leadData]);
 
   const saveLead = async () => {
-    if (!sessionId || !leadData) return;
+    // Save if we have a session and more than just the initial bot message
+    if (!sessionId || messages.length <= 1) return;
 
     try {
       const conversationSummary = messages
@@ -96,14 +97,22 @@ export default function DriveBotWidget() {
         .map(m => `${m.role}: ${m.content.substring(0, 100)}`)
         .join('\n');
 
-      await fetch(LEADS_URL, {
+      // Use leadData if available, otherwise create empty lead structure
+      const lead = leadData || { phones: [], emails: [], name: null, services: [] };
+
+      console.log('Saving lead:', { lead, conversationSummary });
+
+      const response = await fetch(LEADS_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          lead: leadData,
+          lead,
           conversationSummary,
         }),
       });
+
+      const result = await response.json();
+      console.log('Lead save result:', result);
     } catch (error) {
       console.error('Failed to save lead:', error);
     }
@@ -180,8 +189,8 @@ export default function DriveBotWidget() {
   };
 
   const handleClose = () => {
-    // Save lead before closing if we have captured data
-    if (sessionId && leadCaptured && leadData) {
+    // Save conversation when closing if there was any interaction
+    if (sessionId && messages.length > 1) {
       saveLead();
     }
     setOpen(false);
