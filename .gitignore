@@ -26,3 +26,5 @@ dist-ssr
 screenshots
 .vercel
 .env*.local
+.env.vercel
+.env.local
