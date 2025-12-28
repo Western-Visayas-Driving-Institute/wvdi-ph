@@ -176,18 +176,32 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--wvdi-navy);
+  background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
   color: white;
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(30, 58, 95, 0.3);
+}
+
+.drivebot-send-btn:hover:not(:disabled) {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(30, 58, 95, 0.4);
+  background: linear-gradient(135deg, #2c5282 0%, #3182ce 100%);
+}
+
+.drivebot-send-btn:active:not(:disabled) {
+  transform: scale(0.95);
 }
 
 .drivebot-send-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
+  background: #a0aec0;
+  box-shadow: none;
 }
 
 /* Responsive adjustments */
