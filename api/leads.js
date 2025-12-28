@@ -2,7 +2,10 @@
  * Lead Capture API - Google Sheets Integration
  * Uses upsert logic: updates existing row if threadId exists, otherwise appends new row
  * Updated: Philippine timezone (Asia/Manila) for timestamps
+ * Version: 2.0.0 - Thread ID fix
  */
+
+const API_VERSION = '2.0.0';
 
 // Google Sheets configuration
 const SHEETS_ID = process.env.GOOGLE_SHEETS_ID || '1LjJLLHIzGl-s78keZwkGV20GUgaJgw8qKacNTo6UgVk';
@@ -373,6 +376,8 @@ export default async function handler(req, res) {
     return res.status(200).json({
       success: true,
       message: 'Lead saved successfully',
+      version: API_VERSION,
+      threadId: leadData.threadId,
     });
 
   } catch (error) {
