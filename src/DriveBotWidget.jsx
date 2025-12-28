@@ -24,6 +24,7 @@ export default function DriveBotWidget() {
   const [pulseAnimation, setPulseAnimation] = useState(true);
   const [sessionId, setSessionId] = useState(null);
   const [leadCaptured, setLeadCaptured] = useState(false);
+  const [leadData, setLeadData] = useState(null);
   const chatEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -84,21 +85,23 @@ export default function DriveBotWidget() {
         saveLead();
       }
     };
-  }, [sessionId, leadCaptured]);
+  }, [sessionId, leadCaptured, leadData]);
 
   const saveLead = async () => {
-    if (!sessionId) return;
+    if (!sessionId || !leadData) return;
 
     try {
+      const conversationSummary = messages
+        .slice(-5)
+        .map(m => `${m.role}: ${m.content.substring(0, 100)}`)
+        .join('\n');
+
       await fetch(LEADS_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          sessionId,
-          conversationSummary: messages
-            .slice(-5)
-            .map(m => `${m.role}: ${m.content.substring(0, 100)}`)
-            .join('\n'),
+          lead: leadData,
+          conversationSummary,
         }),
       });
     } catch (error) {
@@ -134,12 +137,15 @@ export default function DriveBotWidget() {
       const data = await response.json();
 
       if (response.ok) {
-        // Update session ID and lead status
+        // Update session ID, lead status, and lead data
         if (data.sessionId) {
           setSessionId(data.sessionId);
         }
         if (data.leadCaptured) {
           setLeadCaptured(true);
+        }
+        if (data.lead) {
+          setLeadData(data.lead);
         }
 
         setMessages(prev => [...prev, {
@@ -175,7 +181,7 @@ export default function DriveBotWidget() {
 
   const handleClose = () => {
     // Save lead before closing if we have captured data
-    if (sessionId && leadCaptured) {
+    if (sessionId && leadCaptured && leadData) {
       saveLead();
     }
     setOpen(false);
@@ -194,7 +200,16 @@ export default function DriveBotWidget() {
         onClick={() => setOpen(!open)}
         aria-label={open ? "Close chat" : "Open chat"}
       >
-        <span style={{ fontSize: '28px' }}>💬</span>
+        {open ? (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        ) : (
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+        )}
       </button>
 
       {/* Chat window */}
@@ -211,7 +226,10 @@ export default function DriveBotWidget() {
               onClick={handleClose}
               aria-label="Close chat"
             >
-              <span style={{ fontSize: '18px' }}>✕</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
             </button>
           </div>
 
@@ -254,7 +272,10 @@ export default function DriveBotWidget() {
               disabled={!input.trim() || loading}
               aria-label="Send message"
             >
-              <span style={{ fontSize: '18px' }}>📤</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
             </button>
           </div>
         </div>
