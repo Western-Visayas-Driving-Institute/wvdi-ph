@@ -25,6 +25,7 @@ export default function DriveBotWidget() {
   const [sessionId, setSessionId] = useState(null);
   const [leadCaptured, setLeadCaptured] = useState(false);
   const [leadData, setLeadData] = useState(null);
+  const [currentProvider, setCurrentProvider] = useState(null);
   const chatEndRef = useRef(null);
   const inputRef = useRef(null);
 
@@ -156,6 +157,9 @@ export default function DriveBotWidget() {
         if (data.lead) {
           setLeadData(data.lead);
         }
+        if (data.provider) {
+          setCurrentProvider(data.provider);
+        }
 
         setMessages(prev => [...prev, {
           role: 'assistant',
@@ -274,7 +278,7 @@ export default function DriveBotWidget() {
               rows={1}
             />
             <button
-              className="drivebot-send-btn"
+              className={`drivebot-send-btn ${currentProvider ? `provider-${currentProvider}` : ''}`}
               onClick={sendMessage}
               disabled={!input.trim() || loading}
               aria-label="Send message"
