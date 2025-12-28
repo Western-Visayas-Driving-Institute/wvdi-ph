@@ -150,7 +150,7 @@ export default async function handler(req, res) {
     }
 
     // Store messages in session for context
-    session.messages = messages.slice(-10); // Keep last 10 messages
+    session.messages = messages.slice(-30); // Keep last 30 messages
 
     // Return response with session info and lead data
     return res.status(200).json({
