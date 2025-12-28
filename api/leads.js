@@ -1,6 +1,7 @@
 /**
  * Lead Capture API - Google Sheets Integration
  * Uses upsert logic: updates existing row if threadId exists, otherwise appends new row
+ * Updated: Philippine timezone (Asia/Manila) for timestamps
  */
 
 // Google Sheets configuration
