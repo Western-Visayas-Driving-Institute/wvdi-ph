@@ -1,6 +1,6 @@
 /**
  * Lead Capture API - Google Sheets Integration
- * Appends lead data to configured spreadsheet
+ * Uses upsert logic: updates existing row if sessionId exists, otherwise appends new row
  */
 
 // Google Sheets configuration
@@ -66,15 +66,83 @@ async function getAccessToken() {
 }
 
 /**
- * Append lead data to Google Sheets
- * Columns: Timestamp | Name | Email | Phone | Services | Branch | Needs Description | Full Conversation
+ * Find row number by sessionId (Column A)
+ * Returns row number (1-indexed) or null if not found
  */
-async function appendToSheet(leadData) {
-  const accessToken = await getAccessToken();
+async function findRowBySessionId(accessToken, sessionId) {
+  // Get all values from column A (session IDs)
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A:A`;
 
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A:H:append?valueInputOption=USER_ENTERED`;
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+    },
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Failed to read sheet: ${errorText}`);
+  }
+
+  const data = await response.json();
+  const values = data.values || [];
+
+  // Find the row with matching sessionId
+  for (let i = 0; i < values.length; i++) {
+    if (values[i][0] === sessionId) {
+      return i + 1; // Row numbers are 1-indexed
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Update existing row in Google Sheets
+ * Columns: SessionID | Timestamp | Name | Email | Phone | Services | Branch | Needs Description | Full Conversation
+ */
+async function updateRow(accessToken, rowNumber, leadData) {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A${rowNumber}:I${rowNumber}?valueInputOption=USER_ENTERED`;
 
   const values = [[
+    leadData.sessionId,
+    leadData.timestamp,
+    leadData.name,
+    leadData.email,
+    leadData.phone,
+    leadData.services,
+    leadData.preferredBranch,
+    leadData.needsDescription,
+    leadData.fullConversation,
+  ]];
+
+  const response = await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${accessToken}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ values }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(`Failed to update row: ${errorText}`);
+  }
+
+  return await response.json();
+}
+
+/**
+ * Append new row to Google Sheets
+ * Columns: SessionID | Timestamp | Name | Email | Phone | Services | Branch | Needs Description | Full Conversation
+ */
+async function appendRow(accessToken, leadData) {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEETS_ID}/values/${SHEET_NAME}!A:I:append?valueInputOption=USER_ENTERED`;
+
+  const values = [[
+    leadData.sessionId,
     leadData.timestamp,
     leadData.name,
     leadData.email,
@@ -103,6 +171,27 @@ async function appendToSheet(leadData) {
 }
 
 /**
+ * Upsert lead data to Google Sheets
+ * Updates existing row if sessionId found, otherwise appends new row
+ */
+async function upsertToSheet(leadData) {
+  const accessToken = await getAccessToken();
+
+  // Find existing row by sessionId
+  const existingRow = await findRowBySessionId(accessToken, leadData.sessionId);
+
+  if (existingRow) {
+    // Update existing row
+    console.log(`Updating existing row ${existingRow} for session ${leadData.sessionId}`);
+    return await updateRow(accessToken, existingRow, leadData);
+  } else {
+    // Append new row
+    console.log(`Appending new row for session ${leadData.sessionId}`);
+    return await appendRow(accessToken, leadData);
+  }
+}
+
+/**
  * API Handler
  */
 export default async function handler(req, res) {
@@ -125,14 +214,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { lead, conversationSummary, fullConversation } = req.body;
+    const { sessionId, lead, conversationSummary, fullConversation } = req.body;
 
     if (!lead) {
       return res.status(400).json({ error: 'Lead data is required' });
     }
 
+    if (!sessionId) {
+      return res.status(400).json({ error: 'Session ID is required' });
+    }
+
     // Format lead data for Google Sheets
     const leadData = {
+      sessionId: sessionId,
       timestamp: new Date().toISOString(),
       name: lead.name || '',
       email: Array.isArray(lead.emails) ? lead.emails.join(', ') : (lead.email || ''),
@@ -151,8 +245,8 @@ export default async function handler(req, res) {
       });
     }
 
-    // Append to Google Sheets
-    await appendToSheet(leadData);
+    // Upsert to Google Sheets (update if exists, append if new)
+    await upsertToSheet(leadData);
 
     return res.status(200).json({
       success: true,

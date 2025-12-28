@@ -172,12 +172,13 @@ export default function DriveBotWidget() {
         needsDescription: null,
       };
 
-      console.log('Saving lead:', { lead, messageCount: messages.length });
+      console.log('Saving lead:', { sessionId, lead, messageCount: messages.length });
 
       const response = await fetch(LEADS_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          sessionId,
           lead,
           fullConversation,
         }),
