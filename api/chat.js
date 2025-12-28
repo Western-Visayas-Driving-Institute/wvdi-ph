@@ -110,7 +110,13 @@ export default async function handler(req, res) {
     let aiExtractedLead = null;
 
     try {
-      const parsed = JSON.parse(rawResponse);
+      // Strip markdown code fences if present (```json ... ```)
+      let jsonStr = rawResponse.trim();
+      if (jsonStr.startsWith('```')) {
+        jsonStr = jsonStr.replace(/^```(?:json)?\s*\n?/, '').replace(/\n?```\s*$/, '');
+      }
+
+      const parsed = JSON.parse(jsonStr);
       responseText = parsed.response || rawResponse;
       aiExtractedLead = parsed.extractedLead || null;
 
